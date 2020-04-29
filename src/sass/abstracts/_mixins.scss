@@ -1,0 +1,120 @@
+@mixin clearfix {
+    &::after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+}
+
+//MEDIA QUERIES BREAKPOINT
+/*
+0-600px: phone
+600-900px: tablet poitrait
+900-1200px:  tablet lanscape
+
+1200-1800px: normal size of our webpage;
+
+1800px above: wide screen;
+
+
+khi viết media query thì em tốt hơn rem, và đều nhận font-size root là 16px bất kể
+----nhớ em là dựa vào font-size trong block đó, còn rem là căn cứ vào font-size của html
+---- nên khi thay đổi font-size của html gốc, trong khi tất cả độ dài đã code dùng rem--> sẽ affect lên toàn bộ
+*/
+
+
+
+// làm responsive theo thứ tự base(font-size) > typography(các heading) > grid system(đổi về 1 column và sửa các gutter)
+//                           > layout(header, section, footer, navigation, popup---đổi lại các padding, margin(trong ultilities))
+//                           > sửa các component(chủ yếu là về size) 
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone{
+        @media (max-width: 37.5em) { @content };   //600px
+    }
+    @if $breakpoint == tab-port {
+        @media (max-width: 56.25em){ @content };     //900px
+    }
+    @if $breakpoint == tab-land {
+        @media (max-width: 75em){ @content};    //1200px  
+    }
+    @if $breakpoint == big-desktop {
+        @media (min-width: 112.5em){ @content};    //1800px
+    }
+}
+
+
+//FONT
+@mixin small-text-bold-12 {
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+@mixin small-text-12 {
+    font-size: 1.2rem;
+    font-weight: 100;
+}
+@mixin normal-text-bold-16 {
+    font-size: 1.6rem;
+    font-weight: 900;
+}
+@mixin normal-text-16 {
+    font-size: 1.6rem;
+    font-weight: 100;
+}
+@mixin caption-bold-18 {
+    font-size: 1.8rem;
+    font-weight: 900;
+}
+@mixin caption-18 {
+    font-size: 1.8rem;
+    font-weight: 100;
+}
+@mixin medium-text-bold-20 {
+    font-size: 2rem;
+    font-weight: 900;
+}
+@mixin medium-text-20 {
+    font-size: 2rem;
+    font-weight: 100;
+}
+@mixin large-text-bold-24 {
+    font-size: 2.4rem;
+    font-weight: 900;
+}
+@mixin large-text-24 {
+    font-size: 2.4rem;
+    font-weight: 100;
+}
+@mixin heading-4 {
+    font-size: 2.4rem;
+    font-weight: 900;
+}
+@mixin heading-3 {
+    font-size: 3rem;
+    font-weight: 900;
+}
+@mixin heading-2 {
+    font-size: 6rem;
+    font-weight: 900;
+}
+@mixin heading-1 {
+    font-size: 8rem;
+    font-weight: 900;
+}
+
+
+@mixin button-hover{
+    box-shadow: 0rem 0.5rem 1rem rgba(black,0.2);
+    transform: translateY(-0.3rem);
+}
+@mixin button-active{
+    box-shadow: 0rem 0.4rem 1rem rgba(black,0.3);
+    transform: translateY(-0.1rem);
+}

@@ -1,0 +1,195 @@
+*   npm init
+    --> pakage.json file đc tạo
+
+*   npm install webpack --save-dev
+
+*   npm install live-server --global           --> tức là ở bất cứ đâu, folder nào cũng chạy đc cái script này
+                            -g
+
+* tạo file: webpack.config.js
+//////////////////////////////
+
+            //khai báo các biến cần require để có thẻ chạy
+
+            const path = require('path');                              
+            const HtmlWebpackPlugin = require('html-webpack-plugin');    // trên này khi báo require cái gì va gán vào biến thì dưới mới đc dùng
+
+            module.exports = {                                           // hàm này sẽ thực hiện compile toàn bộ file(js,html) vào thư mục dist để chạy server
+                entry: ['./src/js/index.js'],        //--> thay entry point tại đây
+                output:{
+                    path: path.resolve(__dirname,'./dist'),
+                    filename: 'js/bundle.js'                    //nó sẽ compile từ thư mục local là js và ném vào trong dist
+                },
+                devServer:{
+                    contentBase: './dist'
+                },
+                plugins: [
+                    new HtmlWebpackPlugin({
+                    filename: 'index.html',            // tên của file khi export
+                    template: './src/index.html'      //nó sẽ tự độgn compile html từ folder src vào thưu mục dist ở trên và tự động link bundle.js
+                    })
+                ],
+                module: {
+                    rules: [ 
+                        {
+                            test: /\.js$/,             //tìm tất cả file có đuôi .js
+                            exclude: /node_modules/,   //loại trừ tất cả node modules
+                            use: {
+                                loader: 'babel-loader'
+                            }
+                        }
+                    ]
+                }
+                
+
+            }
+//////////////////////////////
+ 
+* vào package.json tạo mới script
+    "dev": "webpack --mode development",               // cái mode này có bundle nhưng chưa nén kích thước và code lại ==> tiện để code
+    "build":"webpack --mode production"                //cái này nó bundle và giảm kích thước file thật sự,nén toàn bộ file thành đống dài ngoàng ==> code xong rồi thì gõ cái này
+
+
+
+*npm install webpack-cli  --save-dev   // để điều khiển webpack = cli
+
+
+
+*cài nốt webpack-dev-server nữa, để nó auto load lại page khi ta thay đổi code
+    npm install webpack-dev-server  --save-dev 
+    sau đó vào package.json thêm scrip:    "start": "webpack-dev-server --mode development --open"
+
+
+
+* cài: npm html-webpack-plugin  --save-dev           --> thằng này sẽ compile HTML và tự đính js vào
+
+
+
+
+*cài babel: 
+npm install --save-dev @babel/core @babel/preset-env babel-loader npm install --save core-js@3 regenerator-runtime
+
+
+
+
+* tạo mới file .babelrc :
+
+{
+    "presets": [
+        ["@babel/env", {
+            "useBuiltIns": "usage",
+            "corejs": "3",
+            "targets": {
+                "browsers": [
+                    "last 5 versions",
+                    "ie >= 8"
+                ]
+            }
+        }]
+    ]
+}
+
+
+----------------------------------------------------------------
+
+*   lúc share file thì bỏ node_modules đi, share mỗi package.json 
+    sau đó CLI gõ npm install
+
+* npm uninstall jquery --save-dev
+                       --save      tùy
+
+
+
+
+---------------------------------------------------------------
+* cài webpack sass loader:
+B1: tạo file main.css vào cùng với nơi chứa index.js
+
+B2: npm instal  --save-dev style-loader css-loader
+
+B3: thêm vào webepack.config, thêm vào array rules của css-loader
+    {
+        test: /\.css$/i,
+        use: ['css-loader'],
+    },
+B4: thêm vào index.js để js biết tới thằng css mới này
+    import "./main.css"
+-->lúc này css đã đc compile thành js, nhưng nó vẫn chưa đc apply ---> vì thế chúng ta cần style-loader
+    
+B5: use: ['css-loader']  ---> use["style-loader", "css-loader"]
+    và npm run dev là nó sẽ đc apply
+
+
+css --chuyển thành---> js -----> cắm vào DOM trên web
+
+
+
+
+BƯỚC Ở TRÊN ĐỂ LÀM VIỆC VỚI CSS THƯỜNG
+NẾU LÀM CẢ VỚI sass
+
+B1: đổi main.css --> main.scss
+B2: npm install sass-loader node-sass webpack --save-dev
+
+B3: đổi lại ở config:
+            {
+                test: /\.css$/,
+                use: ['style-loader','css-loader'],
+            },
+
+            thành
+
+            {
+                test: /\.scss$/,
+                use: [
+                    'style-loader', //inject styles into DOM
+                    'css-loader',  //2.turn CSS into common JS
+                    'sass-loader'   //1.turn SASS into CSS
+                ]
+            },
+            
+B4: đổi lại ở js: 
+    import "./main.scss"
+
+
+thế là oke, chỉ cần gõ hai cái dev và start là chạy ngon nghẻ
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+nếu dùng webpack để compile sass thì sẽ ko tận dụng đc việc thêm prefix và nén file
+-->  webpack sẽ chỉ làm công việc tìm ra file nén đó và chuyển vào js, nhét vào DOM
+
+            {
+                test: /\.css$/,
+                use: ['style-loader','css-loader'],
+            },
+và ở js thêm
+            import "../css/style.css";
+
+và cái style.css đó đã đc node-sass,concat,autoprefixer và compress để ra style.css nhẹ nhất
+
+
+
+
+
+////////////////////////////////////////////////////
+
+CODE GIAO DIỆN tới cuối cùng
+
+- set      @media (max-width: 56.25em)   ở base.scss 
+        --> @media only screen and (max-width: 56.25em)  --> để nếu ngta có print web ra thì ko áp dụng @media và responsive ở tất cả các breakpoint
+
+- thay những đoạn       @include repond(tab-port){}     @include repond(tab-land){}
+
+                    --> @media only screen and (max-width: 56.25em),     //phải viết chay thôi
+                               only screen and (hover: none){
+
+                        }
+vì khi nhảy về màn cảm ứng thì các tính năng hover sẽ không được nhận ==> ta phải code cho trường hợp các hover đc trưng hết ra màn và nhét vào cái trên
+trường hợp ngược lại ấy là đổi (hover: hover) thôii
+
+

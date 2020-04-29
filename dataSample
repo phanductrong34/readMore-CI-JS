@@ -1,0 +1,84 @@
+
+
+LƯU TRỨ DATA DƯỚI DẠNG SAU
+    
+    book{
+
+        title        (tên sách)
+        description (mô tả về sách, giới hạn số từ <500 thôi nhé)
+        author     (tên của chỉ 1 tác giả, sách nào có hai tác giả chỉ lấy 1 thôi)
+        imageUrl    (link ảnh từ FIREBASE STORAGE)
+        readUrl     (link PDF từ FIREBASE STORAGE)
+        audioUrl    (link AUDIO từ FIREBASE STORAGE)
+
+        categories (thể loại của sách: có thể nhiều hơn 1)
+        
+    }
+    collection{
+        title        (tên collection)
+        description (mô tả về collection, giới hạn số từ <500 thôi nhé)
+        author     (tên của chỉ 1 tác giả, là tác giả chung của sách, nếu khác tác giả, thì quy về tác giả admin)
+        readUrl     (link PDF của sách đầu tiên từ FIREBASE STORAGE)
+        audioUrl    (link AUDIO của sách đầu tiên từ FIREBASE STORAGE)
+
+        categories (thể loại của collection: có thể nhiều hơn 1(thường là trùng với sách))
+        childBooks (tên các sách trong collection này)
+    }
+    
+
+
+ví dụ: 
+
+    book{
+
+        Harry Porter and the philosopher's stone
+        This is the first book of.....
+        JK Rowling
+        https:// ....
+        https:// ....
+        https:// ....
+        comic,hor
+
+        Harry Porter and the Chamber of Secret
+        This is the first book of.....
+        JK Rowling
+        https:// ....
+        https:// ....
+        https:// ....
+        comic,hor
+
+        Harry Porter and the Prisoner of Azkaban
+        This is the first book of.....
+        JK Rowling
+        https:// ....
+        https:// ....
+        https:// ....
+        comic,hor
+
+    }
+
+    collection{
+        Harry Porter collection Part 1:
+        This collection contain 3 first books of series Harry Porter,... (cái này mình tự viết)
+        JK Rowling                      (chỗ này vì 3 sách của cùng tác giả, nếu như là combo của các tác giả khác nhau, thì ta để là admin)
+        https:// ....
+        https:// ...
+        buss,psy
+        Harry Porter and the philosopher's stone,Harry Porter and the Chamber of Secret,Harry Porter and the Prisoner of Azkaban (liệt kê đúng chính xác tên của sách, cách nhau bởi dấu phẩy, viết sát vào dấu phẩy)
+
+
+
+}
+
+mã ID của thể loại 
+
+Psychological(tâm lý):      psy
+Heath(sức khỏe - y tế):     heath
+Romantic(ngôn tình):        romantic
+Technology(công nghệ tt):   it
+Business(Kinh doanh):       buss
+Comic(truyện tranh):        comic
+Languages(ngoại ngữ):       lang
+Cuisine(ẩm thực):           cui
+Education(học tập):         edu
+Horror(kinh dị):            hor

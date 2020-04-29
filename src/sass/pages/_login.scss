@@ -1,0 +1,207 @@
+.body{
+    background-color: var(--color-yellow);
+    width: 100vw;
+    height: 100vh;
+}
+.container{
+    background-color: var(--color-yellow);
+    width: 100vw;
+    height: auto;
+}
+.bm{
+    position: absolute;
+    top:0;
+    left:0;
+    &__shape{
+        z-index: 1;
+    }
+    &__ball{
+        z-index: 0;
+    }
+    &__book{
+        z-index: 1;
+    }
+    &__line-1{
+        z-index: -2;
+    }
+    &__line-2{
+        z-index: -3;
+    }
+    &__leaf{
+        z-index: -4;
+    }
+    &__line-3{
+        z-index: -5;
+    }
+    &__bg-yellow{
+        z-index: -6;
+    }
+}
+
+.login{
+    &__container{
+        position: absolute;
+        right: 0;
+        top: 40%;
+        z-index: 10;
+        // padding: 1rem 5.5rem;
+        width: 27%;
+        min-width: 20rem;
+        // background-color: orangered;
+        text-align: center;
+    }
+    &__form{
+    }
+
+    &__label{
+        cursor: pointer;
+        color: var(--color-white-2);
+        font-size: 2.8rem;
+        font-weight: 900;
+        text-decoration: none;
+
+        &:not(:last-child){
+            margin-right: 2rem;
+        }  
+
+
+    }
+
+    &__check{
+        display: none;
+        
+    }
+    &__check:checked + &__label{
+        color: var(--color-white);
+        text-decoration: underline;
+        animation: fadeLogin 0.6s both;
+    }   
+
+    &__check-1:checked ~ .form__container-signin{
+        display: block;
+    }
+
+    &__check-2:checked ~ .form__container-signup{
+        display: block;
+    }
+
+
+
+}
+
+.form{
+    &__container{
+        display: none;
+        margin-top: 2rem;
+        animation: fade 0.6s both;
+        &-signin{
+
+        }
+        &-signup{
+
+        }
+    }
+
+    &__group{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    &__icon{
+        position: relative;
+        align-self: flex-start;
+        z-index: 11;
+        height: 3rem;
+        width: 3rem;
+        margin-left: 5.5rem;
+        margin-bottom: -3.6rem;
+        &-gmail{
+            height: 2.8rem;
+            width: 2.8rem;
+            margin-bottom: -1rem;
+            
+        }
+
+    }
+
+    &__input{
+        position: relative;
+        padding: 1rem 2rem 1rem 4.3rem;
+        background-color: var(--color-blue-light-2);
+        border: 2px solid var(--color-white);
+        border-radius: 10rem;
+        flex: 0 1 ;
+        width: 20rem;
+        margin-bottom: 1rem;
+
+        &:focus{
+            outline: none;
+            border: 2px solid var(--color-yellow)
+        }
+        &:focus:invalid{
+            border-bottom: 2px solid var(--color-orange-dark);
+        }
+        &::-webkit-input-placeholder{
+            color:var(--color-white-2)
+        }
+
+        &-email{
+
+        }
+
+        &-password{
+
+        }
+
+        &-confirmPassword{
+
+        }
+        
+    }
+
+    &__error{
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+        color: var(--color-orange-light);
+        font-weight: 900;
+    }
+
+    &__button{
+            padding: 1rem 2.4rem;
+            border-radius: 10rem;
+            border: none;
+            background-color: var(--color-blue-dark-2);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            &:focus{
+                outline: none;
+            }
+            &:hover{
+                @include button-hover;
+            }
+            &:active{
+                @include button-active;
+            }
+
+        &-signin{
+
+        }
+
+        &-signup{
+            margin-right: 2rem;
+        }
+
+        &-gmail{
+            background-color: #EB4132;
+        }
+    }
+}
+
+
+
+    
+

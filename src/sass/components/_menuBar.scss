@@ -1,0 +1,114 @@
+.body{
+    position: relative;
+}
+.modal__menuBar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(black,0.25);
+
+    display: flex;
+    justify-content: flex-end;
+
+
+}
+
+.menuBar{
+    align-self: stretch;
+    flex: 0 0 25%;
+    background-color: var(--color-yellow);
+    border-radius: 2rem 0 0 2rem;
+    box-shadow: -1rem 0 2rem rgba(black,0.25);
+    padding: 2.5rem;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-end;
+    transform: translateX(0);
+    // animation: menuBar 1s cubic-bezier(1, 0, 0, 1) reverse both;
+    transition: transform 1s cubic-bezier(1, 0, 0, 1);
+
+}
+
+.menu-close{
+    height: 3.5rem;
+    width: 3.5rem;
+    cursor: pointer;
+
+    &:hover{
+        transform: scale(1.1);
+    }
+}
+
+
+.menu-nav{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: -20rem;
+    
+    &__item{
+        position: relative;
+        &:not(:last-child){
+            margin-bottom: 5px;
+        }
+        //bar
+        &::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            right: -1rem;
+            width: 3px;
+            height: 100%;
+            background-color: var(--color-yellow);
+            z-index: 2;
+            transform: scaleY(0);
+            transition: transform 0.2s 0.15s;
+        }
+
+        &:hover::before{
+            transform: scaleY(0.8);
+        }
+        //bg
+        &::after{
+            content: "";
+            position: absolute;
+            top: 0;
+            right: -2.5rem;
+            width: 0;
+            height: 100%;
+            background-color: var(--color-black); 
+            border-radius: 10rem 0 0 10rem;
+            z-index: 1;
+            transition: width 0.2s cubic-bezier(1, 0, 0, 1);
+        }
+        &:hover::after{
+            width: 120%; 
+        }
+
+        &:hover .menu-nav__link{
+            color: var(--color-white);
+        }
+    }
+
+    &__link:link,
+    &__link:visited{
+        position: relative;
+        @include heading-3;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: var(--color-black);
+        z-index: 3;
+        transition: color 0.2s cubic-bezier(1, 0, 0, 1);
+    }
+}
+
+.menu-legal{
+    @include small-text-bold-12;
+    color: var(--color-black)
+}
+

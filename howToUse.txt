@@ -1,0 +1,42 @@
+1. bật cmd gõ : npm install
+
+  "scripts": {
+////// ĐỂ DEV
+    "watch-sass": "node-sass src/sass/main.scss src/css/style.css -w",                         //cái này để compile realtime main.scss về style.css ở folder src
+
+////// ĐỂ NÉN, BUILD 
+    "compile:sass": "node-sass src/sass/main.scss src/css/style.comp.css",                     // đầu tiên là compile(ko realtime) về style.css 
+    "concat:css": "concat -o src/css/style.concat.css src/css/style.comp.css",                // tiếp theo là nối các file .css với nhau(trong th có thêm icon.css nữa) và xuất ra file style.concat.css
+    "prefix:css":"postcss --use autoprefixer -b \"last 10 versions\" src/css/style.concat.css -o src/css/style.prefix.css",                   //cái này thêm các tiền tố hỗ trợ phiên bản web thấp và lạ (-moz,-webkit) và xuất ra file atyle.prfix.css
+    "compress:css":"node-sass src/css/style.prefix.css src/css/style.css --output-style compressed",                                        // cuối cùng cái này nén file css lại cho nhẹ hơn
+    "build:css":"npm-run-all compile:sass concat:css prefix:css compress:css compress:css",                                                 // tổng lại là script chạy đủ 4 cái trên lần lượt và xuất ra duy nhất 1 file style.css
+
+///// ĐỂ DEV
+    "dev": "webpack --mode development",                                      // cái này để bundle giả(xuất ra file bundle.js và html ra folder dist) nhưng ko hề nén --> chỗ này đã thực hiện nhét style.css vào DOM rồi ==> ko cần link file css nữa, đặc biệt hmtl và js tự động đc link do cùng bundle
+    "start": "webpack-dev-server --mode development --open",                  // cái này để realtime lắng nghe thay đôi của html, js lẫn style.css luôn, sau đó mở trình duyệt 
+///// ĐỂ NÉN BUILT
+    "build": "webpack --mode production",                                     // cái này nén thật, js cực nhẹ, html cũng vậy, style.css thì đc nén cùng với js thui
+
+
+////// để chạy
+    "dev:all":"npm-run-all --parallel watch-sass dev start",            // cái này chạy song song, 1 là compile realtime scss(ko nén) về style.css và dùng nó đem đi bundle giả với js và html luôn, phải chạy song song, nếu ko cái realtime sẽ ko dừng lại và ko bundle đc                  
+    "build:all":"npm-run-all build:css build"                           // cái này sẽ nén css lại thành style.css(nhẹ, thích ứng cao) và bundle thật sự, nén 1 lần nữa với js và html ==> 1 bản cực nhẹ đc link cả 3 file html, js và css ở dist đc khai sinh
+    
+  },
+
+
+
+
+
+
+  ==> khi dev thì chạy cái dev:all 
+  ==> dev xong trước khi deploy thì build:all
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+
+chú ý lúc code thì nhớ các tài nguyên dẫn url kiểu font, img là ở folder dist nhé. vì css sau khi đc compile lúc này nằm ở index.html(dist) nên dẫn link là từ dist/img
+
+
+
+
