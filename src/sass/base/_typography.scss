@@ -5,3 +5,17 @@ body{
     color: var(--color-gray-dark);
 
 }
+
+.heading-primary{
+
+}
+
+.heding-secondary{
+
+}
+
+.heading-tertiary{
+    @include medium-text-bold-20;
+    color: var(--color-grey-3)
+}
+

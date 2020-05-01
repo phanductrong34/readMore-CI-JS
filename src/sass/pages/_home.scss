@@ -1,0 +1,23 @@
+.home{
+    &__background{
+        background-color: var(--color-yellow);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 3rem 10rem 3rem 10rem;
+    }
+
+    &__container{
+        max-width: 140rem;
+        background-color: var(--color-white);
+        height: 1000rem;
+        position: relative;
+        
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+
+
+    }
+    &__shadow{
+        box-shadow: 0 0 3rem rgba(rgb(187, 121, 0), 0.8);
+    }
+}

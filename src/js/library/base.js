@@ -5,6 +5,7 @@ export const elements = (page)=>{
     };
     const Obj = {
         insert: getElement('.insert'),
+        menuButton: getElement('.nav__container--menu')
     }
 
     //Login Page
@@ -18,6 +19,7 @@ export const elements = (page)=>{
             Obj.modalMenuBar = getElement('.modal__menuBar');
             Obj.menuClose = getElement('.menu-close');
             Obj.menuBar = getElement('.menuBar');
+            
     };
 
     return Obj;

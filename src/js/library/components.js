@@ -90,44 +90,7 @@ export const components = {
     `,
 
     menuBar: `
-    <div class="modal__menuBar">
-        <div class="menuBar">
-            <svg class="menu-close">
-                <use xlink:href="img/icons/sprite.svg#icon-x"></use>
-            </svg>
-            <ul class="menu-nav">
-                <li class="menu-nav__item menu-nav__item--active">
-                    <a href="#" class="menu-nav__link">
-                        Polular By Genre
-                    </a>
-                </li>
-                <li class="menu-nav__item">
-                    <a href="#" class="menu-nav__link">
-                        Newly Updated 
-                    </a>
-                </li>
-                <li class="menu-nav__item">
-                    <a href="#" class="menu-nav__link">
-                        Top Of The Week
-                    </a>
-                </li>
-                <li class="menu-nav__item">
-                    <a href="#" class="menu-nav__link">
-                        Book Collections
-                    </a>
-                </li>
-                <li class="menu-nav__item">
-                    <a href="#" class="menu-nav__link">
-                        You May Like
-                    </a>
-                </li>
-            </ul>
-                
-            <div class="menu-legal">
-                &copy; 2020 by Trong Phan Duc. All right reserved.
-            </div>
-        </div>
-    </div>
+
 
     `,
     admin: `
