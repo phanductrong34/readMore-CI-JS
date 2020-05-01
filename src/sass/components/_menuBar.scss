@@ -1,24 +1,26 @@
 
 .modal__menuBar{
-    z-index: 100;
+    z-index: 101;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(black,0);
-
+    
     display: flex;
     justify-content: flex-end;
     transition: background 0.8s cubic-bezier(1, 0, 0, 1); 
-    pointer-events: none;
+
+    pointer-events: visible;
+    background: rgba(black,0.25);
+
 
 
 }
 
-.modal__menuBar.showing{
-    pointer-events: visible;
-    background: rgba(black,0.25);
+.modal__menuBar.close{
+    pointer-events: none;
+    background: rgba(black,0);
 
 }
 
@@ -40,14 +42,15 @@
     justify-content: space-between;
     flex-direction: column;
     align-items: flex-end;
-    transform: translateX(50rem);
+    transform: translateX(0rem);
     // animation: menuBar 1s cubic-bezier(1, 0, 0, 1) reverse both;
     transition: transform 0.8s cubic-bezier(1, 0, 0, 1);
 
 }
 
-.menuBar.showing{
-    transform: translateX(0rem);
+.menuBar.close{
+
+    transform: translateX(50rem);
 }
 
 .menu-close{

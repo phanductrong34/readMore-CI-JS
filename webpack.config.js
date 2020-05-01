@@ -37,6 +37,7 @@ module.exports = {                                           // hàm này sẽ t
                     {
                         loader: "image-webpack-loader",
                         options:{
+                            outputPath: 'image',
                             mozjpeg: {
                                 progressive: true,
                                 quality: 65

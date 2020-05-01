@@ -1,0 +1,35 @@
+.header{
+
+    &__banner{
+        height: 38rem;
+        border-radius: 0 0 2rem 2rem;
+        margin-top: -2rem;
+        background-image: url(../img/png/banner-1.png);
+        background-position:center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        @include shadow-card
+    }
+
+    &__search--bar{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding:5rem;
+    }
+
+}
+#header{
+    &__search{
+    width: 60rem;
+    padding: 1rem 3rem;
+    }
+
+    &__select{
+        margin-left: -14rem;
+        height: 6rem;
+    }
+    &__icon{
+        margin-left: 1rem;
+    }
+}

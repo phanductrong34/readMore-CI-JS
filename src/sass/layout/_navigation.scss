@@ -8,6 +8,7 @@
     @include shadow-card;
     position: -webkit-sticky;
     position: sticky;
+    z-index: 100;
     top: 0;
     left: 0;
     
@@ -83,18 +84,22 @@
             background-color: var(--color-grey-1);
             border: none;
             height: 4rem;
-            width: 28rem;
+            width: 25rem;
             padding: 0rem 2rem;
             border-radius: 10rem;
             transition: all 0.2s cubic-bezier(1, 0, 0, 1);
+            @include normal-text-bold-16;
+            font-family: "Lato";
+            color: var(--color-grey-4);
+
 
             &:focus{
-                border: 2px solid var(--color-yellow);
+                @include shadow-even-2;
                 outline: none;
-                width: 31rem;
+                width: 27rem;
             }
             &:hover{
-                width: 31rem;
+                width: 27rem;
             }
         }
 
@@ -102,6 +107,8 @@
             margin-left: -12rem;
             background-color: transparent;
             border: none;
+            height: 4rem;
+            cursor: pointer;
             color: var(--color-grey-4);
 
             &:focus{
@@ -113,8 +120,13 @@
 
         }
         &--icon{
+            cursor: pointer;
             height: 2.8rem;
             width: 2.8rem;
+            transition: all 0.1s;
+            &:hover{
+                transform: scale(1.5);
+            }
         }
     }
 
@@ -193,7 +205,7 @@
             &--line{
                 width: 2rem;
                 height: 3px;
-                background-color: var(--color-grey-2);
+                background-color: var(--color-grey-3);
 
                 &:not(:last-child){
                     margin-bottom: 6px;

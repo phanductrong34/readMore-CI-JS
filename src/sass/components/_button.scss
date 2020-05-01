@@ -1,0 +1,37 @@
+.btn{
+    &__see-all,
+    &__see-all:link,
+    &__see-all:visited{
+        @include medium-text-bold-20;
+        text-decoration: none;
+        color: var(--color-grey-4);
+    }
+
+    &__see-more{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.1s ease-in-out;
+        
+        @include small-text-bold-12;
+        text-decoration: none;
+        color: white;
+        width: 10rem;
+        height: 3rem;
+        border-radius: 10rem;
+        &-blue{
+            background-color: var(--color-blue-dark);
+        }
+        &-icon{
+            width: 2rem;
+            height: 2rem;
+        }
+
+        &:hover{
+            @include button-hover
+        }
+        &:active{
+            @include button-active
+        }
+    }
+}

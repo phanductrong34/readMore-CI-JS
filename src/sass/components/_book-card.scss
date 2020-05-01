@@ -1,0 +1,180 @@
+
+.book{
+
+
+    &__card{
+        position: relative;
+        background-color: var(--color-white);
+        display: flex;
+        width: 29%;
+        align-self: flex-start;
+        padding: 1.8rem;
+        border-radius: 1.5rem;
+        @include shadow-card;
+
+    }
+
+    &__bookmark{
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: var(--color-blue-light);
+        border-radius: 0 2rem 0 2rem;
+        height: 3rem;
+        width: 3rem;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        &>*{
+            height: 3rem;
+            width: 3rem;
+            transition: 0.1s ease;
+        }
+
+        &:hover .book__bookmark-icon{
+            transform: scale(1.2);
+        }
+    }
+
+    &__button{
+        &--container{
+            position: absolute;
+            left: 1.8rem;
+            bottom: 1.2rem;
+            margin-bottom: 1rem;
+            z-index: 5;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: flex-end;
+            width: 12rem;
+            height: 18rem;
+            overflow: hidden;
+            &>*{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 3rem;
+                height: 3rem;
+                background-color: rgba(black,0.6);
+                border-radius: 50%;
+            }
+
+            &:hover ~ .book__img{
+                filter: brightness(0.8) blur(0.2px) saturate(1.5);
+                background-size: 105%;
+            } 
+            
+            &:hover .book__button--listen{
+                transform: translate(0);
+            }
+            &:hover .book__button--read{
+                transform: translate(0);
+            }
+            &:hover .book__button--download{
+                transform: translate(0);
+            }
+        }
+
+        &--listen{
+            transform: translate(-4rem,4rem);
+            transition: 0.3s cubic-bezier(1, 0, 0, 1);
+            &-icon{
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+        }
+
+        &--read{
+            
+            transform: translate(0rem,5rem);
+            transition: 0.2s cubic-bezier(1, 0, 0, 1);
+
+            width: 4.5rem;
+            height: 4.5rem;
+            &-icon{
+                width: 3rem;
+                height: 3rem;
+            }
+        }
+
+        &--download{
+            transform: translate(4rem,4rem);
+            transition: 0.3s cubic-bezier(1, 0, 0, 1);
+            &-icon{
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+        }
+
+
+    }
+
+    &__img{
+        position: absolute;
+        left: 1.8rem;
+        bottom: 1.2rem;
+        border-radius: 0.6rem;
+        height: 18rem;
+        width: 12rem;
+        
+        background-position: center;
+        background-size: 100%;
+
+        transition: 0.1s ease-in-out;
+
+        @include shadow-even;
+
+        &-1{
+            background-image: url(../img/png/book-cover-1.jpg);
+        }
+        &-2{
+            background-image: url(../img/png/book-cover-2.jpg);
+        }
+        &-3{
+            background-image: url(../img/png/book-cover-3.jpg);
+        }
+        &-4{
+            background-image: url(../img/png/book-cover-4.jpg);
+        }
+        &-5{
+            background-image: url(../img/png/book-cover-5.jpg);
+        }
+        &-6{
+            background-image: url(../img/png/book-cover-6.jpg);
+        }
+
+
+    }
+
+    &__info{
+        margin-left: 14rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__title{
+        @include small-text-bold-12;
+        text-transform: uppercase;
+    }
+
+    &__author{
+        margin-bottom: 0.2rem;
+    }
+
+    &__rating{
+        margin-bottom: 0.2rem;
+    }
+
+    &__description{
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    &__button{
+
+    }
+
+}

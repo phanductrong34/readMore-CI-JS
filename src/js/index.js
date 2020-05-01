@@ -54,19 +54,19 @@ function setUpLogin(){
 function setUpHomePage(){
     element = elements('home');
 
-    //Menu Bar close HANDLE
+//MENU BAR ONPEN CLOSE HANDLE
     element.menuBar.addEventListener('click',(e)=>{
         if(e.target.matches('.menu-close, .menu-close *')){
 
-            element.menuBar.classList.remove("showing")
-            element.modalMenuBar.classList.remove("showing")
+            element.menuBar.classList.add("close")
+            element.modalMenuBar.classList.add("close")
             
         }
     })
 
     element.menuButton.addEventListener('click', ()=>{
-            element.menuBar.classList.add("showing")
-            element.modalMenuBar.classList.add("showing")
+            element.menuBar.classList.remove("close")
+            element.modalMenuBar.classList.remove("close")
     })
 
 }
