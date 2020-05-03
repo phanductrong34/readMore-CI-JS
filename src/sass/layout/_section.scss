@@ -12,3 +12,22 @@
     display: flex;
     margin-top: 2rem;
 }
+
+.section__collection--banner{
+    margin-top: 12rem;
+    &-bg{
+        height: 37rem;
+        border-radius:2rem;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url(../img/png/banner-2.png);
+        @include shadow-card;
+    }
+
+}
+
+.section__collection{
+ display: flex;
+ margin-top: 5rem;
+}

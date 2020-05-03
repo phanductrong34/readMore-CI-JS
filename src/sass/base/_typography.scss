@@ -12,8 +12,10 @@ body{
 }
 
 .heading-secondary{
-    @include  medium-text-bold-20;
+    @include  large-text-bold-24;
     color: var(--color-grey-4);
+    text-align: center;
+    margin-left: -3rem;
 }
 
 .heading-tertiary{

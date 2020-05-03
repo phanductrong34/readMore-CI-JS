@@ -1,11 +1,17 @@
 .btn{
-    &__see-all,
-    &__see-all:link,
-    &__see-all:visited{
+    &__see-all{
         @include medium-text-bold-20;
         text-decoration: none;
         color: var(--color-grey-4);
+        transition: 0.2s ease-in-out;
+        &:hover{
+            transform: translateY(-0.3rem);
+        }
+        &:active{
+            transform: translateY(-0.1rem);
+        }
     }
+    
 
     &__see-more{
         display: flex;
