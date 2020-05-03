@@ -1,11 +1,22 @@
 .rating{
     &__container{
-
+        &>*{
+            font-size: 1.3rem;
+            color: var(--color-grey-4)
+        }
     }
 
-    &__star{
-        width: 1.6rem;
-        height: 1.6rem;
-        fill: #F8C700 !important;
+}
+.checked{
+    color: var(--color-yellow);
+
+    &-1{
+        color: var(--color-orange-dark);
+    }
+    &-2{
+        color: var(--color-pink-dark);
+    }
+    &-3{
+        color: var(--color-blue-dark);
     }
 }

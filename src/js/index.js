@@ -32,7 +32,7 @@ switch (element.insert.dataset.page){
 
 
 
-///// LOGIN PAGE
+////////////////////////////////////// LOGIN PAGE /////////////////////////////////////////// 
 function setUpLogin(){
     element = elements('home');
 
@@ -49,12 +49,13 @@ function setUpLogin(){
     })
 }
 
-//// HOME PAGE
+/////////////////////////////////////////// HOME PAGE//////////////////////////////////////////
 
 function setUpHomePage(){
     element = elements('home');
 
-//MENU BAR ONPEN CLOSE HANDLE
+
+    //MENU BAR ONPEN CLOSE HANDLE
     element.menuBar.addEventListener('click',(e)=>{
         if(e.target.matches('.menu-close, .menu-close *')){
 
@@ -69,9 +70,29 @@ function setUpHomePage(){
             element.modalMenuBar.classList.remove("close")
     })
 
+
+
+    ///// SLIDER HANDLER FOR NEWLY CONTAINER
+    element.pagination.addEventListener('click',(e)=>{
+        let currentPos = Number(element.newlyContainer.dataset.pos);
+
+        if(e.target.matches(".pagination__left-newly,.pagination__left-newly *") && currentPos < 0){
+            let afterPos = currentPos + 50;
+            element.newlyContainer.style.transform = `translateX(${afterPos}rem)`
+            element.newlyContainer.dataset.pos = afterPos;
+
+        }else if(e.target.matches(".pagination__right-newly,.pagination__right-newly *") && currentPos > -200){
+            let afterPos = currentPos - 50;
+            element.newlyContainer.style.transform = `translateX(${afterPos}rem)`
+            element.newlyContainer.dataset.pos = afterPos;
+        }
+    })
+
+    
+
 }
 
-/////ADMIN APGE
+///////////////////////////////////////////  ADMIN APGE /////////////////////////////////////////// 
 function setUpAdmin(){
 
     // 1. Lấy từ FireBase vè, chuyển thành JSON.stringify và nhét vào local-storage (tư động khi load trang)

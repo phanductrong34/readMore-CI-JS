@@ -142,3 +142,371 @@
     
 
 }
+
+.newly{
+
+    &__header{
+        color:var(--color-grey-4);
+        padding: 0.5rem 3rem;
+        display: flex;
+        align-items: center;
+        pointer-events: none;
+        user-select: none;
+    }
+
+    &__button{
+        padding: 0.5rem 3rem;
+        display: flex;
+        align-items: center;
+
+    }
+
+    &__line{
+        flex: 1 1;
+        height: 2px;
+        background-color: var(--color-grey-2);
+
+        &-1{
+            margin-left: 3rem;
+        }
+
+        &-2{
+            margin-right: 3rem;
+        }
+
+    }
+
+
+
+    &__container{
+        position: relative;
+        z-index: 1;
+        padding: 3rem;
+        height: 30rem;
+        display: flex;
+        flex-wrap: nowrap;
+        width: 300rem;
+        transform: translateX(0rem);
+        transition: 0.3s all ease-in-out;
+
+        
+    }
+
+}
+
+.topweek{
+    &__reader{
+        &--title{
+            margin-bottom: 4rem;
+        }
+        &--list{
+            list-style: none;   
+        }
+    
+        &--item{
+            @include normal-text-bold-16 ;
+            color: var(--color-grey-3);
+            display: flex;
+            align-items: center;
+            &:not(:last-child){
+                margin-bottom: 2rem;
+            }
+        }
+        &--rank{
+            @include heading-3;
+            margin-right: 2rem;
+            &-1{
+                color: var(--color-orange-dark);
+            }
+            &-2{
+                color: var(--color-blue-dark);
+            }
+        }
+        &--img{
+            height: 4rem;
+            width: 4rem;
+            border-radius: 50%;
+            background-position: center;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            margin-right: 2rem;
+            &-1{
+                background-image: url(../img/png/avatar-1.jpg);
+            }
+            
+            &-2{
+                background-image: url(../img/png/avatar-2.jpg);
+            }
+            &-3{
+                background-image: url(../img/png/avatar-3.jpg);
+            }
+            &-4{
+                background-image: url(../img/png/avatar-4.jpg);
+            }
+            &-5{
+                background-image: url(../img/png/avatar-5.jpg); 
+            }
+            &-6{
+                background-image: url(../img/png/avatar-6.jpg);
+            }
+            &-7{
+                background-image: url(../img/png/avatar-7.jpg); 
+            }
+
+        }
+
+        &--info{
+            display: flex;
+            flex-direction: column;
+        }
+
+        &--name{
+            color: var(--color-grey-3);
+            @include caption-bold-18;
+        }
+
+        &--hour{
+            display: flex;
+            align-items: center;
+            color: var(--color-orange-light);
+            @include normal-text-16;
+            &-icon{
+                height: 2rem;
+                width: 2rem;
+                
+            }
+        }
+    }
+
+    &__book--title{
+        position: relative;
+        @include heading-3;
+        color: var(--color-white);
+        padding: 0.8rem 3.5rem;
+        display: inline-block;
+    }
+
+    &__book--mask{
+        overflow: hidden;
+        @include shadow-card;
+        &-small{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 30rem;
+            height: 6rem;
+            border-radius: 2rem 2rem 0 0;
+        }
+        &-big{
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            height: 90%;
+            border-radius: 0 2rem 2rem 2rem;
+            margin-top: -1rem;
+            padding: 3rem;
+        }
+    }
+
+    &__book--bg{
+        background-image: url(../img/png/book-cover-7.jpg);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        filter: blur(4px) brightness(0.7);
+        &-small{   
+            width: 30rem;
+            height: 6rem;
+            border-radius: 2rem 2rem 0 0;
+            
+        }
+        &-big{
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            border-radius: 0 2rem 2rem 2rem;
+        }
+    }
+
+    &__book--bookmark{
+        position: absolute;
+        top: 0.2rem;
+        right: 0.2rem;
+        height: 5rem;
+        width: 5rem;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        &>*{
+            height: 4rem;
+            width: 4rem;
+            transition: 0.1s ease;
+        }
+
+        &:hover .book__bookmark-icon{
+            transform: scale(1.5);
+        }
+    }
+
+    &__button{
+        &--container{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 5;
+            border-radius: 0.6rem;
+            height: 100%;
+            width: 100%;
+            padding-bottom: 1rem;
+            margin-top: -1rem;
+
+            z-index: 5;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: flex-end;
+
+            
+
+            overflow: hidden;
+            &>*{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 5rem;
+                height: 5rem;
+                background-color: rgba(black,0.6);
+                border-radius: 50%;
+            }
+
+            &:hover ~ .topweek__img{
+                filter: brightness(0.8) blur(0.2px) saturate(1.5);
+                background-size: 105%;
+            } 
+            
+            &:hover .topweek__button--listen{
+                transform: translate(0);
+            }
+            &:hover .topweek__button--read{
+                transform: translate(0);
+            }
+            &:hover .topweek__button--download{
+                transform: translate(0);
+            }
+        }
+
+        &--listen{
+            transform: translate(-6rem,6rem);
+            transition: 0.3s cubic-bezier(1, 0, 0, 1);
+            &-icon{
+                width: 3.5rem;
+                height: 3.5rem;
+            }
+        }
+
+        &--read{
+            
+            transform: translate(0rem,7rem);
+            transition: 0.2s cubic-bezier(1, 0, 0, 1);
+
+            width: 6rem;
+            height: 6rem;
+            &-icon{
+                width: 4rem;
+                height: 4rem;
+            }
+        }
+
+        &--download{
+            transform: translate(6rem,6rem);
+            transition: 0.3s cubic-bezier(1, 0, 0, 1);
+            &-icon{
+                width: 3.5rem;
+                height: 3.5rem;
+            }
+        }
+
+    }
+
+    &__img{
+        position: relative;
+        border-radius: 0.6rem;
+        min-height: 42rem;
+        min-width: 28rem;
+        flex: 1;
+        background-position: center;
+        background-size: 100%;
+
+        transition: 0.1s ease-in-out;
+
+        @include white-even;
+
+        &-1{
+            background-image: url(../img/png/book-cover-7.jpg);
+        }
+
+    }
+
+    &__info{
+        color: var(--color-white);
+        flex: 2;
+        margin-left: 3rem;
+        display: flex;
+        flex-direction: column;
+        letter-spacing: 0.2px;
+    }
+
+    &__title{
+        @include heading-2;
+    }
+
+    &__author{
+        margin-top: -1rem;
+        margin-bottom: 1rem;
+        @include heading-3;
+        font-weight: 400;
+    }
+
+    &__rating{
+        margin-bottom: 2rem;
+        transform: scale(1.8);
+        transform-origin: 0% 0%;
+    }
+
+    &__description{
+        width: 100%;
+        margin-bottom: 3rem;
+        @include normal-text-bold-16;
+    }
+
+    &__button{
+        &--arrow{
+            width: 3rem;
+            height: 3rem;
+            margin-right: -2rem;
+        }
+    }
+
+    &__dots{
+        &>*{
+
+        }
+        &-round-1{
+
+        }
+        &-round-2{
+
+        }
+        &-round-3{
+
+        } 
+    }
+
+}

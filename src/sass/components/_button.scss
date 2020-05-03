@@ -34,4 +34,78 @@
             @include button-active
         }
     }
+
+    &__see-book{
+        display: flex;
+        align-items:center;
+        justify-content: center;
+        transition: 0.1s ease-in-out;
+        @include small-text-bold-12;
+        text-decoration: none;
+        width: 12rem;
+        height: 2.5rem;
+        border-radius: 10rem;
+        background-color: var(--color-white);
+
+        &-1{
+            color: var(--color-orange-dark);
+            box-shadow: 0rem 1.5rem 3rem rgba(#EA8B56,0.5);
+            transform: translateY(0rem);
+        }
+        &-1:hover{
+            box-shadow: 0rem 2rem 4rem rgba(#EA8B56,0.4);
+            transform: translateY(-0.3rem);
+        }
+        &-1:active{
+            box-shadow: 0rem 1rem 1rem rgba(#EA8B56,0.6);
+            transform: translateY(-0.1rem);
+        }
+        
+        &-2{
+            color: var(--color-pink-dark);
+            box-shadow: 0rem 1.5rem 3rem rgba(#CB6BC1,0.5);
+            transform: translateY(0rem);
+        }
+        &-2:hover{
+            box-shadow: 0rem 2rem 4rem rgba(#CB6BC1,0.4);
+            transform: translateY(-0.3rem);
+        }
+        &-2:active{
+            box-shadow: 0rem 1rem 1rem rgba(#CB6BC1,0.6);
+            transform: translateY(-0.1rem);
+        }
+
+        &-3{
+            color: var(--color-blue-dark);
+            box-shadow: 0rem 1.5rem 3rem rgba(#0E87AE,0.5);
+            transform: translateY(0rem);
+        }
+        &-3:hover{
+            box-shadow: 0rem 2rem 4rem rgba(#0E87AE,0.4);
+            transform: translateY(-0.3rem);
+        }
+        &-3:active{
+            box-shadow: 0rem 1rem 1rem rgba(#0E87AE,0.6);
+            transform: translateY(-0.1rem);
+        }
+    }
+    &__see-line{
+        cursor: pointer;
+        display: flex;
+        width: 11rem;
+        align-items: center;
+        @include medium-text-bold-20;
+        color: var(--color-white);
+        text-decoration: none;
+        border-bottom: 2px solid var(--color-white);
+        transition: 0.2s ease;
+
+        &:hover{
+            transform: translateY(-0.3rem);
+        }
+        &:active{
+            transform: translateY(-0.1rem);
+        }
+
+    }
 }

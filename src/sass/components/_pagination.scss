@@ -1,0 +1,46 @@
+.pagination{
+    position: absolute;
+    width: 100%;
+    z-index: 50;
+    @include center;
+    pointer-events: none;
+
+    &__container{
+        padding: 3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        pointer-events: none;
+
+
+        &>*{
+            height: 6rem;
+            width: 6rem;
+            background: rgba(white,0.82);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            transition: 0.2s ease-in-out;
+            pointer-events: auto;
+
+            &:hover{
+                transform: scale(1.1);
+            }
+        }
+    }
+
+
+    &__icon{
+        height: 2rem;
+        width: 2rem;
+        &-left{
+            transform: rotate(90deg);
+        }
+ 
+        &-right{
+            transform: rotate(-90deg);
+        }
+    }
+}

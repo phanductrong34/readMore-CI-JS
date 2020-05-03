@@ -16,9 +16,15 @@ export const elements = (page)=>{
     
     //Home Page
     if(page === 'home'){
+        // MENU
             Obj.modalMenuBar = getElement('.modal__menuBar');
             Obj.menuClose = getElement('.menu-close');
             Obj.menuBar = getElement('.menuBar');
+        //NEWLY
+            Obj.newlyContainer = getElement('.newly__container');
+            Obj.pagination = getElement('.pagination');
+            Obj.leftBtnNewly = getElement('.pagination__left-newly');
+            Obj.rightBtnNewly = getElement('.pagination__right-newly');
             
     };
 

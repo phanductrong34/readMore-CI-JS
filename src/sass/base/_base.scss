@@ -10,6 +10,7 @@
 html{
     // cái này sẽ định nghĩa 1 rem bằng bn, với gốc là lấy từ mặc định browser(16px)
     font-size: 62.5%;   // 1rem = 10px;  10px/16px = 62.5%
+    scroll-behavior: smooth;
 
 //     @include respond(tab-land){
         
