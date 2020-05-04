@@ -193,3 +193,9 @@ vì khi nhảy về màn cảm ứng thì các tính năng hover sẽ không đ�
 trường hợp ngược lại ấy là đổi (hover: hover) thôii
 
 
+/////////////////////////////////////////////////////
+
+
+url ảnh là lấy ở src, và css lấy ảnh thì là từ scr/css/style.css đi ra
+url svg lại lấy từ dist. và đi ra từ index.html cũng ở dist đc sinh ra
+js lấy ảnh thì là từ src, lấy ảnh cũng trong src
