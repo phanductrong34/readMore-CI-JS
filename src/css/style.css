@@ -1265,7 +1265,7 @@ body {
   width: 100vw;
   height: 100vh; }
 
-.container {
+.animation__container {
   background-color: var(--color-yellow);
   width: 100vw;
   height: auto; }
@@ -1273,7 +1273,9 @@ body {
 .bm {
   position: absolute;
   top: 0;
-  left: 0; }
+  left: 0;
+  width: 100%;
+  height: auto; }
   .bm__shape {
     z-index: 1; }
   .bm__ball {

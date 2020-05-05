@@ -1,5 +1,59 @@
-export const data = {
+export let data = {
     categories : [
+        {
+            categoryID: "it",
+            categoryName:"Technology",
+            childCollectionIDs: [],
+            childBookIDs:[]
+        },
+        {
+            categoryID: "self",
+            categoryName:"Self-helf",
+            childCollectionIDs: [],
+            childBookIDs:[]
+        },
+        {
+            categoryID: "edu",
+            categoryName:"Education",
+            childCollectionIDs: [],
+            childBookIDs:[]
+        },
+        {
+            categoryID: "art",
+            categoryName:"Art-Sport",
+            childCollectionIDs: [],
+            childBookIDs:[]
+        },
+        {
+            categoryID: "come",
+            categoryName:"Comedy",
+            childCollectionIDs: [],
+            childBookIDs:[]
+        },
+        {
+            categoryID: "nov",
+            categoryName:"Classic Novel",
+            childCollectionIDs: [],
+            childBookIDs:[]
+        },
+        {
+            categoryID: "comic",
+            categoryName:"Comic",
+            childCollectionIDs: [],
+            childBookIDs:[]
+        },
+        {
+            categoryID: "buss",
+            categoryName:"Business",
+            childCollectionIDs: [],
+            childBookIDs:[]
+        },
+        {
+            categoryID: "romantic",
+            categoryName:"Romantic",
+            childCollectionIDs: [],
+            childBookIDs:[]
+        },
         {
             categoryID: "psy",
             categoryName:"Psychological",
@@ -13,53 +67,12 @@ export const data = {
             childBookIDs:[]
         },
         {
-            categoryID: "romantic",
-            categoryName:"Romantic",
-            childCollectionIDs: [],
-            childBookIDs:[]
-        },
-        {
-            categoryID: "it",
-            categoryName:"Technology",
-            childCollectionIDs: [],
-            childBookIDs:[]
-        },
-        {
-            categoryID: "buss",
-            categoryName:"Business",
-            childCollectionIDs: [],
-            childBookIDs:[]
-        },
-        {
-            categoryID: "comic",
-            categoryName:"Comic",
-            childCollectionIDs: [],
-            childBookIDs:[]
-        },
-        {
-            categoryID: "lang",
-            categoryName:"Languages",
-            childCollectionIDs: [],
-            childBookIDs:[]
-        },
-        {
             categoryID: "cui",
             categoryName:"Cuisine",
             childCollectionIDs: [],
             childBookIDs:[]
         },
-        {
-            categoryID: "edu",
-            categoryName:"Education",
-            childCollectionIDs: [],
-            childBookIDs:[]
-        },
-        {
-            categoryID: "hor",
-            categoryName:"Horror",
-            childCollectionIDs: [],
-            childBookIDs:[]
-        }
+
     ],
 
     authors: [
@@ -201,3 +214,8 @@ export const data = {
 
 
 //bug6: child input vẫn cho thêm mới hết --> hàm trừ string đi đang ko hoạt động
+
+
+export const loadFromFireBase = (type,firestore)=>{
+     data[type] = firestore;
+}

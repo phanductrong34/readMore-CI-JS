@@ -3,7 +3,7 @@
     width: 100vw;
     height: 100vh;
 }
-.container{
+.animation__container{
     background-color: var(--color-yellow);
     width: 100vw;
     height: auto;
@@ -12,6 +12,8 @@
     position: absolute;
     top:0;
     left:0;
+    width: 100%;
+    height: auto;
     &__shape{
         z-index: 1;
     }

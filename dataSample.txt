@@ -1,0 +1,275 @@
+
+
+LƯU TRỨ DATA DƯỚI DẠNG SAU
+    
+    book{
+
+        title        (tên sách)
+        description (mô tả về sách, giới hạn số từ <500 thôi nhé)
+        author     (tên của chỉ 1 tác giả, sách nào có hai tác giả chỉ lấy 1 thôi)
+        imageUrl    (link ảnh từ FIREBASE STORAGE)
+        readUrl     (link PDF từ FIREBASE STORAGE)
+        audioUrl    (link AUDIO từ FIREBASE STORAGE)
+
+        categories (thể loại của sách: có thể nhiều hơn 1)
+        
+    }
+    collection{
+        title        (tên collection)
+        description (mô tả về collection, giới hạn số từ <500 thôi nhé)
+        author     (tên của chỉ 1 tác giả, là tác giả chung của sách, nếu khác tác giả, thì quy về tác giả admin)
+        readUrl     (link PDF của sách đầu tiên từ FIREBASE STORAGE)
+        audioUrl    (link AUDIO của sách đầu tiên từ FIREBASE STORAGE)
+
+        categories (thể loại của collection: có thể nhiều hơn 1(thường là trùng với sách))
+        childBooks (tên các sách trong collection này)
+    }
+    
+
+
+ví dụ: 
+
+    book{
+
+        Harry Porter and the philosopher's stone
+        This is the first book of.....
+        JK Rowling
+        https:// ....
+        https:// ....
+        https:// ....
+        comic,hor
+
+        Harry Porter and the Chamber of Secret
+        This is the first book of.....
+        JK Rowling
+        https:// ....
+        https:// ....
+        https:// ....
+        comic,hor
+
+        Harry Porter and the Prisoner of Azkaban
+        This is the first book of.....
+        JK Rowling
+        https:// ....
+        https:// ....
+        https:// ....
+        comic,hor
+
+    }
+
+    collection{
+        Harry Porter collection Part 1:
+        This collection contain 3 first books of series Harry Porter,... (cái này mình tự viết)
+        JK Rowling                      (chỗ này vì 3 sách của cùng tác giả, nếu như là combo của các tác giả khác nhau, thì ta để là admin)
+        https:// ....
+        https:// ...
+        buss,psy
+        Harry Porter and the philosopher's stone,Harry Porter and the Chamber of Secret,Harry Porter and the Prisoner of Azkaban (liệt kê đúng chính xác tên của sách, cách nhau bởi dấu phẩy, viết sát vào dấu phẩy)
+
+
+
+}
+
+mã ID của thể loại 
+
+Technology(công nghệ tt):               it
+self-helf: (sách pt bản thân)           self
+Education(học tập):                     edu
+Art-Sport (Thể thao - Nghệ thuật)       art
+Comedy (truyện cười)                    come
+Novel (tiểu thuyết kinh điển)           nov
+Comic(truyện tranh):                    comic
+Business(Kinh doanh):                   buss
+Romantic(ngôn tình):                    romantic
+Psychological(tâm lý):                  psy
+Heath(sức khỏe - y tế):                 heath
+Cuisine(ẩm thực):                       cui
+
+
+
+
+
+
+
+book{
+	Business Analysis for Practitioners
+	gs: //ci-thu-vien-sach.appspot.com/Sách/Công Nghệ Thông Tin / Business Analysis for Practitioners.pdf
+	gs: //ci-thu-vien-sach.appspot.com/Sách/Công Nghệ Thông Tin / Business Analysis .... png
+	it
+
+	CSDL
+	Ts. PHẠM THẾ QUẾ
+	gs: //ci-thu-vien-sach.appspot.com/Sách/Công Nghệ Thông Tin / CSDL.pdf
+	gs: //ci-thu-vien-sach.appspot.com/Sách/Công Nghệ Thông Tin / CSDL.png
+	it
+	 
+	Data Science _ Big Data Analytics
+	WILEY 
+	gs://ci-thu-vien-sach.appspot.com/Sách/Công Nghệ Thông Tin/Data Science and Big....png
+	gs: //ci-thu-vien-sach.appspot.com/Sách/Công Nghệ Thông Tin / Data Science and Big .... png
+	it
+
+	Data Visualization for Oracle Business Intelligence 11g 
+	Dan Vlamis and Tim Vlamis
+	gs: //ci-thu-vien-sach.appspot.com/Sách/Công Nghệ Thông Tin / Data Visualization for Oracle Business Intelligence 11g.pdf
+	gs: //ci-thu-vien-sach.appspot.com/Sách/Công Nghệ Thông Tin / Data Visualization .... png
+	it
+
+	Digital Marketing _ Social Media
+	
+	gs: //ci-thu-vien-sach.appspot.com/Sách/Công Nghệ Thông Tin / Digital Marketing _ Social Media.pdf
+
+	gs: //ci-thu-vien-sach.appspot.com/Sách/Công Nghệ Thông Tin / Digital Marketing .... png
+	it
+
+	Cha giàu cha nghèo
+	Robert T. Kiyosaki
+	Storage location
+	gs: //ci-thu-vien-sach.appspot.com/Sách/kinh doanh / day-con-lam-giau-tap1.jpg
+	gs: //ci-thu-vien-sach.appspot.com/Sách/kinh doanh / 1. Dạy con làm giàu tập 1 - Để Không Có Tiền Vẫn Tạo Ra Tiền - Robert T. Kiyosaki.mp3
+	buss
+
+	Sức Mạnh Của Sự Khác Biệt
+	Steve Jobs
+ 	gs: //ci-thu-vien-sach.appspot.com/Sách/kinh doanh / 1. Sức Mạnh Của Sự Khác Biệt - Steve Jobs.mp3
+	gs://ci-thu-vien-sach.appspot.com/Sách/kinh doanh/sức mạnh của sự khác biệt.jpg
+	buss
+
+	 Sách Đen Về Tinh Thần Doanh Nhân 
+	Fernando Trías De Bes
+	gs: //ci-thu-vien-sach.appspot.com/Sách/kinh doanh / 1. Sách Đen Về Tinh Thần Doanh Nhân - Fernando Trías De Bes.mp3
+	buss
+
+	bí mật của may mắn
+	Alex Rovira and Fernando Trias de Bes
+	gs: //ci-thu-vien-sach.appspot.com/Sách/kinh doanh / bi-mat-cua-may-man.pdf
+	gs: //ci-thu-vien-sach.appspot.com/Sách/kinh doanh / bí mật của may man.jpg
+	buss
+
+	Khẳng định Doanh tài nước Việt 
+	Bạch Thái Bưởi
+	gs: //ci-thu-vien-sach.appspot.com/Sách/kinh doanh / 1. Khẳng định Doanh tài nước Việt - Bạch Thái Bưởi.mp3
+	buss
+
+	Tiểu Thư Ôsin 
+	 Vô Danh
+	gs://ci-thu-vien-sach.appspot.com/Sách/ngôn tình/Tiểu Thư Ôsin - Vô Danh.pdf
+	gs: //ci-thu-vien-sach.appspot.com/Sách/ngôn tình / tieu-thu-osin.jpg
+	romantic
+
+	chàng trai năm ấy
+	tuyết ảnh sương hồn
+	gs://ci-thu-vien-sach.appspot.com/Sách/ngôn tình/chang-trai-nam-ay.pdf
+	gs://ci-thu-vien-sach.appspot.com/Sách/ngôn tình/chàng trai năm ấy.jpg
+	romantic
+
+	chọc tức vợ yêu-mua một tặng một
+	Quẫn Quẫn Hữu Yêu
+	gs: //ci-thu-vien-sach.appspot.com/Sách/ngôn tình / choc-tuc-vo-yeu-mua-mot-tang-mot.pdf
+	romantic
+
+	yêu người không nên yêu
+	GreenStar-Thùy Dương
+	gs: //ci-thu-vien-sach.appspot.com/Sách/ngôn tình / yeu-nguoi-khong-nen-yeu.pdf
+	romantic
+
+	khi người ta đôi mươi
+	Hiên
+	gs: //ci-thu-vien-sach.appspot.com/Sách/ngôn tình / khi-nguoi-ta-doi-muoi.pdf
+	gs: //ci-thu-vien-sach.appspot.com/Sách/ngôn tình / khi người ta đôi mươi.jpg
+	romantic
+	
+	khi phụ nữ uống trà đàn ông nên cẩn thận
+	 Phan ý Yên
+	gs: //ci-thu-vien-sach.appspot.com/Sách/ngôn tình / khi phụ nữ uống trà đàn ông nên cẩn thận.jpg
+	gs: //ci-thu-vien-sach.appspot.com/Sách/ngôn tình / khi-phu-nu-uong-tra-dan-ong-nen-can-than.pdf
+	romatic
+	
+	
+	thời gian chỉ dừng lại vì em
+	Scotland Chiết Nhĩ Miêu
+	gs: //ci-thu-vien-sach.appspot.com/Sách/ngôn tình / thoi-gian-chi-dung-lai-vi-em.pdf
+	gs://ci-thu-vien-sach.appspot.com/Sách/ngôn tình/thời gian chỉ dừng lại vì em.jpg
+	romantic
+
+	sống chậm lại rồi mọi chuyện sẽ ổn thôi
+	gs://ci-thu-vien-sach.appspot.com/Sách/ngôn tình/song-cham-lai-roi-moi-chuyen-se-on.pdf
+	gs: //ci-thu-vien-sach.appspot.com/Sách/ngôn tình / sach-song-cham-lai.jpg
+	romatic
+
+	11 Lời Khuyên Dành Cho Thế Hệ Trẻ 
+	Bill Gates
+	gs: //ci-thu-vien-sach.appspot.com/Sách/tâm lý kĩ năng / 11 Lời Khuyên Dành Cho Thế Hệ Trẻ Của Bill Gates.mp3
+	psy
+
+	dám nghĩ lớn
+	DAVID J. SCHWARTZ, Ph.D.
+	gs: //ci-thu-vien-sach.appspot.com/Sách/tâm lý kĩ năng / Dam Nghi Lon.pdf
+	gs: //ci-thu-vien-sach.appspot.com/Sách/tâm lý kĩ năng / sach-dam-nghi-lon-.jpg
+	psy
+	
+	chìa khóa thành công đại học
+	tim vu
+	gs://ci-thu-vien-sach.appspot.com/Sách/tâm lý kĩ năng/CHIA KHOA THANH CONG DAI HOC.pdf
+	psy, edu
+
+	
+	bác sĩ tốt nhất là chính mình
+	
+	gs: //ci-thu-vien-sach.appspot.com/Sách/y học sức khỏe / -bac-si-tot-nhat-la-chinh-minh-tap-6-.pdf
+	gs: //ci-thu-vien-sach.appspot.com/Sách/y học sức khỏe / bac-si-tot-nhat-la-chinh-minh-.jpg
+	heath
+
+	bệnh phụ nữ và cách điều trị
+	Hoàng Thúy
+	gs: //ci-thu-vien-sach.appspot.com/Sách/y học sức khỏe / -BenhPhuNuvaCachDieuTri.pdf
+	heath
+
+	bách khoa vitamin
+	BS.Thu Minh
+	gs: //ci-thu-vien-sach.appspot.com/Sách/y học sức khỏe / BachKhoaVitamin.pdf
+	gs: //ci-thu-vien-sach.appspot.com/Sách/y học sức khỏe / bach khoa vitamin.jpg
+	heath
+
+
+	bào chế đông dược
+	TS.Nguyễn Đức Quang
+	gs: //ci-thu-vien-sach.appspot.com/Sách/y học sức khỏe / BaoCheDongDuoc.pdf
+	gs://ci-thu-vien-sach.appspot.com/Sách/y học sức khỏe/bào chế đông dược.jpg
+	heath
+
+	 bệnh loãng xương và cách điều trị
+	BS.Lê Anh Sơn
+	gs://ci-thu-vien-sach.appspot.com/Sách/y học sức khỏe/BenhLoangXuongvaCachDieuTri.pdf
+	gs: //ci-thu-vien-sach.appspot.com/Sách/y học sức khỏe / benh-loang-xuong-va-cach-dieu-tri.jpg
+	heath
+
+	bệnh tiểu đường cách phát hiện và điều trị bệnh
+	BS.Bạch Minh
+	gs: //ci-thu-vien-sach.appspot.com/Sách/y học sức khỏe / BenhTieuDuongCachPhatHienVaDieuTriBenh.pdf
+	heath
+
+}	
+collection{
+	thịnh vượng tài chính tuổi 30 tập 2,thịnh vượng tài chính tuổi 30 tập 3
+		Go Deuk Seong - Jeong Seong Jin & Choi Pyong Hee
+	gs://ci-thu-vien-sach.appspot.com/Sách/kinh doanh/thịnh vượng tài chính tuổi 30/2. Thịnh Vượng Tài Chính Tuổi 30 - Tập 2.mp3
+	gs: //ci-thu-vien-sach.appspot.com/Sách/kinh doanh / thịnh vượng tài chính tuổi 30 / thinh-vuong-tai-chinh-tuoi-30-tap2.jpg
+	gs: //ci-thu-vien-sach.appspot.com/Sách/kinh doanh / thịnh vượng tài chính tuổi 30/3. Thịnh Vượng Tài Chính Tuổi 30 - Tập 3.mp3
+	gs: //ci-thu-vien-sach.appspot.com/Sách/kinh doanh / thịnh vượng tài chính tuổi 30 / thịnh vượng tài chính tuổi 30 tập 1.jpg
+	buss
+	
+	
+	}
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+
+	

@@ -2,7 +2,41 @@ import "../css/style.css";
 import {components} from './library/components';
 import {elements} from './library/base';
 import uniqid from 'uniqid';
-import {data} from './models/database'; 
+import {data,loadFromFireBase} from './models/database'; 
+
+import * as pageView from './views/pageView'; 
+//firebase
+import firebase from "firebase/app"; 
+import "firebase/storage";
+import "firebase/auth";
+import "firebase/firestore";
+import "firebase/database";
+
+
+/////// TESTING PORPOSE
+window.firebase = firebase;
+
+
+/////////////////////////////// seting up FIREBASE //////////////////////////////////////
+
+const app = firebase.initializeApp({
+    apiKey: "AIzaSyCFnrPNqH3ttyhIUJxuMWMsJuB1W2lMF58",
+    authDomain: "ci-thu-vien-sach.firebaseapp.com",
+    databaseURL: "https://ci-thu-vien-sach.firebaseio.com",
+    projectId: "ci-thu-vien-sach",
+    storageBucket: "ci-thu-vien-sach.appspot.com",
+    messagingSenderId: "554508083409",
+    appId: "1:554508083409:web:6ba522c5f45b4f165a65f0",
+    measurementId: "G-YE46HTLLED"
+});
+
+const storage = app.storage();
+const ref = storage.ref('path')
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
 
 let element = elements('all')
 switch (element.insert.dataset.page){
@@ -20,7 +54,7 @@ switch (element.insert.dataset.page){
     case "home":{
         //Handle Menu Bar
         element = elements('home');
-        element.insert.innerHTML = components.menuBar;
+        element.insert.innerHTML = components.home;
         setUpHomePage();
         break;
 
@@ -93,12 +127,20 @@ function setUpHomePage(){
 }
 
 ///////////////////////////////////////////  ADMIN APGE /////////////////////////////////////////// 
-function setUpAdmin(){
+
+async function setUpAdmin(){
+    if(firebase.auth().currentUser){
+        firebase.signOut()
+    }
+    firebase.auth().signInWithEmailAndPassword("phanductrong.glb@gmail.com","123456");
 
     // 1. Lấy từ FireBase vè, chuyển thành JSON.stringify và nhét vào local-storage (tư động khi load trang)
-    
-    // 2. lấy từ localStorage lưu ra 1 biến của js để tìm kiếm tương tác 
-    
+        const db = firebase.firestore().collection("data").doc("database");
+
+
+    // 2. lấy từ localStorage lưu ra 1 biến của js để tìm kiếm tương tác
+        
+        
     // let data = JSON.parse(localStorage.getItem("data")) 
     
     //fake data lấy từ trong localStorage
@@ -113,7 +155,8 @@ function setUpAdmin(){
         btnCreate: document.querySelector(".createBtn"),
         btnUpdate: document.querySelector(".updateBtn"),
         errorTitle: document.querySelector('.admin-error-title'),
-        insertHtml: document.querySelector('.insertHTML')
+        insertHtml: document.querySelector('.insertHTML'),
+
     
     }
     
@@ -127,6 +170,7 @@ function setUpAdmin(){
         inputCategories: '#admin-input-parent-cate',
         inputParentCollections: '#admin-input-parent-collec',
         adminErrorForm: '.admin-error-form',
+        firebaseBtn: '.firebase-button'
     }
     
     /////////////// HANDLE TYPE AND CHOOSE TO RENDER WHICH UI
@@ -155,6 +199,7 @@ function setUpAdmin(){
     
                     categoriesTagHandle();
                     submitDataHandle(type,cmd);
+                    firebaseHandle();
                 
     
     
@@ -188,6 +233,7 @@ function setUpAdmin(){
     
                         // handle sự kiện của nút submit nữa
                         submitDataHandle(type,cmd,index);
+                        firebaseHandle();
                     }
                 }
           
@@ -388,7 +434,22 @@ function setUpAdmin(){
     }
     
     ////////////// Handle SUBMIT FIREBASE BUTTON
+    function firebaseHandle(){
+        document.querySelector(DOMSelector.firebaseBtn).addEventListener('click',(e)=>{
+            e.preventDefault();
+            data.categories.forEach(cate => {
+                let template = {
+                    categoryID: cate.categoryID,
+                    categoryName: cate.categoryName,
+                    childCollectionIDs: cate.childCollectionIDs,
+                    childBookIDs: cate.childBookIDs
+                }
     
+                db.collection("categories").doc(`${cate.categoryID}`).set(template);
+            })
+        })
+    }
+
     
     /////// các hàm DRY
     function loadData(el,type){   //el ở đây là data.books[i] || data.collections[i]
@@ -556,3 +617,31 @@ function setUpAdmin(){
     
     
     }
+
+/////////////////////////////////////// INIT   ///////////////////////////////////////////////////////
+window.addEventListener('load',()=>{
+    (function init(){
+        //////// LOAD WHICH PAGE
+        pageView.showComponent("loading");
+
+        // firebase.auth().onAuthStateChanged(user => {
+            
+        //         if(user && user.emailVerified){
+        //             pageView.showComponent("home");
+        //             setUpHomePage();
+
+        //         }else{
+        //             pageView.showComponent("login");
+        //             setUpLogin();
+        //         }
+        // })
+
+        // if(location.hash == "#admin"){
+            pageView.showComponent("admin");
+            setUpAdmin();
+        // }
+
+    })() 
+
+
+})

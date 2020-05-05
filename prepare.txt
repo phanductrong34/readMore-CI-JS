@@ -199,3 +199,15 @@ trường hợp ngược lại ấy là đổi (hover: hover) thôii
 url ảnh là lấy ở src, và css lấy ảnh thì là từ scr/css/style.css đi ra
 url svg lại lấy từ dist. và đi ra từ index.html cũng ở dist đc sinh ra
 js lấy ảnh thì là từ src, lấy ảnh cũng trong src
+
+
+
+
+firebase deploy --token "1//0eWeLKoA9SjmZCgYIARAAGA4SNwF-L9IrF7GtB6LaVwQVoPydDABm5-0tjQD_qH9ZltsJkduq6-qwLHpyyrQM51dRZ00yYME3vO4"
+
+
+Khi đã kết nối CLI với CI thì sau này mọi lệnh firebase đều cần token để thực hiện --> thêm flag  --token <token của mình>
+
+firebase logout --token token
+
+với token = 1//0eWeLKoA9SjmZCgYIARAAGA4SNwF-L9IrF7GtB6LaVwQVoPydDABm5-0tjQD_qH9ZltsJkduq6-qwLHpyyrQM51dRZ00yYME3vO4
