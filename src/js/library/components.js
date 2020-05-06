@@ -2154,6 +2154,8 @@ export const components = {
                 <div class="firstBtn">
                     <button class="admin-button createBtn">Create</button>
                     <button class="admin-button updateBtn">Update</button>
+                    <button class="admin-button loadBtn">Load JSON</button>
+                    
                 </div>
             </div>
 
@@ -2217,7 +2219,9 @@ export const components = {
 </fieldset>
 <div class="admin-error-form"></div>
 <input type="submit" class="admin-button submitBtn" value ="Submit" />
-<button class="firebase-button">Update FireBase</button>
+<button class="firebase-button admin-button">Update FireBase</button>
+<a id="downloadAnchorElem" style="display:none"></a>
+<button id="download__link" class="admin-button">Download Data as JSON</button>
 `,
 
     collection: `
@@ -2275,6 +2279,9 @@ export const components = {
     </fieldset>
     <div class="admin-error-form"></div>
     <input type="submit" class="admin-button submitBtn" value ="Submit" />
-    <button class="firebase-button>Update FireBase</button>
+    <button class="firebase-button admin-button">Update FireBase</button>
+    <a id="downloadAnchorElem" style="display:none"></a>
+    <button id="download__link" class="admin-button">Download Data as JSON</button>
+    
     `
 }

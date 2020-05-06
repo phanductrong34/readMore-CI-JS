@@ -35,6 +35,19 @@ fieldset{
     max-width: 50%;
 
 }
+
+#download__link{
+    background-color: rgb(0, 139, 177);
+    color: white;
+    font-weight: bold;
+    display: inline-block !important;
+    margin-right: 0.5rem;
+    padding: 0.2rem 1rem;
+    border-radius: 1rem;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+}
 .admin-button,.admin-select{
     display: inline-block !important;
     margin-right: 0.5rem;

@@ -2,7 +2,7 @@ import "../css/style.css";
 import {components} from './library/components';
 import {elements} from './library/base';
 import uniqid from 'uniqid';
-import {data,loadFromFireBase} from './models/database'; 
+import {data,loadFromLocal} from './models/database'; 
 
 import * as pageView from './views/pageView'; 
 //firebase
@@ -140,7 +140,6 @@ async function setUpAdmin(){
 
     // 2. lấy từ localStorage lưu ra 1 biến của js để tìm kiếm tương tác
         
-        
     // let data = JSON.parse(localStorage.getItem("data")) 
     
     //fake data lấy từ trong localStorage
@@ -170,7 +169,8 @@ async function setUpAdmin(){
         inputCategories: '#admin-input-parent-cate',
         inputParentCollections: '#admin-input-parent-collec',
         adminErrorForm: '.admin-error-form',
-        firebaseBtn: '.firebase-button'
+        firebaseBtn: '.firebase-button',
+        downloadLink: '#download__link'
     }
     
     /////////////// HANDLE TYPE AND CHOOSE TO RENDER WHICH UI
@@ -200,6 +200,7 @@ async function setUpAdmin(){
                     categoriesTagHandle();
                     submitDataHandle(type,cmd);
                     firebaseHandle();
+                    downloadHandle();
                 
     
     
@@ -234,7 +235,18 @@ async function setUpAdmin(){
                         // handle sự kiện của nút submit nữa
                         submitDataHandle(type,cmd,index);
                         firebaseHandle();
+                        downloadHandle();
                     }
+                }else if(cmd === "Load JSON"){
+                    try{
+                        let jsonObj = require("../../readmoreDatabase.json");
+                        loadFromLocal(jsonObj);
+                        alert("---------Loading Previous Data Succeed-------")
+                        console.log(data)
+                    }catch(error){
+                        alert(`ERROR: ${error}`);
+                    }
+
                 }
           
             }
@@ -310,11 +322,14 @@ async function setUpAdmin(){
                             title: inputTitle,
                             description:inputDescription,
                             imgUrl:inputImage,
-                            bookmark: false,
                             readUrl:inputRead,
                             audioUrl:inputAudio,
                             downloadUrl:"",
-                            viewCount:0
+                            viewCount:0,
+                            ratingCount:0,
+                            ratingScore:0,
+
+                            
                         }
                         : obj = {
                             collectionID: uniqid("c-"),
@@ -324,11 +339,12 @@ async function setUpAdmin(){
                             title: inputTitle,
                             description: inputDescription,
                             imgUrl:inputImage,
-                            bookmark: false,
                             readUrl:inputRead,
                             audioUrl:inputAudio,
                             downloadUrl:"",
-                            viewCount:0
+                            viewCount:0,
+                            ratingCount:0,
+                            ratingScore:0,
                         }
     
                         //RẼ NHÁNH TÙY THEO Create HAY Update
@@ -432,22 +448,106 @@ async function setUpAdmin(){
             //sau đó tùy là create hay update, create thì ta cứ push thẳng vào array books hoặc collection, update thì ta thay index thành index của book đó trong array 
     
     }
-    
+    ///////////// HANDLE DOWNLOAD BUTTON//////////////////////
+    function downloadHandle(){
+        document.querySelector(DOMSelector.downloadLink).addEventListener("click",()=>{
+            var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data));
+            var dlAnchorElem = document.getElementById('downloadAnchorElem');
+            dlAnchorElem.setAttribute("href",     dataStr     );
+            dlAnchorElem.setAttribute("download", "readmoreDatabase.json");
+            dlAnchorElem.click();
+        })
+    }
+
     ////////////// Handle SUBMIT FIREBASE BUTTON
     function firebaseHandle(){
-        document.querySelector(DOMSelector.firebaseBtn).addEventListener('click',(e)=>{
-            e.preventDefault();
-            data.categories.forEach(cate => {
-                let template = {
-                    categoryID: cate.categoryID,
-                    categoryName: cate.categoryName,
-                    childCollectionIDs: cate.childCollectionIDs,
-                    childBookIDs: cate.childBookIDs
-                }
+
+            document.querySelector(DOMSelector.firebaseBtn).addEventListener('click',(e)=>{
+                e.preventDefault();
+                const lorem = "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit distinctio expedita ea neque natus placeat iste facilis debitis explicabo quos, voluptate, doloremque accusamus deserunt a, laboriosam earum deleniti quae. Nostrum."
     
-                db.collection("categories").doc(`${cate.categoryID}`).set(template);
+                // thêm category vào collection("categories")
+                console.log("----------------< FIREBASE >----------------")
+                data.categories.forEach(cate => {
+                    let template = {
+                        categoryID: cate.categoryID,
+                        categoryName: cate.categoryName,
+                        childCollectionIDs: cate.childCollectionIDs,
+                        childBookIDs: cate.childBookIDs
+                    }
+        
+                    db.collection("categories").doc(`${cate.categoryID}`).set(template).then(()=>{
+                        console.log("Update Categories to Firebase SUCCEED!")
+                    })
+                })
+    
+                // thêm author vào collection("authors")
+    
+                data.authors.forEach(author => {
+                    let template = {
+                            authorID: author.authorID,
+                            authorName: author.authorName,
+                            childBookIDs: author.childBookIDs,
+                            childCollectionIDs:author.childCollectionIDs,
+                    }
+        
+                    db.collection("authors").doc(`${author.authorID}`).set(template).then(()=>{
+                        console.log("Update Authors to Firebase SUCCEED!")
+                    })
+                })
+    
+                 // thêm collection vào collection("collections")
+    
+                 data.collections.forEach(collec => {
+                    let template = {
+                            collectionID:collec.collectionID,
+                            parentCategoryIDs:collec.parentCategoryIDs,
+                            parentAuthorID: collec.parentAuthorID,
+                            childBookIDs:collec.childBookIDs,
+                            title:collec.title,
+                            description:collec.description || lorem,
+                            imgUrl:collec.imgUrl,
+                            readUrl:collec.readUrl,
+                            audioUrl:collec.audioUrl,
+                            downloadUrl:collec.downloadUrl || null,
+                            viewCount:collec.viewCount || 0,
+                            ratingCount:collec.ratingCount || Math.round(Math.random()*1000+2000),
+                            ratingScore: collec.ratingScore|| (Math.random()*3+2).toFixed(2)
+                    }
+        
+                    db.collection("collections").doc(`${collec.collectionID}`).set(template).then(()=>{
+                        console.log("Update Collections to Firebase SUCCEED!")
+                    })
+                });
+    
+                // thêm collection vào collection("collections")
+    
+                 data.books.forEach(book => {
+                    let template = {
+                            bookID:book.bookID,
+                            parentCategoryIDs:book.parentCategoryIDs,
+                            parentCategoryIDs: book.parentCategoryIDs,
+                            parentAuthorID: book.parentAuthorID,
+                            title:book.title,
+                            description:book.description,
+                            imgUrl:book.imgUrl,
+                            readUrl:book.readUrl,
+                            audioUrl:book.audioUrl,
+                            downloadUrl:book.downloadUrl || null,
+                            viewCount:book.viewCount || 0,
+                            ratingCount:book.ratingCount || Math.round(Math.random()*1000+2000),
+                            ratingScore: book.ratingScore|| (Math.random()*3+2).toFixed(2)
+                    }
+        
+                    db.collection("books").doc(`${book.bookID}`).set(template).then(()=>{
+                        console.log("Update Books to Firebase SUCCEED!")
+                    })
+                })
+    
+                console.log("---------------------------------------------------------------")
+    
             })
-        })
+       
     }
 
     

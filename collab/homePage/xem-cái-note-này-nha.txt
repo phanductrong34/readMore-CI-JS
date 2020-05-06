@@ -1,0 +1,53 @@
+- file databaseSample.js là để mn có cái khung database chuẩn trong model của mình, cũng như chính là các dữ liệu trên firebase firestore được tổ chức như này
+
+            - index.js ở section popular t có làm mẫu cho mn về 1 cái hiện đc full hết các data (ko bị khuyết link read, listen hay ảnh)
+            và 1 cái ko load đc (load read,listen hoặc ảnh bị fail hoặc lấy đc kết quả "null") ==> mn hover vào cái card thứ 2 là sẽ thấy
+
+            ==> cách đối phó với trường hơp thông tin có nội dung null:    (CHÚ Ý "null" này là string, vì t làm data hơi lỗi ==> chú ý chỗ này có thể gây ra bug)
+                + imgUrl = "null"     ==>     background-image = url(../img/png/book-cover-null.jpg)   
+                                              có 1 cái ảnh book-cover-null.jpg trong folder img/png
+                --------------------------------------------------------------------
+                + readURL = "null"    ==>     khung xương html sẽ thay đổi như sau 
+                                                        
+                từ
+                            <svg class="book__button--listen-icon">
+                                <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use> 
+                            </svg>
+                thành 
+                            <svg class="book__button--listen-icon">
+                                <use xlink:href="./img/icons/sprite.svg#icon-read-null"></use> 
+                            </svg>
+
+                thay ở cái icon-read-null ==> ngay lập tức, icon sẽ chuyển thành cái có dấu gạch ngang
+
+                --------------------------------------------------------------------
+
+
+                + audioURL = "null"    ==>     khung xương html sẽ thay đổi như sau 
+                                                        
+                từ
+                            <svg class="book__button--listen-icon">
+                                <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
+                            </svg>
+                thành 
+                            <svg class="book__button--listen-icon">
+                                <use xlink:href="./img/icons/sprite.svg#icon-headphone-null"></use> 
+                            </svg>
+
+                thay ở cái icon-headphone-null ==> ngay lập tức, icon sẽ chuyển thành cái có dấu gạch ngang
+
+                --------------------------------------------------------------------
+                +  description = "null"    ==>     description = loremText  
+                    với const loremText = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas quae maxime error obcaecati voluptatibus quasi dolores saepe eum eius repudiandae fuga, ad explicabo accusantium commodi vero ullam, amet voluptatem optio."
+
+                --------------------------------------------------------------------    
+
+
+- phần rank user thì chưa có user nên để đó
+- phần rank tác giả thì ảnh tác giả ko cần quan tâm vội nha, có thể set background-color = black cũng đc
+
+- CHÚ Ý THẬT TO LÀ MN MUỐN SET ẢNH CHO BOOK THÌ PHẢI DÙNG
+            document.querySelectior("cái class của thẻ sẽ chèn ảnh").style.backgroundImage = "url(chèn imgUrl của book vào đây)";
+            
+            link tới web hướng dẫn: https://www.w3schools.com/jsref/prop_style_background.asp
+

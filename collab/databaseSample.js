@@ -1,4 +1,4 @@
-export let data = {
+let data = {
     categories : [
         {
             categoryID: "it",
@@ -187,9 +187,3 @@ export let data = {
         //  } 
     ],
     
-
-}
-
-export const loadFromLocal = (obj)=>{
-     data = obj;
-}

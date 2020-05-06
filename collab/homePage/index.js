@@ -105,6 +105,9 @@
 
     const collectionArray = document.querySelectorAll(domString.collectionCard);
     console.log(collectionArray);
+    Array.from(collectionArray).forEach(collection, function(){
+        collection
+    })
 
 
 
@@ -120,3 +123,6 @@
     
 // TRIGGER ==> FIREBASE ==> MODEL  ==> index.js    ==> UI
                       //==> VIEW                  ==> #id
+
+
+                      
