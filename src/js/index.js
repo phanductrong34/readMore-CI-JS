@@ -510,7 +510,7 @@ async function setUpAdmin(){
                             readUrl:collec.readUrl,
                             audioUrl:collec.audioUrl,
                             downloadUrl:collec.downloadUrl || null,
-                            viewCount:collec.viewCount || 0,
+                            viewCount:collec.viewCount || Math.round(Math.random()*4000+1000),
                             ratingCount:collec.ratingCount || Math.round(Math.random()*1000+2000),
                             ratingScore: collec.ratingScore|| (Math.random()*3+2).toFixed(2)
                     }
@@ -534,7 +534,7 @@ async function setUpAdmin(){
                             readUrl:book.readUrl,
                             audioUrl:book.audioUrl,
                             downloadUrl:book.downloadUrl || null,
-                            viewCount:book.viewCount || 0,
+                            viewCount:book.viewCount || Math.round(Math.random()*4000+1000),
                             ratingCount:book.ratingCount || Math.round(Math.random()*1000+2000),
                             ratingScore: book.ratingScore|| (Math.random()*3+2).toFixed(2)
                     }
