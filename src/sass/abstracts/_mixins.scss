@@ -109,6 +109,10 @@ khi viết media query thì em tốt hơn rem, và đều nhận font-size root 
     font-weight: 900;
 }
 
+@mixin title-heading {
+    font-family: 'Roboto Slab', cursive;
+}
+
 
 @mixin button-hover{
     box-shadow: 0rem 0.5rem 1rem rgba(black,0.2);
@@ -123,6 +127,10 @@ khi viết media query thì em tốt hơn rem, và đều nhận font-size root 
     box-shadow: 0rem 0.8rem 1.5rem rgba(black,0.2); 
     
 }
+@mixin shadow-card-up{
+    box-shadow: 0rem -2rem 2rem rgba(black,0.3); 
+    
+}
 @mixin shadow-even{
     box-shadow: 0rem 0rem 0.5rem rgba(black,0.5); 
     
@@ -134,4 +142,12 @@ khi viết media query thì em tốt hơn rem, và đều nhận font-size root 
 @mixin shadow-even-2{
     box-shadow: 0rem 0rem 0.8rem rgba(black,0.3); 
     
+}
+
+
+
+@mixin backgroundSetUp {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }

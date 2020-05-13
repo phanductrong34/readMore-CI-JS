@@ -6,11 +6,15 @@
         position: relative;
         background-color: var(--color-white);
         display: flex;
-        width: 29%;
-        align-self: flex-start;
+        width: 28%;
+        min-width: 24rem;
         padding: 1.8rem;
         border-radius: 1.5rem;
+        margin-bottom: 3rem;
         @include shadow-card;
+        &:not(:last-child){
+            margin-right: 1rem;
+        }
 
     }
 

@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');    // trên này khi b
 
 module.exports = {                                           // hàm này sẽ thực hiện compile toàn bộ file(js,html) vào thư mục dist để chạy server
     entry: ['./src/js/index.js'],        //--> thay entry point tại đây
+    target: 'node',
     output:{
         path: path.resolve(__dirname,'./dist'),
         filename: 'js/bundle.js'                    //nó sẽ compile từ thư mục local là js và ném vào trong dist
@@ -14,9 +15,32 @@ module.exports = {                                           // hàm này sẽ t
     plugins: [
         new HtmlWebpackPlugin({
         filename: 'index.html',            // tên của file khi export
-        template: './src/index.html'      //nó sẽ tự độgn compile html từ folder src vào thưu mục dist ở trên và tự động link bundle.js
+        template: './src/index.html',     //nó sẽ tự độgn compile html từ folder src vào thưu mục dist ở trên và tự động link bundle.js
+
+        //sửa 
+        templateParameters(compilation, assets, options) {
+        return {
+          compilation: compilation,
+          webpack: compilation.getStats().toJson(),
+          webpackConfig: compilation.options,
+          htmlWebpackPlugin: {
+            files: assets,
+            options: options
+          },
+          process,
+        };
+      },
+      minify: {
+        collapseWhitespace: true,
+        removeAttributeQuotes: true,
+        removeComments: true
+      },
+      nodeModules: false
         })
     ],
+    node: {
+        fs: 'empty',
+      },
     module: {
         rules: [ 
             {

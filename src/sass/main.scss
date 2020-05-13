@@ -15,6 +15,7 @@
 @import "./components/rating";
 @import "./components/button";
 @import "./components/menuBar";
+@import "./components/spinning";
 
 @import "./layout/footer";
 @import "./layout/grid";
@@ -22,6 +23,8 @@
 @import "./layout/navigation";
 @import "./layout/section";
 
+@import "./pages/profile";
+@import "./pages/detail";
 @import "./pages/login";
 @import "./pages/admin";
 @import "./pages/home";

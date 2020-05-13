@@ -1,0 +1,65 @@
+body {
+    background-color: white;
+    font-family: 'Lato', sans-serif;
+}
+
+.popupuser-browse-category {
+    display: flex;
+    flex-direction: row;
+}
+
+.popupuser-books {
+    display: flex;
+    flex-direction: row;
+    border-right: 2px solid #e2e2e2;
+}
+
+.popupuser-collections {
+    display: flex;
+    flex-direction: row;
+}
+
+.text {
+    margin: 10px;
+    font-weight: bold;
+    font-family: lato;
+    color: #8d8d8d;
+}
+
+button {
+    background: #CB6BC1;
+    border-radius: 16.5908px;
+    border: none;
+    outline: none;
+    padding: 7px;
+    font-size: 10px;
+    color: white;
+}
+
+.popupuser-top {
+    display: flex;
+    flex-direction: row;
+    width: 897px;
+    align-items: center;
+}
+
+h2 {
+    width: 100%;
+    text-align: center;
+    border-bottom: 2px solid #e2e2e2;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+}
+
+h2 span {
+    background: #fff;
+    padding: 0 10px;
+}
+
+#books {
+    margin-left: 135px;
+}
+
+#collections {
+    margin-right: 138px;
+}

@@ -85,6 +85,113 @@ Psychological(tâm lý):                  psy
 Heath(sức khỏe - y tế):                 heath
 Cuisine(ẩm thực):                       cui
 
+Data Science - The must-have knowledge of IOT
+Tripple D techique in data
+
+
+Bí kíp thành công trong tài chính
+Thịnh Vượng Tài Chính Tuổi 30
+it
+
+Business Analysis for Practitioners
+CSDL
+Data Science _ Big Data Analytics
+Data Visualization for Oracle Business Intelligence 11g
+Digital Marketing _ Social Media
+
+
+buss
+Dạy con làm giàu-Tập 1
+Sức Mạnh Của Sự Khác Biệt
+Sách Đen Về Tinh Thần Doanh Nhân 
+Bí mật của may mắn
+Khẳng định Doanh tài nước Việt
+Thịnh Vượng Tài Chính Tuổi 30 - Tập 2
+Thịnh Vượng Tài Chính Tuổi 30 - Tập 1
+
+
+romantic
+Tiểu Thư Ôsin
+Chàng trai năm ấy
+Chọc tức vợ yêu
+Khi người ta đôi mươi
+Khi phụ nữ uống trà đàn ông nên cẩn thận
+Thời gian chỉ dừng lại vì em
+Sống chậm lại rồi mọi chuyện sẽ ổn thôi
+
+psy-skill
+Bí quyết vẽ bút chì
+Hướng dẫn học Karate
+Kĩ thuật đánh bóng bàn
+11 Lời Khuyên Dành Cho Thế Hệ Trẻ 
+Dám nghĩ lớn
+Chìa khóa thành công đại học
+Những bí quyết giao tiếp tốt
+
+Bác sĩ tốt nhất là chính mình
+Bệnh phụ nữ và cách điều trị
+Bách khoa vitamin
+Bào chế đông dược
+Bệnh loãng xương và cách điều trị
+Bệnh tiểu đường cách phát hiện và điều trị bệnh
+Bão Lửa U23 - Trường Châu Tuyết Trắng	
+Lịch Sử Nghệ Thuật Phương Tây	
+Võ Thuật Trung Hoa - Giáo Thuật
+Các món ăn chay trị bệnh
+Món ăn giúp trẻ thông minh học giỏi
+
+
+
+100 trọng tâm ôn kiến thức luyện kĩ năng hóa học 12
+360 câu hỏi trắc nghiệm vật lý 9 có đáp án
+572 bài tập trắc nghiệm chuyên đề hàm số 12
+Chinh phục câu hỏi lý thuyết hóa học theo chủ đề
+Đề thi trắc nghiệm môn toán 10 11 12
+Sổ tay tóm tắt công thức giải nhanh môn vật lý 12
+
+
+
+
+
+
+36 Kế Binh Pháp Tôn Tử
+	
+Ba chàng ngốc
+Thơ Ngụ Ngôn La Fontaine
+Tiếng cười Bác Ba Phi
+Truyện cười song ngữ Anh - Việt
+Chàng Ngốc Học Khôn
+Chuyện Nàng Tô Thị
+
+Ô Long Viện - Tập 1 Đậu Phụ Romantic
+Ô Long Viện - Tập 2 Thái Bổ Đầu Kho Tàu
+Ô Long Viện - Tập 3 Ma Quỷ Truyền Kỳ
+Ô Long Viện - Tập 4 Trái Ngọt Tình Yêu
+Ô Long Viện - Tập 5 Đội Cảm Tử Chua Ngọt
+Ô Long Viện - Tập 6 Hoàng Đế Óc Heo
+Ehon Nhật Bản_Trước khi đi dã ngoại
+
+Harry Porter Và Bảo Bối Tử Thần
+Harry Porter Và Chiếc Cốc Lửa	
+Harry Porter Và Hoàng Tử Lai
+Harry Porter Và Hòn Đá Phù Thủy
+Harry Porter Và Hội Phượng Hoàng
+Harry Porter Và Phòng Chứa Bí Mật
+Harry Porter Và Tên Tù Nhân Ngục Azkaban
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 book{
 	Business Analysis for Practitioners
@@ -170,7 +277,7 @@ book{
 	romantic
 		Từ trong hành lang đi ra, bị ánh nắng gay gắt đổ ập xuống người, Tịch Duệ Nam phải hơi nheo mắt lại, mặt mày nhăn nhó. Ngẩng lên nhìn bầu trời xanh thăm thẳm, trên mặt anh ta hiện ra một thứ cảm xúc lạc lõng, cô liêu, cặp mắt hoang mang như bị sương mù che phủ. Tịch Duệ Nam của thời khắc này so với Tịch Duệ Nam khoa trương, khiêu khích ở trong phòng lúc trước dường như là hai con người khác nhau.....	
 	
-	Chọc tức vợ yêu-mua một tặng một
+	Chọc tức vợ yêu
 	Quẫn Quẫn Hữu Yêu
 	gs://ci-thu-vien-sach.appspot.com/Sách/ngôn tình / choc-tuc-vo-yeu-mua-mot-tang-mot.pdf
 	romantic
@@ -347,9 +454,11 @@ Các món ăn chay trị bệnh
 
 Món ăn giúp trẻ thông minh học giỏi
 
-Nghệ thuật pha chế 460 loại rượu cocktail
 
+Những bí quyết giao tiếp tốt
 
+Thịnh Vượng Tài Chính Tuổi 30 - Tập 2
+Thịnh Vượng Tài Chính Tuổi 30 - Tập 1
 
 
 
@@ -370,9 +479,9 @@ Jokes (truyện cười - tiếu lâm): jok
 novel( tiểu thuyết kinh điển): novel
 	
 	
-	
+https://firebasestorage.googleapis.com/v0/b/ci-thu-vien-sach.appspot.com/o/Sa%CC%81ch%2FC%C3%B4ng%20Ngh%C3%AA%CC%A3%20Th%C3%B4ng%20Tin%2FBusiness%20Analysis%20for%20Practitioners.pdf?alt=media&token=edad5fe2-326b-4e42-8c49-c89c8f1d6e3a	
 
-	
+https://firebasestorage.googleapis.com/v0/b/ci-thu-vien-sach.appspot.com/Sách/Công Nghệ Thông Tin/Business Analysis for Practitioners.pdf
 	
 	
 	
