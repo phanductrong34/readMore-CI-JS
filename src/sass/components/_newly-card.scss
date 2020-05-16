@@ -84,6 +84,7 @@
                 height: 3.5rem;
                 background-color: rgba(black,0.6);
                 border-radius: 50%;
+                cursor: pointer;
             }
 
             &:hover ~ .newly__img{
@@ -144,8 +145,7 @@
         height: 27rem;
         width: 18rem;
         
-        background-position: center;
-        background-size: 100%;
+        @include backgroundSetUp;
 
         transition: 0.1s ease-in-out;
 

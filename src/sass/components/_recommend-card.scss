@@ -14,6 +14,7 @@
         margin-top: 5rem;
         @include shadow-card;
 
+
     }
 
     &__bookmark{
@@ -64,6 +65,7 @@
                 height: 3rem;
                 background-color: rgba(black,0.6);
                 border-radius: 50%;
+                cursor: pointer;
             }
 
             &:hover ~ .recommend__img{
@@ -163,6 +165,10 @@
     &__title{
         @include small-text-bold-12;
         text-transform: uppercase;
+        vertical-align: center;
+        text-align: center;
+        height: 4rem;
+
     }
 
     &__author{

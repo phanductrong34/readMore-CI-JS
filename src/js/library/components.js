@@ -4,20 +4,65 @@ export const components = {
     `,
     login: `
     <div class="login__container">
-        <form class="login__form">
-            
-                <input type="radio" id="signin" class="login__check login__check-1" name="sign" checked="checked">
-                <label for="signin" class="login__label">
-                    Sign in
-                </label>
-           
+        <div id="log-in-form" class="login__form">
 
 
-                <input type="radio" id="signup" class="login__check login__check-2" name="sign">
-                <label for="signup" class="login__label">
-                    Sign up
-                </label>
-        
+            <!--------------------------------->
+
+            <input type="radio" id="signin" class="login__check login__check-1" name="sign" checked="checked">
+            <label for="signin" class="login__label">
+                Sign in
+            </label>
+
+
+            <input type="radio" id="signup" class="login__check login__check-2" name="sign">
+            <label for="signup" class="login__label">
+                Sign up
+            </label>
+            <!-- ------------------------ -->
+            <!-- <form id="sign-up"> -->
+            <div class="form__container form__container-signup">
+
+                <div class="form__group">
+                    <svg class="form__icon">
+                        <use xlink:href="./img/icons/sprite.svg#icon-mail"></use>
+                    </svg>
+                    <input type="email" id="email1" class="form__input form__input-email" name="email"
+                        placeholder="User email">
+                    <div id="email-error" class="form__error"></div>
+                </div>
+
+                <div class="form__group">
+                    <svg class="form__icon">
+                        <use xlink:href="./img/icons/sprite.svg#icon-key"></use>
+                    </svg>
+                    <input type="password" id="password1" class="form__input form__input-password" name="password"
+                        placeholder="Password">
+                    <div id="password-error" class="form__error"></div>
+                </div>
+
+                <div class="form__group">
+                    <svg class="form__icon">
+                        <use xlink:href="./img/icons/sprite.svg#icon-key"></use>
+                    </svg>
+                    <input type="password" id="confirmPassword1" class="form__input form__input-confirmPassword"
+                        name="confirmPassword" placeholder="Confirm password">
+                    <div id="confirm-password-error" class="form__error"></div>
+                </div>
+                <div id="success"></div>
+                <div id="false"></div>
+                <button id="signUpBtn" class="form__button form__button-signup">Sign up
+                    &#8594;</button>
+                <span id="gg-sign-in" class="form__button form__button-gmail">
+                    <svg class="form__icon-gmail">
+                        <use xlink:href="./img/icons/sprite.svg#icon-gmail"></use>
+                    </svg>
+                </span>
+            </div>
+            <!-- </form> -->
+
+            <!-- ------------------------ -->
+            <!-- <form id="sign-in"> -->
 
             <div class="form__container form__container-signin">
 
@@ -25,60 +70,32 @@ export const components = {
                     <svg class="form__icon">
                         <use xlink:href="./img/icons/sprite.svg#icon-mail"></use>
                     </svg>
-                    <input type="email" class="form__input form__input-email" placeholder="User email">
-                    <div class="form__error">Invalid Email</div> 
+                    <input type="email" id="email2" class="form__input form__input-email" name="email"
+                        placeholder="User email">
+                    <div id="email2-error" class="form__error"></div>
                 </div>
 
                 <div class="form__group">
                     <svg class="form__icon">
                         <use xlink:href="./img/icons/sprite.svg#icon-key"></use>
                     </svg>
-                    <input type="password" class="form__input form__input-password" placeholder="Password">
-                    <div class="form__error">Invalid Password</div>                     
+                    <input type="password" id="password2" class="form__input form__input-password" name="password"
+                        placeholder="Password">
+                    <div id="password2-error" class="form__error"></div>
                 </div>
+                <div id="false2"></div>
 
-                <button class="form__button form__button-signin">Let's Read &#8594;</button>
+
+                <button id="signInBtn" class="form__button form__button-signin">Let's Read &#8594;</button>
             </div>
+        </div>
+        <!-- -------------------- -->
 
 
-            <div class="form__container form__container-signup">
-
-                <div class="form__group">
-                    <svg class="form__icon">
-                        <use xlink:href="./img/icons/sprite.svg#icon-mail"></use>
-                    </svg>
-                    <input type="email" class="form__input form__input-email" placeholder="User email">
-                    <div class="form__error">Invalid Email</div> 
-                </div>
-
-                <div class="form__group">
-                    <svg class="form__icon">
-                        <use xlink:href="./img/icons/sprite.svg#icon-key"></use>
-                    </svg>
-                    <input type="password" class="form__input form__input-password" placeholder="Password">
-                    <div class="form__error">Invalid Password</div>                     
-                </div>
-                
-                <div class="form__group">
-                    <svg class="form__icon">
-                        <use xlink:href="./img/icons/sprite.svg#icon-key"></use>
-                    </svg>
-                    <input type="password" class="form__input form__input-confirmPassword" placeholder="Confirm password">
-                    <div class="form__error">Invalid Confirm Password</div>                    
-                </div>
-
-                <button class="form__button form__button-signup">Sign up &#8594;</button>
-                <span class="form__button form__button-gmail">
-                    <svg class="form__icon-gmail">
-                        <use xlink:href="./img/icons/sprite.svg#icon-gmail"></use>
-                    </svg>
-                </span>
-            </div>
-
-        </form>
+        <!-- </form> -->
     </div>
 
-    <div class="animation__container">
+    <div class="container">
         <div class="bm bm__shape" data-file="shape"></div>
         <div class="bm bm__ball" data-file="ball"></div>
         <div class="bm bm__book" data-file="book"></div>
@@ -140,7 +157,6 @@ export const components = {
         <!-- NAV BAR -->
             <nav class="navigation">
 
-
                 <div class="nav__container--browse">
                     <h3 class="nav__browse--category heading-tertiary">Browse Categories</h3>
                     <svg class="nav__browse--icon icon-arrow-down">
@@ -180,12 +196,84 @@ export const components = {
 
 
                 <div class="nav__container--user">
+                    
+                    <div class="nav__user--tooptip">
+                        <div class="info-container">
+                            <div class="popupuser-info">
+                                <div class="nav__grid-1">
+                                    <img src="https://image.shutterstock.com/image-photo/white-transparent-leaf-on-mirror-260nw-1029171697.jpg" alt="ảnh">
+                                </div>
+                                <div class="nav__grid-3">
+                                    <div class="name tooltip-name">phanductrong1234</div>
+                                    <div class="gmail tooltip-email">phanductrong1234@gmail.com</div>
+                                    <div class="updateProfile">
+                                        <button class = "tooltip-button">Update Profile
+                                            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                    
+                            </div>
+                            <div class="nav__user--list">
+                                <div class="nav__user--item">
+                                    <div class="nav__user--icon">
+                                        <i class="fa fa-book" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="nav__user-title">
+                                        <div class="nav__user-continue tooltip-continue">Continue reading from last page</div>
+                                        <div class="nav__user-info tooltip-current">(Harry...adfjgajdkhjaskgfsdajgajgaj.)</div>
+                                    </div>
+                        
+                        
+                                </div>
+                                <div class="nav__user--item tooltip-books">
+                                    <div class="nav__user--icon">
+                                        <i class="fa fa-bookmark" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="nav__user-text">
+                                        <div class="nav__user-text-1">MY BOOKMARKS</div>
+                                        <div class="nav__user-text-2 tooltip-books-no">5</div>
+                                    </div>
+                                </div>
+                                <div class="nav__user--item tooltip-collections">
+                                    <div class="nav__user--icon">
+                                        <i class="fa fa-archive" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="nav__user-text">
+                                        <div class="nav__user-text-1">MY COLLECTIONS</div>
+                                        <div class="nav__user-text-2 tooltip-collections-no">5</div>
+                                    </div>
+                                </div>
+                                <div class="nav__user--item">
+                                    <div class="nav__user--icon">
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="nav__user-text">
+                                        <div class="nav__user-text-1">MY DOWNLOADS</div>
+                                        <div class="nav__user-text-2">5</div>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="nav__user--login tooltip-logout">
+                                <div class="nav__user--icon">
+                                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                </div>
+                                <div class="nav__user-text">
+                                    <div>LOG OUT</div>
+                                </div>
+                            </div>
+                        </div>
+        
+                    </div>
                     <svg class="nav__user--icon icon-arrow-down">
                         <use xlink:href="./img/icons/sprite.svg#icon-arrow-down"></use>
                     </svg>
                     <div class="nav__user--img"></div>
+
                 </div>
 
+        
 
 
                 <div class="nav__container--menu">
@@ -200,6 +288,7 @@ export const components = {
 
             </nav>
             
+
             <!-- DEATAIL PAGE -->
             <div class="detail__insert-book">
                                                 <div class="detail-page">
@@ -265,28 +354,28 @@ export const components = {
                                         
                                                     <div class="detail__grid detail__grid-3">
                                                         <div class="detail__link--container detail__link--container-book">
-                                                            <a href="" class="detail__link--read btn__detail btn__detail-blue" data-link = "">
+                                                            <a class="detail__link--read btn__detail btn__detail-blue" data-link = "">
                                                                 <svg class="detail__link--read--icon">
                                                                     <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use> 
                                                                 </svg>
                                                                 <span class="detail__link--read--content">Read</span>
                                                             </a>
                                         
-                                                            <a href="" class="detail__link--listen btn__detail btn__detail-orange" data-link = "">
+                                                            <a class="detail__link--listen btn__detail btn__detail-orange" data-link = "">
                                                                 <svg class="detail__link--listen--icon">
                                                                     <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
                                                                 </svg>
                                                                 <span class="detail__link--listen--content">Audio</span>
                                                             </a>
                                         
-                                                            <a href="" class="detail__link--download btn__detail btn__detail-white" data-link = "">
+                                                            <a  class="detail__link--download btn__detail btn__detail-white" data-link = "">
                                                                 <svg class="detail__link--download--icon">
                                                                     <use xlink:href="./img/icons/sprite.svg#icon-download-grey-solid"></use> 
                                                                 </svg>
                                                                 <span class="detail__link--download--content">Download</span>
                                                             </a>
                                         
-                                                            <a href="" class="detail__link--bookmark btn__detail btn__detail-none">
+                                                            <a  class="detail__link--bookmark btn__detail btn__detail-none">
                                                                 <span class="detail__link--bookmark--content">Add to my Bookmark</span>
                                                                 <svg class="detail__link--bookmark--icon">
                                                                     <use xlink:href="./img/icons/sprite.svg#icon-bookmark-grey"></use> 
@@ -303,17 +392,17 @@ export const components = {
                                         
                                                                     <div class="detail__button--recommend-container">
                                         
-                                                                        <a href="#!" class="detail__button--listen">
+                                                                        <a class="detail__button--listen">
                                                                             <svg class="detail__button--listen-icon">
                                                                                 <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
                                                                             </svg>
                                                                         </a>
-                                                                        <a href="#!" class="detail__button--read">
+                                                                        <a class="detail__button--read">
                                                                             <svg class="detail__button--read-icon">
                                                                                 <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use> 
                                                                             </svg>
                                                                         </a>
-                                                                        <a href="#!" class="detail__button--download">
+                                                                        <a class="detail__button--download">
                                                                             <svg class="detail__button--download-icon">
                                                                                 <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use> 
                                                                             </svg>
@@ -740,21 +829,21 @@ export const components = {
                                                                 <span class="detail__link--read--content">Read</span>
                                                             </a>
 
-                                                            <a href="" class="detail__link--listen btn__detail btn__detail-orange">
+                                                            <a  class="detail__link--listen btn__detail btn__detail-orange">
                                                                 <svg class="detail__link--listen--icon">
                                                                     <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
                                                                 </svg>
                                                                 <span class="detail__link--listen--content">Audio</span>
                                                             </a>
 
-                                                            <a href="" class="detail__link--download btn__detail btn__detail-white">
+                                                            <a  class="detail__link--download btn__detail btn__detail-white">
                                                                 <svg class="detail__link--download--icon">
                                                                     <use xlink:href="./img/icons/sprite.svg#icon-download-grey-solid"></use> 
                                                                 </svg>
                                                                 <span class="detail__link--download--content">Download</span>
                                                             </a>
 
-                                                            <a href="" class="detail__link--bookmark btn__detail btn__detail-none">
+                                                            <a class="detail__link--bookmark btn__detail btn__detail-none">
                                                                 <span class="detail__link--bookmark--content">Add to my Bookmark</span>
                                                                 <svg class="detail__link--bookmark--icon">
                                                                     <use xlink:href="./img/icons/sprite.svg#icon-bookmark-grey"></use> 
@@ -1112,1783 +1201,1354 @@ export const components = {
             <!-- CÁC SECTION Ở TRONG NÀY -->
                 <main class="main">
     
-            <!-- SECTION POPULAR -->
-                    <section class="section__popular" id="popular">
-                        <div class="grid-1">
-                            <h2 class="popular__author--title heading-secondary">Author of the week</h2>
-                            <ul class="popular__author--list">
-    
-                                <li class="popular__author--item">
-                                    <div class="popular__author--img popular__author--img-1"></div>
-                                    <div class="popular__author--name popular__author--name-1">Ashley Dawson</div>
-                                </li>
-                                <li class="popular__author--item">
-                                    <div class="popular__author--img popular__author--img-2"></div>
-                                    <div class="popular__author--name popular__author--name-2">Ashley Dawson</div>
-                                </li>
-                                <li class="popular__author--item">
-                                    <div class="popular__author--img popular__author--img-3"></div>
-                                    <div class="popular__author--name popular__author--name-3">Ashley Dawson</div>
-                                </li>
-                                <li class="popular__author--item">
-                                    <div class="popular__author--img popular__author--img-4"></div>
-                                    <div class="popular__author--name popular__author--name-4">Ashley Dawson</div>
-                                </li>
-                                <li class="popular__author--item">
-                                    <div class="popular__author--img popular__author--img-5"></div>
-                                    <div class="popular__author--name popular__author--name-5">Ashley Dawson</div>
-                                </li>
-                                <li class="popular__author--item">
-                                    <div class="popular__author--img popular__author--img-6"></div>
-                                    <div class="popular__author--name popular__author--name-6">Ashley Dawson</div>
-                                </li>
-                                <li class="popular__author--item">
-                                    <div class="popular__author--img popular__author--img-7"></div>
-                                    <div class="popular__author--name popular__author--name-7">Ashley Dawson</div>
-                                </li>
-                                <li class="popular__author--item">
-                                    <div class="popular__author--img popular__author--img-8"></div>
-                                    <div class="popular__author--name popular__author--name-8">Ashley Dawson</div>
-                                </li>
-    
-                            </ul>
-                        </div>
-        
-                        <div class="grid-3">
-                            <div class="popular__navigation">
-                                <h1 class=" popular__category--title heading-primary">Popular by Genre</h1>
-    
-                                <ul class="popular__category--list">
-                                    <li class="popular__category-item popular__category--item--active">Cuisine</li>
-                                    <li class="popular__category-item">Romantic</li>
-                                    <li class="popular__category-item">Health</li>
-                                    <li class="popular__category-item">Bussiness</li>
-                                    <li class="popular__category-item">Comic</li>
-                                </ul>
-                                
-                                <a href="#!" class="popular__category--btn btn__see-all">See All &rarr; </a>
-                            </div>
-    
-                            <div class="popular__book--shelf">
-    
-                                        <div class="book__card">
-                                            <div class="book__bookmark">
-                                                <svg class="book__bookmark-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-bookmark"></use> 
-                                                </svg>
-                                            </div>
-                                            
-                                            <div class="book__img book__img-1">
-    
+                                <!-- SECTION POPULAR -->
+                                <section class="section__popular" id="popular">
+                                    <div class="grid-1">
+                                        <h2 class="popular__author--title heading-secondary">Author of the week</h2>
+                                        <ul class="popular__author--list">
+            
+                                            <!-- <li class="popular__author--item">
+                                                <div class="popular__author--img popular__author--img-1"></div>
+                                                <div class="popular__author--name popular__author--name-1">Ashley Dawson</div>
+                                            </li>
+                                            <li class="popular__author--item">
+                                                <div class="popular__author--img popular__author--img-2"></div>
+                                                <div class="popular__author--name popular__author--name-2">Ashley Dawson</div>
+                                            </li>
+                                            <li class="popular__author--item">
+                                                <div class="popular__author--img popular__author--img-3"></div>
+                                                <div class="popular__author--name popular__author--name-3">Ashley Dawson</div>
+                                            </li>
+                                            <li class="popular__author--item">
+                                                <div class="popular__author--img popular__author--img-4"></div>
+                                                <div class="popular__author--name popular__author--name-4">Ashley Dawson</div>
+                                            </li>
+                                            <li class="popular__author--item">
+                                                <div class="popular__author--img popular__author--img-5"></div>
+                                                <div class="popular__author--name popular__author--name-5">Ashley Dawson</div>
+                                            </li>
+                                            <li class="popular__author--item">
+                                                <div class="popular__author--img popular__author--img-6"></div>
+                                                <div class="popular__author--name popular__author--name-6">Ashley Dawson</div>
+                                            </li>
+                                            <li class="popular__author--item">
+                                                <div class="popular__author--img popular__author--img-7"></div>
+                                                <div class="popular__author--name popular__author--name-7">Ashley Dawson</div>
+                                            </li>
+                                            <li class="popular__author--item">
+                                                <div class="popular__author--img popular__author--img-8"></div>
+                                                <div class="popular__author--name popular__author--name-8">Ashley Dawson</div>
+                                            </li> -->
+            
+                                        </ul>
+                                    </div>
+            
+                                    <div class="grid-3">
+                                        <div class="popular__navigation">
+                                            <h1 class=" popular__category--title heading-primary">Popular by Genre</h1>
+            
+                                            <ul class="popular__category--list">
+                                                <li class="popular__category-item popular__category--item--active">Business</li>
+                                                <li class="popular__category-item">Cuisine</li>
+                                                <li class="popular__category-item ">Romantic</li>
+                                                <li class="popular__category-item">Health</li>
+                                                <li class="popular__category-item">Comic</li>
+                                            </ul>
+            
+                                            <a href="#!" class="popular__category--btn btn__see-all">See All &rarr; </a>
+                                        </div>
+            
+                                        <div class="popular__book--shelf" id="popular-bookshelf">
+            
+                                            <!-- <div class="book__card">
+                                                <div class="book__bookmark">
+                                                    <svg class="book__bookmark-icon">
+                                                        <use xlink:href="./img/icons/sprite.svg#icon-bookmark"></use>
+                                                    </svg>
+                                                </div>
+            
+                                                <div class="book__img book__img-1">
+            
                                                     <div class="book__button--container">
-                
+            
                                                         <a href="#!" class="book__button--listen">
                                                             <svg class="book__button--listen-icon">
-                                                                <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use>
                                                             </svg>
                                                         </a>
                                                         <a href="#!" class="book__button--read">
                                                             <svg class="book__button--read-icon">
-                                                                <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use> 
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use>
                                                             </svg>
                                                         </a>
                                                         <a href="#!" class="book__button--download">
                                                             <svg class="book__button--download-icon">
-                                                                <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use> 
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use>
                                                             </svg>
                                                         </a>
-                
-                
+            
+            
                                                     </div>
-    
-                                            </div>
-        
-                                            <div class="book__info">
-                                                <h3 class="book__title">The Happy Lemon...</h3>
-                                                <h4 class="book__author">
-                                                    <span class="book__author--1">by</span>
-                                                    <span class="book__author--2">Serene Wright</span>
-                                                </h4>
-                                                <div class="book__rating rating__container">
-        
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star"></span>
-                                                    <span class="fa fa-star"></span>
-                                                    
+            
                                                 </div>
-    
-                                                <p class="book__description">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                                                <a href="#!" class="book__button btn__see-more btn__see-more-blue">
-                                                    <span>See More</span>
-                                                    <svg class=" btn__see-more-icon icon-arrow">
-                                                        <use xlink:href="./img/icons/sprite.svg#icon-arrow"></use> 
+            
+                                                <div class="book__info">
+                                                    <h3 class="book__title">The Happy Lemon...</h3>
+                                                    <h4 class="book__author">
+                                                        <span class="book__author--1">by</span>
+                                                        <span class="book__author--2">Serene Wright</span>
+                                                    </h4>
+                                                    <div class="book__rating rating__container">
+            
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star"></span>
+            
+                                                    </div>
+            
+                                                    <p class="book__description">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                        elit...</p>
+                                                    <a href="#!" class="book__button btn__see-more btn__see-more-blue">
+                                                        <span>See More</span>
+                                                        <svg class=" btn__see-more-icon icon-arrow">
+                                                            <use xlink:href="./img/icons/sprite.svg#icon-arrow"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+            
+            
+                                            </div>
+            
+            
+                                            <div class="book__card">
+            
+                                                <div class="book__bookmark">
+                                                    <svg class="book__bookmark-icon">
+                                                        <use xlink:href="./img/icons/sprite.svg#icon-bookmark-solid"></use>
                                                     </svg>
-                                                </a>
-                                            </div>
-        
-                                            
-                                        </div>
-    
-                    
-                                        <div class="book__card">
-    
-                                            <div class="book__bookmark">
-                                                <svg class="book__bookmark-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-bookmark-solid"></use> 
-                                                </svg>
-                                            </div>
-    
-                                        
-                                            
-                                            <div class="book__img book__img-2">
-                                                <div class="book__button--container">
-        
-                                                    <a href="#!" class="book__button--listen">
-                                                        <svg class="book__button--listen-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
-                                                        </svg>
-                                                    </a>
-                                                    <a href="#!" class="book__button--read">
-                                                        <svg class="book__button--read-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use> 
-                                                        </svg>
-                                                    </a>
-                                                    <a href="#!" class="book__button--download">
-                                                        <svg class="book__button--download-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use> 
-                                                        </svg>
-                                                    </a>
+                                                </div>
             
             
+            
+                                                <div class="book__img book__img-2">
+                                                    <div class="book__button--container">
+            
+                                                        <a href="#!" class="book__button--listen">
+                                                            <svg class="book__button--listen-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a href="#!" class="book__button--read">
+                                                            <svg class="book__button--read-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a href="#!" class="book__button--download">
+                                                            <svg class="book__button--download-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use>
+                                                            </svg>
+                                                        </a>
+            
+            
+                                                    </div>
                                                 </div>
+            
+                                                <div class="book__info">
+                                                    <h3 class="book__title">The Happy Lemon...</h3>
+                                                    <h4 class="book__author">
+                                                        <span class="book__author--1">by</span>
+                                                        <span class="book__author--2">Serene Wright</span>
+                                                    </h4>
+                                                    <div class="book__rating rating__container">
+            
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star"></span>
+                                                        <span class="fa fa-star"></span>
+            
+                                                    </div>
+            
+                                                    <p class="book__description">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                        elit...</p>
+                                                    <a href="#!" class="book__button btn__see-more btn__see-more-blue">
+                                                        <span>See More</span>
+                                                        <svg class=" btn__see-more-icon icon-arrow">
+                                                            <use xlink:href="./img/icons/sprite.svg#icon-arrow"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+            
+            
                                             </div>
-        
-                                            <div class="book__info">
-                                                <h3 class="book__title">The Happy Lemon...</h3>
-                                                <h4 class="book__author">
-                                                    <span class="book__author--1">by</span>
-                                                    <span class="book__author--2">Serene Wright</span>
-                                                </h4>
-                                                <div class="book__rating rating__container">
-        
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star"></span>
-                                                    <span class="fa fa-star"></span>
-                                                    
-                                                </div>
-    
-                                                <p class="book__description">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                                                <a href="#b-k9v4vtlx" class="book__button btn__see-more btn__see-more-blue">
-                                                    <span>See More</span>
-                                                    <svg class=" btn__see-more-icon icon-arrow">
-                                                        <use xlink:href="./img/icons/sprite.svg#icon-arrow"></use> 
+            
+            
+            
+                                            <div class="book__card">
+            
+                                                <div class="book__bookmark">
+                                                    <svg class="book__bookmark-icon">
+                                                        <use xlink:href="./img/icons/sprite.svg#icon-bookmark-solid"></use>
                                                     </svg>
-                                                </a>
-                                            </div>
-        
-                                            
-                                        </div>
-                                    
-                                    
-            
-                                        <div class="book__card">
-    
-                                            <div class="book__bookmark">
-                                                <svg class="book__bookmark-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-bookmark-solid"></use> 
-                                                </svg>
-                                            </div>
-    
-                                            
-                                            
-                                            <div class="book__img book__img-3">
-                                                <div class="book__button--container">
-        
-                                                    <a href="#!" class="book__button--listen">
-                                                        <svg class="book__button--listen-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
-                                                        </svg>
-                                                    </a>
-                                                    <a href="#!" class="book__button--read">
-                                                        <svg class="book__button--read-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use> 
-                                                        </svg>
-                                                    </a>
-                                                    <a href="#!" class="book__button--download">
-                                                        <svg class="book__button--download-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use> 
-                                                        </svg>
-                                                    </a>
-            
-            
                                                 </div>
-                                            </div>
-        
-                                            <div class="book__info">
-                                                <h3 class="book__title">The Happy Lemon...</h3>
-                                                <h4 class="book__author">
-                                                    <span class="book__author--1">by</span>
-                                                    <span class="book__author--2">Serene Wright</span>
-                                                </h4>
-                                                <div class="book__rating rating__container">
-        
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star"></span>
-                                                    <span class="fa fa-star"></span>
-                                                    
+            
+            
+            
+                                                <div class="book__img book__img-3">
+                                                    <div class="book__button--container">
+            
+                                                        <a href="#!" class="book__button--listen">
+                                                            <svg class="book__button--listen-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a href="#!" class="book__button--read">
+                                                            <svg class="book__button--read-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a href="#!" class="book__button--download">
+                                                            <svg class="book__button--download-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use>
+                                                            </svg>
+                                                        </a>
+            
+            
+                                                    </div>
                                                 </div>
-    
-                                                <p class="book__description">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                                                <a href="#!" class="book__button btn__see-more btn__see-more-blue">
-                                                    <span>See More</span>
-                                                    <svg class=" btn__see-more-icon icon-arrow">
-                                                        <use xlink:href="./img/icons/sprite.svg#icon-arrow"></use> 
+            
+                                                <div class="book__info">
+                                                    <h3 class="book__title">The Happy Lemon...</h3>
+                                                    <h4 class="book__author">
+                                                        <span class="book__author--1">by</span>
+                                                        <span class="book__author--2">Serene Wright</span>
+                                                    </h4>
+                                                    <div class="book__rating rating__container">
+            
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star"></span>
+                                                        <span class="fa fa-star"></span>
+            
+                                                    </div>
+            
+                                                    <p class="book__description">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                        elit...</p>
+                                                    <a href="#!" class="book__button btn__see-more btn__see-more-blue">
+                                                        <span>See More</span>
+                                                        <svg class=" btn__see-more-icon icon-arrow">
+                                                            <use xlink:href="./img/icons/sprite.svg#icon-arrow"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+            
+            
+                                            </div>
+            
+            
+                                            <div class="book__card">
+            
+                                                <div class="book__bookmark">
+                                                    <svg class="book__bookmark-icon">
+                                                        <use xlink:href="./img/icons/sprite.svg#icon-bookmark-solid"></use>
                                                     </svg>
-                                                </a>
-                                            </div>
-        
-                                            
-                                        </div>
-                                    
-                    
-                                        <div class="book__card">
-    
-                                            <div class="book__bookmark">
-                                                <svg class="book__bookmark-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-bookmark-solid"></use> 
-                                                </svg>
-                                            </div>
-    
-    
-                                            
-                                            <div class="book__img book__img-4">
-                                                <div class="book__button--container">
-        
-                                                    <a href="#!" class="book__button--listen">
-                                                        <svg class="book__button--listen-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
-                                                        </svg>
-                                                    </a>
-                                                    <a href="#!" class="book__button--read">
-                                                        <svg class="book__button--read-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use> 
-                                                        </svg>
-                                                    </a>
-                                                    <a href="#!" class="book__button--download">
-                                                        <svg class="book__button--download-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use> 
-                                                        </svg>
-                                                    </a>
+                                                </div>
             
             
+            
+                                                <div class="book__img book__img-4">
+                                                    <div class="book__button--container">
+            
+                                                        <a href="#!" class="book__button--listen">
+                                                            <svg class="book__button--listen-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a href="#!" class="book__button--read">
+                                                            <svg class="book__button--read-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a href="#!" class="book__button--download">
+                                                            <svg class="book__button--download-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use>
+                                                            </svg>
+                                                        </a>
+            
+            
+                                                    </div>
                                                 </div>
+            
+                                                <div class="book__info">
+                                                    <h3 class="book__title">The Happy Lemon...</h3>
+                                                    <h4 class="book__author">
+                                                        <span class="book__author--1">by</span>
+                                                        <span class="book__author--2">Serene Wright</span>
+                                                    </h4>
+                                                    <div class="book__rating rating__container">
+            
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star"></span>
+                                                        <span class="fa fa-star"></span>
+            
+                                                    </div>
+            
+                                                    <p class="book__description">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                        elit...</p>
+                                                    <a href="#!" class="book__button btn__see-more btn__see-more-blue">
+                                                        <span>See More</span>
+                                                        <svg class=" btn__see-more-icon icon-arrow">
+                                                            <use xlink:href="./img/icons/sprite.svg#icon-arrow"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+            
+            
                                             </div>
-        
-                                            <div class="book__info">
-                                                <h3 class="book__title">The Happy Lemon...</h3>
-                                                <h4 class="book__author">
-                                                    <span class="book__author--1">by</span>
-                                                    <span class="book__author--2">Serene Wright</span>
-                                                </h4>
-                                                <div class="book__rating rating__container">
-        
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star"></span>
-                                                    <span class="fa fa-star"></span>
-                                                    
-                                                </div>
-    
-                                                <p class="book__description">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                                                <a href="#!" class="book__button btn__see-more btn__see-more-blue">
-                                                    <span>See More</span>
-                                                    <svg class=" btn__see-more-icon icon-arrow">
-                                                        <use xlink:href="./img/icons/sprite.svg#icon-arrow"></use> 
+            
+            
+                                            <div class="book__card">
+            
+                                                <div class="book__bookmark">
+                                                    <svg class="book__bookmark-icon">
+                                                        <use xlink:href="./img/icons/sprite.svg#icon-bookmark-solid"></use>
                                                     </svg>
-                                                </a>
-                                            </div>
-        
-                                            
-                                        </div>
-    
-                    
-                                        <div class="book__card">
-    
-                                            <div class="book__bookmark">
-                                                <svg class="book__bookmark-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-bookmark-solid"></use> 
-                                                </svg>
-                                            </div>
-    
-                                            
-                                            <div class="book__img book__img-5">
-    
-                                                <div class="book__button--container">
-        
-                                                    <a href="#!" class="book__button--listen">
-                                                        <svg class="book__button--listen-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
-                                                        </svg>
-                                                    </a>
-                                                    <a href="#!" class="book__button--read">
-                                                        <svg class="book__button--read-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use> 
-                                                        </svg>
-                                                    </a>
-                                                    <a href="#!" class="book__button--download">
-                                                        <svg class="book__button--download-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use> 
-                                                        </svg>
-                                                    </a>
+                                                </div>
             
             
+                                                <div class="book__img book__img-5">
+            
+                                                    <div class="book__button--container">
+            
+                                                        <a href="#!" class="book__button--listen">
+                                                            <svg class="book__button--listen-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a href="#!" class="book__button--read">
+                                                            <svg class="book__button--read-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a href="#!" class="book__button--download">
+                                                            <svg class="book__button--download-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use>
+                                                            </svg>
+                                                        </a>
+            
+            
+                                                    </div>
                                                 </div>
+            
+                                                <div class="book__info">
+                                                    <h3 class="book__title">The Happy Lemon...</h3>
+                                                    <h4 class="book__author">
+                                                        <span class="book__author--1">by</span>
+                                                        <span class="book__author--2">Serene Wright</span>
+                                                    </h4>
+                                                    <div class="book__rating rating__container">
+            
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star"></span>
+                                                        <span class="fa fa-star"></span>
+            
+                                                    </div>
+            
+                                                    <p class="book__description">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                        elit...</p>
+                                                    <a href="#!" class="book__button btn__see-more btn__see-more-blue">
+                                                        <span>See More</span>
+                                                        <svg class=" btn__see-more-icon icon-arrow">
+                                                            <use xlink:href="./img/icons/sprite.svg#icon-arrow"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+            
+            
                                             </div>
-        
-                                            <div class="book__info">
-                                                <h3 class="book__title">The Happy Lemon...</h3>
-                                                <h4 class="book__author">
-                                                    <span class="book__author--1">by</span>
-                                                    <span class="book__author--2">Serene Wright</span>
-                                                </h4>
-                                                <div class="book__rating rating__container">
-        
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star"></span>
-                                                    <span class="fa fa-star"></span>
-                                                    
-                                                </div>
-    
-                                                <p class="book__description">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                                                <a href="#!" class="book__button btn__see-more btn__see-more-blue">
-                                                    <span>See More</span>
-                                                    <svg class=" btn__see-more-icon icon-arrow">
-                                                        <use xlink:href="./img/icons/sprite.svg#icon-arrow"></use> 
+            
+            
+            
+                                            <div class="book__card">
+            
+                                                <div class="book__bookmark">
+                                                    <svg class="book__bookmark-icon">
+                                                        <use xlink:href="./img/icons/sprite.svg#icon-bookmark-solid"></use>
                                                     </svg>
-                                                </a>
-                                            </div>
-        
-                                            
-                                        </div>
-                                    
-    
-                    
-                                        <div class="book__card">
-    
-                                            <div class="book__bookmark">
-                                                <svg class="book__bookmark-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-bookmark-solid"></use> 
-                                                </svg>
-                                            </div>
-    
-    
-                                            
-                                            <div class="book__img book__img-6">
-                                                <div class="book__button--container">
-        
-                                                    <a href="#!" class="book__button--listen">
-                                                        <svg class="book__button--listen-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
-                                                        </svg>
-                                                    </a>
-                                                    <a href="#!" class="book__button--read">
-                                                        <svg class="book__button--read-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use> 
-                                                        </svg>
-                                                    </a>
-                                                    <a href="#!" class="book__button--download">
-                                                        <svg class="book__button--download-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use> 
-                                                        </svg>
-                                                    </a>
+                                                </div>
             
             
+            
+                                                <div class="book__img book__img-6">
+                                                    <div class="book__button--container">
+            
+                                                        <a href="#!" class="book__button--listen">
+                                                            <svg class="book__button--listen-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a href="#!" class="book__button--read">
+                                                            <svg class="book__button--read-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a href="#!" class="book__button--download">
+                                                            <svg class="book__button--download-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use>
+                                                            </svg>
+                                                        </a>
+            
+            
+                                                    </div>
                                                 </div>
-                                            </div>
-        
-                                            <div class="book__info">
-                                                <h3 class="book__title">The Happy Lemon...</h3>
-                                                <h4 class="book__author">
-                                                    <span class="book__author--1">by</span>
-                                                    <span class="book__author--2">Serene Wright</span>
-                                                </h4>
-                                                <div class="book__rating rating__container">
-        
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star"></span>
-                                                    <span class="fa fa-star"></span>
-    
+            
+                                                <div class="book__info">
+                                                    <h3 class="book__title">The Happy Lemon...</h3>
+                                                    <h4 class="book__author">
+                                                        <span class="book__author--1">by</span>
+                                                        <span class="book__author--2">Serene Wright</span>
+                                                    </h4>
+                                                    <div class="book__rating rating__container">
+            
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star"></span>
+                                                        <span class="fa fa-star"></span>
+            
+                                                    </div>
+            
+                                                    <p class="book__description">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                        elit...</p>
+                                                    <a href="#!" class="book__button btn__see-more btn__see-more-blue">
+                                                        <span>See More</span>
+                                                        <svg class=" btn__see-more-icon icon-arrow">
+                                                            <use xlink:href="./img/icons/sprite.svg#icon-arrow"></use>
+                                                        </svg>
+                                                    </a>
                                                 </div>
-    
-                                                <p class="book__description">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                                                <a href="#!" class="book__button btn__see-more btn__see-more-blue">
-                                                    <span>See More</span>
-                                                    <svg class=" btn__see-more-icon icon-arrow">
-                                                        <use xlink:href="./img/icons/sprite.svg#icon-arrow"></use> 
-                                                    </svg>
-                                                </a>
-                                            </div>
-        
-                                            
+            
+            
+                                            </div> -->
+            
+            
+            
                                         </div>
-                                    
-                                
-    
-                            </div>
-    
-                        </div>
-                    </section>
-    
-            <!-- SECTION NEWLY UPDATED -->
-                    <section class="section__newly" id="newly">
-                    
-                        <div class="pagination">
-                            <div class="pagination__container">
-                                <a class="pagination__left pagination__left-newly">
-                                    <svg class="pagination__icon pagination__icon-left">
-                                        <use xlink:href="./img/icons/sprite.svg#icon-arrow-down"></use>
-                                    </svg>
-                                </a>
-                                <a class="pagination__right pagination__right-newly">
-                                    <svg class="pagination__icon pagination__icon-right">
-                                        <use xlink:href="./img/icons/sprite.svg#icon-arrow-down"></use>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-    
-    
-    
-                        <div class="newly__header">
-                            <h2 class="heading-primary">Newly Updated</h2>
-                            <span class="newly__line newly__line-1"></span>
-                        </div>
-    
-                        <div class="newly__overflow">
-                            <div class="newly__container" data-pos="0">
-    
-                                <div class="newly__card newly__card-1" id="newly-1">
-    
-                                    <div class="newly__bookmark">
-                                        <svg class="newly__bookmark-icon">
-                                            <use xlink:href="./img/icons/sprite.svg#icon-bookmark-solid"></use> 
-                                        </svg>
+            
                                     </div>
-    
-    
-                                    
-                                    <div class="newly__img newly__img-6">
-                                        <div class="newly__button--container">
-    
-                                            <a href="#!" class="newly__button--listen">
-                                                <svg class="newly__button--listen-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
+                                </section>
+            
+                                <!-- SECTION NEWLY UPDATED -->
+                                <section class="section__newly" id="newly">
+            
+                                    <div class="pagination">
+                                        <div class="pagination__container">
+                                            <a class="pagination__left pagination__left-newly">
+                                                <svg class="pagination__icon pagination__icon-left">
+                                                    <use xlink:href="./img/icons/sprite.svg#icon-arrow-down"></use>
                                                 </svg>
                                             </a>
-                                            <a href="#!" class="newly__button--read">
-                                                <svg class="newly__button--read-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use> 
+                                            <a class="pagination__right pagination__right-newly">
+                                                <svg class="pagination__icon pagination__icon-right">
+                                                    <use xlink:href="./img/icons/sprite.svg#icon-arrow-down"></use>
                                                 </svg>
                                             </a>
-                                            <a href="#!" class="newly__button--download">
-                                                <svg class="newly__button--download-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use> 
-                                                </svg>
-                                            </a>
-    
-    
                                         </div>
                                     </div>
-    
-                                    <div class="newly__info">
-                                        <h3 class="newly__title">The Happy Lemon</h3>
-                                        <h4 class="newly__author">
-                                            <span class="newly__author--1">by</span>
-                                            <span class="newly__author--2">Serene Wright</span>
-                                        </h4>
-                                        <div class="newly__rating rating__container">
-    
-                                            <span class="fa fa-star checked-1"></span>
-                                            <span class="fa fa-star checked-1"></span>
-                                            <span class="fa fa-star checked-1"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-    
+            
+            
+            
+                                    <div class="newly__header">
+                                        <h2 class="heading-primary">Newly Updated</h2>
+                                        <span class="newly__line newly__line-1"></span>
+                                    </div>
+            
+                                    <div class="newly__overflow">
+                                        <div class="newly__container" data-pos="0">
+            
+                                            <div class="newly__card newly__card-1" id="newly-1">
+            
+                                                <div class="newly__bookmark">
+                                                    <svg class="newly__bookmark-icon">
+                                                        <use xlink:href="./img/icons/sprite.svg#icon-bookmark-solid"></use>
+                                                    </svg>
+                                                </div>
+            
+            
+            
+                                                <div class="newly__img newly__img-2">
+                                                    <div class="newly__button--container">
+            
+                                                        <a href="#!" class="newly__button--listen">
+                                                            <svg class="newly__button--listen-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a href="#!" class="newly__button--read">
+                                                            <svg class="newly__button--read-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a href="#!" class="newly__button--download">
+                                                            <svg class="newly__button--download-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use>
+                                                            </svg>
+                                                        </a>
+            
+            
+                                                    </div>
+                                                </div>
+            
+                                                <div class="newly__info">
+                                                    <h3 class="newly__title">The Happy Lemon</h3>
+                                                    <h4 class="newly__author">
+                                                        <span class="newly__author--1">by</span>
+                                                        <span class="newly__author--2">Serene Wright</span>
+                                                    </h4>
+                                                    <div class="newly__rating rating__container">
+            
+                                                        <span class="fa fa-star checked-1"></span>
+                                                        <span class="fa fa-star checked-1"></span>
+                                                        <span class="fa fa-star checked-1"></span>
+                                                        <span class="fa fa-star"></span>
+                                                        <span class="fa fa-star"></span>
+            
+                                                    </div>
+            
+                                                    <p class="newly__description">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                        elit...</p>
+                                                    <a href="#!" class="newly__button btn__see-book btn__see-book-1">
+                                                        <span>See The Book</span>
+                                                    </a>
+                                                </div>
+            
+            
+                                            </div>
+            
+                                            <div class="newly__card newly__card-2" id="newly-2">
+            
+                                                <div class="newly__bookmark">
+                                                    <svg class="newly__bookmark-icon">
+                                                        <use xlink:href="./img/icons/sprite.svg#icon-bookmark-solid"></use>
+                                                    </svg>
+                                                </div>
+            
+            
+            
+                                                <div class="newly__img newly__img-5">
+                                                    <div class="newly__button--container">
+            
+                                                        <a href="#!" class="newly__button--listen">
+                                                            <svg class="newly__button--listen-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a href="#!" class="newly__button--read">
+                                                            <svg class="newly__button--read-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a href="#!" class="newly__button--download">
+                                                            <svg class="newly__button--download-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use>
+                                                            </svg>
+                                                        </a>
+            
+            
+                                                    </div>
+                                                </div>
+            
+                                                <div class="newly__info">
+                                                    <h3 class="newly__title">The Happy Lemon</h3>
+                                                    <h4 class="newly__author">
+                                                        <span class="newly__author--1">by</span>
+                                                        <span class="newly__author--2">Serene Wright</span>
+                                                    </h4>
+                                                    <div class="newly__rating rating__container">
+            
+                                                        <span class="fa fa-star checked-2"></span>
+                                                        <span class="fa fa-star checked-2"></span>
+                                                        <span class="fa fa-star checked-2"></span>
+                                                        <span class="fa fa-star"></span>
+                                                        <span class="fa fa-star"></span>
+            
+                                                    </div>
+            
+                                                    <p class="newly__description">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                        elit...</p>
+                                                    <a href="#!" class="newly__button btn__see-book btn__see-book-2">
+                                                        <span>See The Book</span>
+                                                    </a>
+                                                </div>
+            
+            
+                                            </div>
+            
+                                            <div class="newly__card newly__card-3" id="newly-3">
+            
+                                                <div class="newly__bookmark">
+                                                    <svg class="newly__bookmark-icon">
+                                                        <use xlink:href="./img/icons/sprite.svg#icon-bookmark-solid"></use>
+                                                    </svg>
+                                                </div>
+            
+            
+            
+                                                <div class="newly__img newly__img-3">
+                                                    <div class="newly__button--container">
+            
+                                                        <a href="#!" class="newly__button--listen">
+                                                            <svg class="newly__button--listen-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a href="#!" class="newly__button--read">
+                                                            <svg class="newly__button--read-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a href="#!" class="newly__button--download">
+                                                            <svg class="newly__button--download-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use>
+                                                            </svg>
+                                                        </a>
+            
+            
+                                                    </div>
+                                                </div>
+            
+                                                <div class="newly__info">
+                                                    <h3 class="newly__title">The Happy Lemon</h3>
+                                                    <h4 class="newly__author">
+                                                        <span class="newly__author--1">by</span>
+                                                        <span class="newly__author--2">Serene Wright</span>
+                                                    </h4>
+                                                    <div class="newly__rating rating__container">
+            
+                                                        <span class="fa fa-star checked-3"></span>
+                                                        <span class="fa fa-star checked-3"></span>
+                                                        <span class="fa fa-star checked-3"></span>
+                                                        <span class="fa fa-star"></span>
+                                                        <span class="fa fa-star"></span>
+            
+                                                    </div>
+            
+                                                    <p class="newly__description">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                        elit...</p>
+                                                    <a href="#!" class="newly__button btn__see-book btn__see-book-3">
+                                                        <span>See The Book</span>
+                                                    </a>
+                                                </div>
+            
+            
+                                            </div>
+            
+                                            <div class="newly__card newly__card-1" id="newly-4">
+            
+                                                <div class="newly__bookmark">
+                                                    <svg class="newly__bookmark-icon">
+                                                        <use xlink:href="./img/icons/sprite.svg#icon-bookmark-solid"></use>
+                                                    </svg>
+                                                </div>
+            
+            
+            
+                                                <div class="newly__img newly__img-6">
+                                                    <div class="newly__button--container">
+            
+                                                        <a href="#!" class="newly__button--listen">
+                                                            <svg class="newly__button--listen-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a href="#!" class="newly__button--read">
+                                                            <svg class="newly__button--read-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a href="#!" class="newly__button--download">
+                                                            <svg class="newly__button--download-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use>
+                                                            </svg>
+                                                        </a>
+            
+            
+                                                    </div>
+                                                </div>
+            
+                                                <div class="newly__info">
+                                                    <h3 class="newly__title">The Happy Lemon</h3>
+                                                    <h4 class="newly__author">
+                                                        <span class="newly__author--1">by</span>
+                                                        <span class="newly__author--2">Serene Wright</span>
+                                                    </h4>
+                                                    <div class="newly__rating rating__container">
+            
+                                                        <span class="fa fa-star checked-1"></span>
+                                                        <span class="fa fa-star checked-1"></span>
+                                                        <span class="fa fa-star checked-1"></span>
+                                                        <span class="fa fa-star"></span>
+                                                        <span class="fa fa-star"></span>
+            
+                                                    </div>
+            
+                                                    <p class="newly__description">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                        elit...</p>
+                                                    <a href="#!" class="newly__button btn__see-book btn__see-book-1">
+                                                        <span>See The Book</span>
+                                                    </a>
+                                                </div>
+            
+            
+                                            </div>
+            
+                                            <div class="newly__card newly__card-2" id="newly-5">
+            
+                                                <div class="newly__bookmark">
+                                                    <svg class="newly__bookmark-icon">
+                                                        <use xlink:href="./img/icons/sprite.svg#icon-bookmark-solid"></use>
+                                                    </svg>
+                                                </div>
+            
+            
+                                                <div class="newly__img newly__img-5">
+            
+                                                    <div class="newly__button--container">
+            
+                                                        <a href="#!" class="newly__button--listen">
+                                                            <svg class="newly__button--listen-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a href="#!" class="newly__button--read">
+                                                            <svg class="newly__button--read-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a href="#!" class="newly__button--download">
+                                                            <svg class="newly__button--download-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use>
+                                                            </svg>
+                                                        </a>
+            
+            
+                                                    </div>
+                                                </div>
+            
+                                                <div class="newly__info">
+                                                    <h3 class="newly__title">The Happy Lemon</h3>
+                                                    <h4 class="newly__author">
+                                                        <span class="newly__author--1">by</span>
+                                                        <span class="newly__author--2">Serene Wright</span>
+                                                    </h4>
+                                                    <div class="newly__rating rating__container">
+            
+                                                        <span class="fa fa-star checked-2"></span>
+                                                        <span class="fa fa-star checked-2"></span>
+                                                        <span class="fa fa-star checked-2"></span>
+                                                        <span class="fa fa-star"></span>
+                                                        <span class="fa fa-star"></span>
+            
+                                                    </div>
+            
+                                                    <p class="newly__description">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                        elit...</p>
+                                                    <a href="#!" class="newly__button btn__see-book btn__see-book-2">
+                                                        <span>See The Book</span>
+                                                    </a>
+                                                </div>
+            
+            
+                                            </div>
+            
+                                            <div class="newly__card newly__card-3" id="newly-6">
+            
+                                                <div class="newly__bookmark">
+                                                    <svg class="newly__bookmark-icon">
+                                                        <use xlink:href="./img/icons/sprite.svg#icon-bookmark-solid"></use>
+                                                    </svg>
+                                                </div>
+            
+            
+            
+                                                <div class="newly__img newly__img-3">
+                                                    <div class="newly__button--container">
+            
+                                                        <a href="#!" class="newly__button--listen">
+                                                            <svg class="newly__button--listen-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a href="#!" class="newly__button--read">
+                                                            <svg class="newly__button--read-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a href="#!" class="newly__button--download">
+                                                            <svg class="newly__button--download-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use>
+                                                            </svg>
+                                                        </a>
+            
+            
+                                                    </div>
+                                                </div>
+            
+                                                <div class="newly__info">
+                                                    <h3 class="newly__title">The Happy Lemon</h3>
+                                                    <h4 class="newly__author">
+                                                        <span class="newly__author--1">by</span>
+                                                        <span class="newly__author--2">Serene Wright</span>
+                                                    </h4>
+                                                    <div class="newly__rating rating__container">
+            
+                                                        <span class="fa fa-star checked-3"></span>
+                                                        <span class="fa fa-star checked-3"></span>
+                                                        <span class="fa fa-star checked-3"></span>
+                                                        <span class="fa fa-star"></span>
+                                                        <span class="fa fa-star"></span>
+            
+                                                    </div>
+            
+                                                    <p class="newly__description">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                        elit...</p>
+                                                    <a href="" class="newly__button btn__see-book btn__see-book-3">
+                                                        <span>See The Book</span>
+                                                    </a>
+                                                </div>
+            
+            
+                                            </div>
                                         </div>
-    
-                                        <p class="newly__description">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                                        <a href="#!" class="newly__button btn__see-book btn__see-book-1">
-                                            <span>See The Book</span>
+                                    </div>
+            
+            
+                                    <div class="newly__button">
+                                        <span class="newly__line newly__line-2"></span>
+                                        <a href="#!" class="btn__see-all">
+                                            See All &rarr;
                                         </a>
                                     </div>
-    
-    
-                                </div>
-    
-                                <div class="newly__card newly__card-2" id="newly-2">
-    
-                                    <div class="newly__bookmark">
-                                        <svg class="newly__bookmark-icon">
-                                            <use xlink:href="./img/icons/sprite.svg#icon-bookmark-solid"></use> 
-                                        </svg>
+            
+            
+            
+            
+                                </section>
+            
+                                <!-- SECTION TOPWEEK -->
+                                <section class="section__topweek">
+                                    <div class="grid-1">
+                                        <h2 class="topweek__reader--title heading-secondary">Reader of the week</h2>
+                                        <ul class="topweek__reader--list">
+            
+                                            <li class="topweek__reader--item">
+                                                <div class="topweek__reader--rank topweek__reader--rank-1">1</div>
+                                                <div class="topweek__reader--img topweek__reader--img-1"></div>
+                                                <div class="topweek__reader--info">
+                                                    <div class="topweek__reader--name">Peter Manseau</div>
+                                                    <div class="topweek__reader--hour">
+                                                        <svg class="topweek__reader--hour-icon">
+                                                            <use xlink:href="./img/icons/sprite.svg#icon-clock"></use>
+                                                        </svg>
+                                                        <span class="topweek__reader--hour-count">152,56 hours</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="topweek__reader--item">
+                                                <div class="topweek__reader--rank topweek__reader--rank-2">2</div>
+                                                <div class="topweek__reader--img topweek__reader--img-2"></div>
+                                                <div class="topweek__reader--info">
+                                                    <div class="topweek__reader--name">Peter Manseau</div>
+                                                    <div class="topweek__reader--hour">
+                                                        <svg class="topweek__reader--hour-icon">
+                                                            <use xlink:href="./img/icons/sprite.svg#icon-clock"></use>
+                                                        </svg>
+                                                        <span class="topweek__reader--hour-count">152,56 hours</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="topweek__reader--item">
+                                                <div class="topweek__reader--rank topweek__reader--rank-3">3</div>
+                                                <div class="topweek__reader--img topweek__reader--img-3"></div>
+                                                <div class="topweek__reader--info">
+                                                    <div class="topweek__reader--name">Peter Manseau</div>
+                                                    <div class="topweek__reader--hour">
+                                                        <svg class="topweek__reader--hour-icon">
+                                                            <use xlink:href="./img/icons/sprite.svg#icon-clock"></use>
+                                                        </svg>
+                                                        <span class="topweek__reader--hour-count">152,56 hours</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="topweek__reader--item">
+                                                <div class="topweek__reader--rank topweek__reader--rank-4">4</div>
+                                                <div class="topweek__reader--img topweek__reader--img-4"></div>
+                                                <div class="topweek__reader--info">
+                                                    <div class="topweek__reader--name">Peter Manseau</div>
+                                                    <div class="topweek__reader--hour">
+                                                        <svg class="topweek__reader--hour-icon">
+                                                            <use xlink:href="./img/icons/sprite.svg#icon-clock"></use>
+                                                        </svg>
+                                                        <span class="topweek__reader--hour-count">152,56 hours</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="topweek__reader--item">
+                                                <div class="topweek__reader--rank topweek__reader--rank-5">5</div>
+                                                <div class="topweek__reader--img topweek__reader--img-5"></div>
+                                                <div class="topweek__reader--info">
+                                                    <div class="topweek__reader--name">Peter Manseau</div>
+                                                    <div class="topweek__reader--hour">
+                                                        <svg class="topweek__reader--hour-icon">
+                                                            <use xlink:href="./img/icons/sprite.svg#icon-clock"></use>
+                                                        </svg>
+                                                        <span class="topweek__reader--hour-count">152,56 hours</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="topweek__reader--item">
+                                                <div class="topweek__reader--rank topweek__reader--rank-6">6</div>
+                                                <div class="topweek__reader--img topweek__reader--img-6"></div>
+                                                <div class="topweek__reader--info">
+                                                    <div class="topweek__reader--name">Peter Manseau</div>
+                                                    <div class="topweek__reader--hour">
+                                                        <svg class="topweek__reader--hour-icon">
+                                                            <use xlink:href="./img/icons/sprite.svg#icon-clock"></use>
+                                                        </svg>
+                                                        <span class="topweek__reader--hour-count">152,56 hours</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="topweek__reader--item">
+                                                <div class="topweek__reader--rank topweek__reader--rank-7">7</div>
+                                                <div class="topweek__reader--img topweek__reader--img-7"></div>
+                                                <div class="topweek__reader--info">
+                                                    <div class="topweek__reader--name">Peter Manseau</div>
+                                                    <div class="topweek__reader--hour">
+                                                        <svg class="topweek__reader--hour-icon">
+                                                            <use xlink:href="./img/icons/sprite.svg#icon-clock"></use>
+                                                        </svg>
+                                                        <span class="topweek__reader--hour-count">152,56 hours</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+            
+                                        </ul>
                                     </div>
-    
-                                
-                                    
-                                    <div class="newly__img newly__img-5">
-                                        <div class="newly__button--container">
-    
-                                            <a href="#!" class="newly__button--listen">
-                                                <svg class="newly__button--listen-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
-                                                </svg>
-                                            </a>
-                                            <a href="#!" class="newly__button--read">
-                                                <svg class="newly__button--read-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use> 
-                                                </svg>
-                                            </a>
-                                            <a href="#!" class="newly__button--download">
-                                                <svg class="newly__button--download-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use> 
-                                                </svg>
-                                            </a>
-    
-    
+            
+                                    <div class="grid-3">
+            
+                                        <div class="topweek__book--title">
+                                            Top Of The Week
+                                            <div class="topweek__book--mask topweek__book--mask-small">
+                                                <div class="topweek__book--bg topweek__book--bg-small"></div>
+                                            </div>
                                         </div>
-                                    </div>
-    
-                                    <div class="newly__info">
-                                        <h3 class="newly__title">The Happy Lemon</h3>
-                                        <h4 class="newly__author">
-                                            <span class="newly__author--1">by</span>
-                                            <span class="newly__author--2">Serene Wright</span>
-                                        </h4>
-                                        <div class="newly__rating rating__container">
-    
-                                            <span class="fa fa-star checked-2"></span>
-                                            <span class="fa fa-star checked-2"></span>
-                                            <span class="fa fa-star checked-2"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-    
-                                        </div>
-    
-                                        <p class="newly__description">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                                        <a href="#!" class="newly__button btn__see-book btn__see-book-2">
-                                            <span>See The Book</span>
-                                        </a>
-                                    </div>
-    
-    
-                                </div>
-    
-                                <div class="newly__card newly__card-3"id="newly-3">
-    
-                                    <div class="newly__bookmark">
-                                        <svg class="newly__bookmark-icon">
-                                            <use xlink:href="./img/icons/sprite.svg#icon-bookmark-solid"></use> 
-                                        </svg>
-                                    </div>
-    
-    
-                                    
-                                    <div class="newly__img newly__img-3">
-                                        <div class="newly__button--container">
-    
-                                            <a href="#!" class="newly__button--listen">
-                                                <svg class="newly__button--listen-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
-                                                </svg>
-                                            </a>
-                                            <a href="#!" class="newly__button--read">
-                                                <svg class="newly__button--read-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use> 
-                                                </svg>
-                                            </a>
-                                            <a href="#!" class="newly__button--download">
-                                                <svg class="newly__button--download-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use> 
-                                                </svg>
-                                            </a>
-    
-    
-                                        </div>
-                                    </div>
-    
-                                    <div class="newly__info">
-                                        <h3 class="newly__title">The Happy Lemon</h3>
-                                        <h4 class="newly__author">
-                                            <span class="newly__author--1">by</span>
-                                            <span class="newly__author--2">Serene Wright</span>
-                                        </h4>
-                                        <div class="newly__rating rating__container">
-    
-                                            <span class="fa fa-star checked-3"></span>
-                                            <span class="fa fa-star checked-3"></span>
-                                            <span class="fa fa-star checked-3"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-    
-                                        </div>
-    
-                                        <p class="newly__description">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                                        <a href="#!" class="newly__button btn__see-book btn__see-book-3">
-                                            <span>See The Book</span>
-                                        </a>
-                                    </div>
-    
-    
-                                </div>
-    
-                                <div class="newly__card newly__card-1" id="newly-4">
-    
-                                    <div class="newly__bookmark">
-                                        <svg class="newly__bookmark-icon">
-                                            <use xlink:href="./img/icons/sprite.svg#icon-bookmark-solid"></use> 
-                                        </svg>
-                                    </div>
-    
-    
-                                    
-                                    <div class="newly__img newly__img-6">
-                                        <div class="newly__button--container">
-    
-                                            <a href="#!" class="newly__button--listen">
-                                                <svg class="newly__button--listen-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
-                                                </svg>
-                                            </a>
-                                            <a href="#!" class="newly__button--read">
-                                                <svg class="newly__button--read-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use> 
-                                                </svg>
-                                            </a>
-                                            <a href="#!" class="newly__button--download">
-                                                <svg class="newly__button--download-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use> 
-                                                </svg>
-                                            </a>
-    
-    
-                                        </div>
-                                    </div>
-    
-                                    <div class="newly__info">
-                                        <h3 class="newly__title">The Happy Lemon</h3>
-                                        <h4 class="newly__author">
-                                            <span class="newly__author--1">by</span>
-                                            <span class="newly__author--2">Serene Wright</span>
-                                        </h4>
-                                        <div class="newly__rating rating__container">
-    
-                                            <span class="fa fa-star checked-1"></span>
-                                            <span class="fa fa-star checked-1"></span>
-                                            <span class="fa fa-star checked-1"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-    
-                                        </div>
-    
-                                        <p class="newly__description">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                                        <a href="#!" class="newly__button btn__see-book btn__see-book-1">
-                                            <span>See The Book</span>
-                                        </a>
-                                    </div>
-    
-    
-                                </div>
-    
-                                <div class="newly__card newly__card-2" id="newly-5">
-    
-                                    <div class="newly__bookmark">
-                                        <svg class="newly__bookmark-icon">
-                                            <use xlink:href="./img/icons/sprite.svg#icon-bookmark-solid"></use> 
-                                        </svg>
-                                    </div>
-    
-                                    
-                                    <div class="newly__img newly__img-5">
-                                        
-                                        <div class="newly__button--container">
-    
-                                            <a href="#!" class="newly__button--listen">
-                                                <svg class="newly__button--listen-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
-                                                </svg>
-                                            </a>
-                                            <a href="#!" class="newly__button--read">
-                                                <svg class="newly__button--read-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use> 
-                                                </svg>
-                                            </a>
-                                            <a href="#!" class="newly__button--download">
-                                                <svg class="newly__button--download-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use> 
-                                                </svg>
-                                            </a>
-    
-    
-                                        </div>
-                                    </div>
-    
-                                    <div class="newly__info">
-                                        <h3 class="newly__title">The Happy Lemon</h3>
-                                        <h4 class="newly__author">
-                                            <span class="newly__author--1">by</span>
-                                            <span class="newly__author--2">Serene Wright</span>
-                                        </h4>
-                                        <div class="newly__rating rating__container">
-    
-                                            <span class="fa fa-star checked-2"></span>
-                                            <span class="fa fa-star checked-2"></span>
-                                            <span class="fa fa-star checked-2"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-    
-                                        </div>
-    
-                                        <p class="newly__description">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                                        <a href="#!" class="newly__button btn__see-book btn__see-book-2">
-                                            <span>See The Book</span>
-                                        </a>
-                                    </div>
-    
-    
-                                </div>
-    
-                                <div class="newly__card newly__card-3" id="newly-6">
-    
-                                    <div class="newly__bookmark">
-                                        <svg class="newly__bookmark-icon">
-                                            <use xlink:href="./img/icons/sprite.svg#icon-bookmark-solid"></use> 
-                                        </svg>
-                                    </div>
-    
-    
-                                    
-                                    <div class="newly__img newly__img-3">
-                                        <div class="newly__button--container">
-    
-                                            <a href="#!" class="newly__button--listen">
-                                                <svg class="newly__button--listen-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
-                                                </svg>
-                                            </a>
-                                            <a href="#!" class="newly__button--read">
-                                                <svg class="newly__button--read-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use> 
-                                                </svg>
-                                            </a>
-                                            <a href="#!" class="newly__button--download">
-                                                <svg class="newly__button--download-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use> 
-                                                </svg>
-                                            </a>
-    
-    
-                                        </div>
-                                    </div>
-    
-                                    <div class="newly__info">
-                                        <h3 class="newly__title">The Happy Lemon</h3>
-                                        <h4 class="newly__author">
-                                            <span class="newly__author--1">by</span>
-                                            <span class="newly__author--2">Serene Wright</span>
-                                        </h4>
-                                        <div class="newly__rating rating__container">
-    
-                                            <span class="fa fa-star checked-3"></span>
-                                            <span class="fa fa-star checked-3"></span>
-                                            <span class="fa fa-star checked-3"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-    
-                                        </div>
-    
-                                        <p class="newly__description">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                                        <a href="" class="newly__button btn__see-book btn__see-book-3">
-                                            <span>See The Book</span>
-                                        </a>
-                                    </div>
-    
-    
-                                </div>
-                        </div>
-                        </div>
-    
-    
-                        <div class="newly__button">
-                            <span class="newly__line newly__line-2"></span>
-                            <a href="#!" class="btn__see-all">
-                                See All &rarr;
-                            </a>
-                        </div>
-    
-    
-    
-    
-                    </section>
-    
-            <!-- SECTION TOPWEEK -->
-                    <section class="section__topweek">
-                        <div class="grid-1">
-                            <h2 class="topweek__reader--title heading-secondary">Reader of the week</h2>
-                            <ul class="topweek__reader--list">
-    
-                                <li class="topweek__reader--item">
-                                    <div class="topweek__reader--rank topweek__reader--rank-1">1</div>
-                                    <div class="topweek__reader--img topweek__reader--img-1"></div>
-                                    <div class="topweek__reader--info">
-                                        <div class="topweek__reader--name">Peter Manseau</div>
-                                        <div class="topweek__reader--hour">
-                                            <svg class="topweek__reader--hour-icon">
-                                                <use xlink:href="./img/icons/sprite.svg#icon-clock"></use> 
+            
+                                        <div class="topweek__book--mask topweek__book--mask-big">
+            
+                                            <div class="pagination">
+                                                <div class="pagination__container">
+                                                    <a class="pagination__left pagination__left-topweek">
+                                                        <svg class="pagination__icon pagination__icon-left">
+                                                            <use xlink:href="./img/icons/sprite.svg#icon-arrow-down"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="pagination__right pagination__right-topweek">
+                                                        <svg class="pagination__icon pagination__icon-right">
+                                                            <use xlink:href="./img/icons/sprite.svg#icon-arrow-down"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+            
+                                            <svg class="topweek__book--bookmark">
+                                                <use xlink:href="./img/icons/sprite.svg#icon-bookmark-solid"></use>
                                             </svg>
-                                            <span class="topweek__reader--hour-count">152,56 hours</span>
+            
+                                            <div class="topweek__img topweek__img-1">
+                                                <div class="topweek__button--container">
+            
+                                                    <a class="topweek__button--listen" data-link="">
+                                                        <svg class="topweek__button--listen-icon">
+                                                            <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="topweek__button--read" data-link="">
+                                                        <svg class="topweek__button--read-icon">
+                                                            <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use>
+                                                        </svg>
+                                                    </a>
+                                                    <a class="topweek__button--download" data-link="">
+                                                        <svg class="topweek__button--download-icon">
+                                                            <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use>
+                                                        </svg>
+                                                    </a>
+            
+            
+                                                </div>
+                                            </div>
+            
+                                            <div class="topweek__info">
+                                                <!-- <h3 class="topweek__title">The Happy Lemon</h3>
+                                                <h4 class="topweek__author">
+                                                    <span class="topweek__author--1">by</span>
+                                                    <span class="topweek__author--2">Serene Wright</span>
+                                                </h4>
+                                                <div class="topweek__rating rating__container">
+            
+                                                    <span class="fa fa-star checked-1"></span>
+                                                    <span class="fa fa-star checked-1"></span>
+                                                    <span class="fa fa-star checked-1"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+            
+                                                </div>
+            
+                                                <p class="topweek__description">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                    elit. Temporibus perspiciatis officiis reprehenderit quos, praesentium
+                                                    laudantium illo odit error vel sed molestias fuga tenetur mollitia ratione
+                                                    maxime fugiat doloribus eum obcaecati?</p>
+                                                <a href="#!" class="topweek__button btn__see-line btn__see-line-1">
+                                                    <span>See more</span>
+                                                    <svg class="topweek__button--arrow">
+                                                        <use xlink:href="./img/icons/sprite.svg#icon-arrow"></use>
+                                                    </svg>
+                                                </a> -->
+                                            </div>
+            
+                                            <div class="topweek__dots">
+                                                <!-- <div class="topweek__dots-round topweek__dots--active"></div>
+                                                <div class="topweek__dots-round"></div>
+                                                <div class="topweek__dots-round"></div> -->
+                                            </div>
+            
+                                            <div class="topweek__book--bg topweek__book--bg-big"></div>
                                         </div>
+            
+            
                                     </div>
-                                </li>
-                                <li class="topweek__reader--item">
-                                    <div class="topweek__reader--rank topweek__reader--rank-2">2</div>
-                                    <div class="topweek__reader--img topweek__reader--img-2"></div>
-                                    <div class="topweek__reader--info">
-                                        <div class="topweek__reader--name">Peter Manseau</div>
-                                        <div class="topweek__reader--hour">
-                                            <svg class="topweek__reader--hour-icon">
-                                                <use xlink:href="./img/icons/sprite.svg#icon-clock"></use> 
-                                            </svg>
-                                            <span class="topweek__reader--hour-count">152,56 hours</span>
+            
+                                </section>
+            
+                                <!-- SECTION COLLECTION BANNER-->
+                                <section class="section__collection--banner">
+                                    <div class="grid-4">
+                                        <div class="section__collection--banner-bg">&nbsp;</div>
+                                    </div>
+                                </section>
+            
+                                <!-- SECTION COLLECTION -->
+                                <section class="section__collection">
+                                    <div class="grid-1">
+                                        <h2 class="collection__category--title heading-secondary">Categories</h2>
+                                        <div class="collection__category--overflow">
+                                            <ul class="collection__category--list">
+            
+                                                <!-- <li class="collection__category--item" data-category="buss">
+                                                    <svg class="collection__category--icon">
+                                                        <use xlink:href="./img/icons/sprite.svg#icon-read"></use>
+                                                    </svg>
+                                                    <div class="collection__category--name">Bussiness</div>
+                                                    <div class="collection__category--count">10</div>
+                                                </li>
+            
+                                                <li class="collection__category--item" data-category="buss">
+                                                    <svg class="collection__category--icon">
+                                                        <use xlink:href="./img/icons/sprite.svg#icon-read"></use>
+                                                    </svg>
+                                                    <div class="collection__category--name">Bussiness</div>
+                                                    <div class="collection__category--count">10</div>
+                                                </li>
+            
+                                                <li class="collection__category--item" data-category="buss">
+                                                    <svg class="collection__category--icon">
+                                                        <use xlink:href="./img/icons/sprite.svg#icon-read"></use>
+                                                    </svg>
+                                                    <div class="collection__category--name">Bussiness</div>
+                                                    <div class="collection__category--count">10</div>
+                                                </li>
+            
+                                                <li class="collection__category--item" data-category="buss">
+                                                    <svg class="collection__category--icon">
+                                                        <use xlink:href="./img/icons/sprite.svg#icon-read"></use>
+                                                    </svg>
+                                                    <div class="collection__category--name">Bussiness</div>
+                                                    <div class="collection__category--count">10</div>
+                                                </li>
+            
+                                                <li class="collection__category--item" data-category="buss">
+                                                    <svg class="collection__category--icon">
+                                                        <use xlink:href="./img/icons/sprite.svg#icon-read"></use>
+                                                    </svg>
+                                                    <div class="collection__category--name">Bussiness</div>
+                                                    <div class="collection__category--count">10</div>
+                                                </li>
+            
+                                                <li class="collection__category--item" data-category="buss">
+                                                    <svg class="collection__category--icon">
+                                                        <use xlink:href="./img/icons/sprite.svg#icon-read"></use>
+                                                    </svg>
+                                                    <div class="collection__category--name">Bussiness</div>
+                                                    <div class="collection__category--count">10</div>
+                                                </li>
+            
+                                                <li class="collection__category--item" data-category="buss">
+                                                    <svg class="collection__category--icon">
+                                                        <use xlink:href="./img/icons/sprite.svg#icon-read"></use>
+                                                    </svg>
+                                                    <div class="collection__category--name">Bussiness</div>
+                                                    <div class="collection__category--count">10</div>
+                                                </li>
+            
+                                                <li class="collection__category--item" data-category="buss">
+                                                    <svg class="collection__category--icon">
+                                                        <use xlink:href="./img/icons/sprite.svg#icon-read"></use>
+                                                    </svg>
+                                                    <div class="collection__category--name">Bussiness</div>
+                                                    <div class="collection__category--count">10</div>
+                                                </li>
+            
+                                                <li class="collection__category--item" data-category="buss">
+                                                    <svg class="collection__category--icon">
+                                                        <use xlink:href="./img/icons/sprite.svg#icon-read"></use>
+                                                    </svg>
+                                                    <div class="collection__category--name">Bussiness</div>
+                                                    <div class="collection__category--count">10</div>
+                                                </li>
+            
+                                                <li class="collection__category--item" data-category="buss">
+                                                    <svg class="collection__category--icon">
+                                                        <use xlink:href="./img/icons/sprite.svg#icon-read"></use>
+                                                    </svg>
+                                                    <div class="collection__category--name">Bussiness</div>
+                                                    <div class="collection__category--count">10</div>
+                                                </li>
+                                                <li class="collection__category--item" data-category="buss">
+                                                    <svg class="collection__category--icon">
+                                                        <use xlink:href="./img/icons/sprite.svg#icon-read"></use>
+                                                    </svg>
+                                                    <div class="collection__category--name">Bussiness</div>
+                                                    <div class="collection__category--count">10</div>
+                                                </li>
+            
+                                                <li class="collection__category--item" data-category="buss">
+                                                    <svg class="collection__category--icon">
+                                                        <use xlink:href="./img/icons/sprite.svg#icon-read"></use>
+                                                    </svg>
+                                                    <div class="collection__category--name">Bussiness</div>
+                                                    <div class="collection__category--count">10</div>
+                                                </li>
+            
+                                                <li class="collection__category--item" data-category="buss">
+                                                    <svg class="collection__category--icon">
+                                                        <use xlink:href="./img/icons/sprite.svg#icon-read"></use>
+                                                    </svg>
+                                                    <div class="collection__category--name">Bussiness</div>
+                                                    <div class="collection__category--count">10</div>
+                                                </li>
+            
+                                                <li class="collection__category--item" data-category="buss">
+                                                    <svg class="collection__category--icon">
+                                                        <use xlink:href="./img/icons/sprite.svg#icon-read"></use>
+                                                    </svg>
+                                                    <div class="collection__category--name">Bussiness</div>
+                                                    <div class="collection__category--count">10</div>
+                                                </li> -->
+            
+                                            </ul>
                                         </div>
+            
                                     </div>
-                                </li>
-                                <li class="topweek__reader--item">
-                                    <div class="topweek__reader--rank topweek__reader--rank-3">3</div>
-                                    <div class="topweek__reader--img topweek__reader--img-3"></div>
-                                    <div class="topweek__reader--info">
-                                        <div class="topweek__reader--name">Peter Manseau</div>
-                                        <div class="topweek__reader--hour">
-                                            <svg class="topweek__reader--hour-icon">
-                                                <use xlink:href="./img/icons/sprite.svg#icon-clock"></use> 
-                                            </svg>
-                                            <span class="topweek__reader--hour-count">152,56 hours</span>
+            
+                                    <div class="grid-3">
+            
+                                        <div class="pagination2">
+                                            <div class="pagination2__container">
+                                                <span class="pagination2__name">Page</span>
+                                                <ul class="pagination2__list">
+                                                    <li class="pagination2__item pagination2__item--active">1</li>
+                                                    <li class="pagination2__item">2</li>
+                                                    <li class="pagination2__item">3</li>
+                                                </ul>
+                                                <a href="#!" class="ppagination2__btn btn__see-all">See All &rarr;</a>
+                                            </div>
                                         </div>
+            
+                                        <div class="collection__container">
+<!--             
+                                            <div class="collection__card">
+            
+                                                <div class="collection__card--imgs">
+                                                    <div class="collection__card--img collection__card--img-1"></div>
+                                                    <div class="collection__card--img collection__card--img-2"></div>
+                                                    <div class="collection__card--img collection__card--img-3"></div>
+                                                </div>
+            
+                                                <div class="collection__card--btn-right">
+                                                    <div class="collection__card--bookmark">
+                                                        <svg class="collection__card--bookmark--icon">
+                                                            <use xlink:href="./img/icons/sprite.svg#icon-bookmark-orange"></use>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="collection__card__button--container">
+                                                        <a href="#!" class="collection__card__button--listen">
+                                                            <svg class="collection__card__button--listen-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a href="#!" class="collection__card__button--read">
+                                                            <svg class="collection__card__button--read-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use>
+                                                            </svg>
+                                                        </a>
+                                                        <a href="#!" class="collection__card__button--download">
+                                                            <svg class="collection__card__button--download-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use>
+                                                            </svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+            
+                                                <div class="collection__card--body">
+                                                    <div class="collection__card--count tag-orange">3 books</div>
+                                                    <div class="collection__card--title-container">
+                                                        <div class="collection__card--title">
+                                                            The secret of long-lasting happiness in daily life ...
+                                                        </div>
+                                                        <div class="collection__card--author">Various Artist</div>
+                                                    </div>
+                                                </div>
+            
+                                                <div class="collection__card--footer">
+                                                    <a href="#!" class="collection__card--btn-left btn__see-collection">
+                                                        <p>See Collection</p>
+                                                        <svg class="collection__card--btn-left-icon">
+                                                            <use xlink:href="./img/icons/sprite.svg#icon-arrow"></use>
+                                                        </svg>
+                                                    </a>
+            
+                                                    <div class="collection__card--rating rating__container">
+            
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star"></span>
+                                                        <span class="fa fa-star"></span>
+            
+                                                    </div>
+            
+                                                </div>
+            
+            
+                                            </div> -->
+            
+                                        </div> 
+            
+            
                                     </div>
-                                </li>
-                                <li class="topweek__reader--item">
-                                    <div class="topweek__reader--rank topweek__reader--rank-4">4</div>
-                                    <div class="topweek__reader--img topweek__reader--img-4"></div>
-                                    <div class="topweek__reader--info">
-                                        <div class="topweek__reader--name">Peter Manseau</div>
-                                        <div class="topweek__reader--hour">
-                                            <svg class="topweek__reader--hour-icon">
-                                                <use xlink:href="./img/icons/sprite.svg#icon-clock"></use> 
-                                            </svg>
-                                            <span class="topweek__reader--hour-count">152,56 hours</span>
-                                        </div>
+                                </section>
+            
+                                <!-- SECTION RECOMMEND -->
+                                <section class="section__recommend">
+                                    <div class="recommend__header heading-primary">
+                                        You May Like
                                     </div>
-                                </li>
-                                <li class="topweek__reader--item">
-                                    <div class="topweek__reader--rank topweek__reader--rank-5">5</div>
-                                    <div class="topweek__reader--img topweek__reader--img-5"></div>
-                                    <div class="topweek__reader--info">
-                                        <div class="topweek__reader--name">Peter Manseau</div>
-                                        <div class="topweek__reader--hour">
-                                            <svg class="topweek__reader--hour-icon">
-                                                <use xlink:href="./img/icons/sprite.svg#icon-clock"></use> 
-                                            </svg>
-                                            <span class="topweek__reader--hour-count">152,56 hours</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="topweek__reader--item">
-                                    <div class="topweek__reader--rank topweek__reader--rank-6">6</div>
-                                    <div class="topweek__reader--img topweek__reader--img-6"></div>
-                                    <div class="topweek__reader--info">
-                                        <div class="topweek__reader--name">Peter Manseau</div>
-                                        <div class="topweek__reader--hour">
-                                            <svg class="topweek__reader--hour-icon">
-                                                <use xlink:href="./img/icons/sprite.svg#icon-clock"></use> 
-                                            </svg>
-                                            <span class="topweek__reader--hour-count">152,56 hours</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="topweek__reader--item">
-                                    <div class="topweek__reader--rank topweek__reader--rank-7">7</div>
-                                    <div class="topweek__reader--img topweek__reader--img-7"></div>
-                                    <div class="topweek__reader--info">
-                                        <div class="topweek__reader--name">Peter Manseau</div>
-                                        <div class="topweek__reader--hour">
-                                            <svg class="topweek__reader--hour-icon">
-                                                <use xlink:href="./img/icons/sprite.svg#icon-clock"></use> 
-                                            </svg>
-                                            <span class="topweek__reader--hour-count">152,56 hours</span>
-                                        </div>
-                                    </div>
-                                </li>
-    
-                            </ul>
-                        </div>
-    
-                        <div class="grid-3">
-    
-                            <div class="topweek__book--title">
-                                Top Of The Week
-                                <div class="topweek__book--mask topweek__book--mask-small">
-                                    <div class="topweek__book--bg topweek__book--bg-small"></div>
-                                </div>
-                            </div>
-    
-                            <div class="topweek__book--mask topweek__book--mask-big">
-    
-                                        <div class="pagination">
+            
+                                    <div class="recommend__container">
+            
+                                        <div class="pagination recommend__pagination" data-page=0>
                                             <div class="pagination__container">
-                                                <a class="pagination__left pagination__left-topweek">
+                                                <a class="pagination__left pagination__left-recommend">
                                                     <svg class="pagination__icon pagination__icon-left">
                                                         <use xlink:href="./img/icons/sprite.svg#icon-arrow-down"></use>
                                                     </svg>
                                                 </a>
-                                                <a class="pagination__right pagination__right-topweek">
+                                                <a class="pagination__right pagination__right-recommend">
                                                     <svg class="pagination__icon pagination__icon-right">
                                                         <use xlink:href="./img/icons/sprite.svg#icon-arrow-down"></use>
                                                     </svg>
                                                 </a>
                                             </div>
                                         </div>
-    
-                                        <svg class="topweek__book--bookmark">
-                                            <use xlink:href= "./img/icons/sprite.svg#icon-bookmark-solid"></use>
-                                        </svg>
-                                                
-                                        <div class="topweek__img topweek__img-1">
-                                            <div class="topweek__button--container">
             
-                                                <a href="#!" class="topweek__button--listen">
-                                                    <svg class="topweek__button--listen-icon">
-                                                        <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
-                                                    </svg>
-                                                </a>
-                                                <a href="#!" class="topweek__button--read">
-                                                    <svg class="topweek__button--read-icon">
-                                                        <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use> 
-                                                    </svg>
-                                                </a>
-                                                <a href="#!" class="topweek__button--download">
-                                                    <svg class="topweek__button--download-icon">
-                                                        <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use> 
-                                                    </svg>
-                                                </a>
+                                        <div class="grid-4 recommend__grid">
+                                            <!-- <div class="recommend__card">
+            
+                                                <div class="recommend__img recommend__img-1">
+                                                        <div class="recommend__bookmark">
+                                                            <svg class="recommend__bookmark-icon">
+                                                                <use xlink:href="./img/icons/sprite.svg#icon-bookmark"></use> 
+                                                            </svg>
+                                                        </div>
                 
+                                                        <div class="recommend__button--container">
+                    
+                                                            <a href="#!" class="recommend__button--listen">
+                                                                <svg class="recommend__button--listen-icon">
+                                                                    <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
+                                                                </svg>
+                                                            </a>
+                                                            <a href="#!" class="recommend__button--read">
+                                                                <svg class="recommend__button--read-icon">
+                                                                    <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use> 
+                                                                </svg>
+                                                            </a>
+                                                            <a href="#!" class="recommend__button--download">
+                                                                <svg class="recommend__button--download-icon">
+                                                                    <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use> 
+                                                                </svg>
+                                                            </a>
+                    
+                    
+                                                        </div>
                 
-                                            </div>
-                                        </div>
-            
-                                        <div class="topweek__info">
-                                            <h3 class="topweek__title">The Happy Lemon</h3>
-                                            <h4 class="topweek__author">
-                                                <span class="topweek__author--1">by</span>
-                                                <span class="topweek__author--2">Serene Wright</span>
-                                            </h4>
-                                            <div class="topweek__rating rating__container">
-            
-                                                <span class="fa fa-star checked-1"></span>
-                                                <span class="fa fa-star checked-1"></span>
-                                                <span class="fa fa-star checked-1"></span>
-                                                <span class="fa fa-star"></span>
-                                                <span class="fa fa-star"></span>
-            
-                                            </div>
-            
-                                            <p class="topweek__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus perspiciatis officiis reprehenderit quos, praesentium laudantium illo odit error vel sed molestias fuga tenetur mollitia ratione maxime fugiat doloribus eum obcaecati?</p>
-                                            <a href="#!" class="topweek__button btn__see-line btn__see-line-1">
-                                                <span>See more</span>
-                                                <svg class="topweek__button--arrow">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-arrow"></use> 
-                                                </svg>
-                                            </a>
-                                        </div>
-                                        
-                                        <div class="topweek__dots">
-                                            <div class="topweek__dots-round topweek__dots--active"></div>
-                                            <div class="topweek__dots-round"></div>
-                                            <div class="topweek__dots-round"></div>
-                                        </div>
-            
-                                        <div class="topweek__book--bg topweek__book--bg-big"></div>
-                            </div>
-    
-                            
-                        </div>
-                            
-                    </section>
-                            
-            <!-- SECTION COLLECTION BANNER-->
-                    <section class="section__collection--banner">
-                        <div class="grid-4">
-                            <div class="section__collection--banner-bg">&nbsp;</div>
-                        </div>
-                    </section>
-            
-            <!-- SECTION COLLECTION -->
-                    <section class="section__collection">
-                            <div class="grid-1">
-                                <h2 class="collection__category--title heading-secondary">Categories</h2>
-                                <div class="collection__category--overflow">
-                                    <ul class="collection__category--list">
-    
-                                    
-    
-                                    </ul>
-                                </div>
-                            
-                            </div>
-    
-                            <div class="grid-3">
-    
-                                <div class="pagination2">
-                                    <div class="pagination2__container">
-                                        <span class="pagination2__name">Page</span>
-                                        <ul class="pagination2__list">
-                                            <li class="pagination2__item pagination2__item--active">1</li>
-                                            <li class="pagination2__item">2</li>
-                                            <li class="pagination2__item">3</li>
-                                        </ul>
-                                        <a href="#!" class="pagination2__btn btn__see-all">See All &rarr;</a>
-                                    </div>
-                                </div>
-    
-                                <div class="collection__container">
-    
-                                    <div class="collection__card">
-    
-                                    <div class="collection__card--imgs">
-                                        <div class="collection__card--img collection__card--img-1"></div>
-                                        <div class="collection__card--img collection__card--img-2"></div>
-                                        <div class="collection__card--img collection__card--img-3"></div>
-                                    </div>
-    
-                                    <div class="collection__card--btn-right">
-                                        <div class="collection__card--bookmark">
-                                                <svg class="collection__card--bookmark--icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-bookmark-orange"></use> 
-                                                </svg> 
-                                        </div>
-                                        <div class="collection__card__button--container">
-                                                    <a href="#!" class="collection__card__button--listen">
-                                                        <svg class="collection__card__button--listen-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
-                                                        </svg>
-                                                    </a>
-                                                    <a href="#!" class="collection__card__button--read">
-                                                        <svg class="collection__card__button--read-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use> 
-                                                        </svg>
-                                                    </a>
-                                                    <a href="#!" class="collection__card__button--download">
-                                                        <svg class="collection__card__button--download-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use> 
-                                                        </svg>
-                                                    </a>
-                                        </div>
-                                    </div>
-    
-                                    <div class="collection__card--body">
-                                        <div class="collection__card--count tag-orange">3 books</div>
-                                            <div class="collection__card--title-container">
-                                                <div class="collection__card--title">
-                                                    The secret of long-lasting happiness in daily life ...
                                                 </div>
-                                                <div class="collection__card--author">Various Artist</div>
-                                            </div>
-                                    </div>
-    
-                                    <div class="collection__card--footer">
-                                        <a href="#!" class="collection__card--btn-left btn__see-collection">
-                                            <p>See Collection</p>
-                                                <svg class="collection__card--btn-left-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-arrow"></use> 
-                                                </svg> 
-                                        </a>
-    
-                                            <div class="collection__card--rating rating__container">
-        
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star"></span>
-                                                <span class="fa fa-star"></span>
-                                                
-                                            </div>
-                                    
-                                    </div>
-                                    
-                                        
-                                    </div>
-                                    <div class="collection__card">
-    
-                                    <div class="collection__card--imgs">
-                                        <div class="collection__card--img collection__card--img-1"></div>
-                                        <div class="collection__card--img collection__card--img-2"></div>
-                                        <div class="collection__card--img collection__card--img-3"></div>
-                                    </div>
-    
-                                    <div class="collection__card--btn-right">
-                                        <div class="collection__card--bookmark">
-                                                <svg class="collection__card--bookmark--icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-bookmark-orange"></use> 
-                                                </svg> 
-                                        </div>
-                                        <div class="collection__card__button--container">
-                                                    <a href="#!" class="collection__card__button--listen">
-                                                        <svg class="collection__card__button--listen-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
+                
+                                                <div class="recommend__info">
+                                                    <h3 class="recommend__title">The Happy Lemon...</h3>
+                                                    <h4 class="recommend__author">
+                                                        <span class="recommend__author--1">by</span>
+                                                        <span class="recommend__author--2">Serene Wright</span>
+                                                    </h4>
+                                                    <div class="recommend__rating rating__container">
+                
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star"></span>
+                                                        <span class="fa fa-star"></span>
+                                                        
+                                                    </div>
+                
+                                                    <a href="#!" class="recommend__button btn__see-more btn__see-more-blue">
+                                                        <span>See More</span>
+                                                        <svg class=" btn__see-more-icon icon-arrow">
+                                                            <use xlink:href="./img/icons/sprite.svg#icon-arrow"></use> 
                                                         </svg>
                                                     </a>
-                                                    <a href="#!" class="collection__card__button--read">
-                                                        <svg class="collection__card__button--read-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use> 
-                                                        </svg>
-                                                    </a>
-                                                    <a href="#!" class="collection__card__button--download">
-                                                        <svg class="collection__card__button--download-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use> 
-                                                        </svg>
-                                                    </a>
-                                        </div>
-                                    </div>
-    
-                                    <div class="collection__card--body">
-                                        <div class="collection__card--count tag-orange">3 books</div>
-                                            <div class="collection__card--title-container">
-                                                <div class="collection__card--title">
-                                                    The secret of long-lasting happiness in daily life ...
                                                 </div>
-                                                <div class="collection__card--author">Various Artist</div>
-                                            </div>
-                                    </div>
-    
-                                    <div class="collection__card--footer">
-                                        <a href="#c-k9zop1dy" class="collection__card--btn-left btn__see-collection">
-                                            <p>See Collection</p>
-                                                <svg class="collection__card--btn-left-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-arrow"></use> 
-                                                </svg> 
-                                        </a>
-    
-                                            <div class="collection__card--rating rating__container">
-        
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star"></span>
-                                                <span class="fa fa-star"></span>
-                                                
-                                            </div>
-                                    
-                                    </div>
-                                    
-                                        
-                                    </div>
-                                    <div class="collection__card">
-    
-                                    <div class="collection__card--imgs">
-                                        <div class="collection__card--img collection__card--img-1"></div>
-                                        <div class="collection__card--img collection__card--img-2"></div>
-                                        <div class="collection__card--img collection__card--img-3"></div>
-                                    </div>
-    
-                                    <div class="collection__card--btn-right">
-                                        <div class="collection__card--bookmark">
-                                                <svg class="collection__card--bookmark--icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-bookmark-orange"></use> 
-                                                </svg> 
-                                        </div>
-                                        <div class="collection__card__button--container">
-                                                    <a href="#!" class="collection__card__button--listen">
-                                                        <svg class="collection__card__button--listen-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
-                                                        </svg>
-                                                    </a>
-                                                    <a href="#!" class="collection__card__button--read">
-                                                        <svg class="collection__card__button--read-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use> 
-                                                        </svg>
-                                                    </a>
-                                                    <a href="#!" class="collection__card__button--download">
-                                                        <svg class="collection__card__button--download-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use> 
-                                                        </svg>
-                                                    </a>
-                                        </div>
-                                    </div>
-    
-                                    <div class="collection__card--body">
-                                        <div class="collection__card--count tag-orange">3 books</div>
-                                            <div class="collection__card--title-container">
-                                                <div class="collection__card--title">
-                                                    The secret of long-lasting happiness in daily life ...
-                                                </div>
-                                                <div class="collection__card--author">Various Artist</div>
-                                            </div>
-                                    </div>
-    
-                                    <div class="collection__card--footer">
-                                        <a href="#!" class="collection__card--btn-left btn__see-collection">
-                                            <p>See Collection</p>
-                                                <svg class="collection__card--btn-left-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-arrow"></use> 
-                                                </svg> 
-                                        </a>
-    
-                                            <div class="collection__card--rating rating__container">
-        
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star"></span>
-                                                <span class="fa fa-star"></span>
-                                                
-                                            </div>
-                                    
-                                    </div>
-                                    
-                                        
-                                    </div>
-                                    <div class="collection__card">
-    
-                                    <div class="collection__card--imgs">
-                                        <div class="collection__card--img collection__card--img-1"></div>
-                                        <div class="collection__card--img collection__card--img-2"></div>
-                                        <div class="collection__card--img collection__card--img-3"></div>
-                                    </div>
-    
-                                    <div class="collection__card--btn-right">
-                                        <div class="collection__card--bookmark">
-                                                <svg class="collection__card--bookmark--icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-bookmark-orange"></use> 
-                                                </svg> 
-                                        </div>
-                                        <div class="collection__card__button--container">
-                                                    <a href="#!" class="collection__card__button--listen">
-                                                        <svg class="collection__card__button--listen-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
-                                                        </svg>
-                                                    </a>
-                                                    <a href="#!" class="collection__card__button--read">
-                                                        <svg class="collection__card__button--read-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use> 
-                                                        </svg>
-                                                    </a>
-                                                    <a href="#!" class="collection__card__button--download">
-                                                        <svg class="collection__card__button--download-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use> 
-                                                        </svg>
-                                                    </a>
-                                        </div>
-                                    </div>
-    
-                                    <div class="collection__card--body">
-                                        <div class="collection__card--count tag-orange">3 books</div>
-                                            <div class="collection__card--title-container">
-                                                <div class="collection__card--title">
-                                                    The secret of long-lasting happiness in daily life ...
-                                                </div>
-                                                <div class="collection__card--author">Various Artist</div>
-                                            </div>
-                                    </div>
-    
-                                    <div class="collection__card--footer">
-                                        <a href="#!" class="collection__card--btn-left btn__see-collection">
-                                            <p>See Collection</p>
-                                                <svg class="collection__card--btn-left-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-arrow"></use> 
-                                                </svg> 
-                                        </a>
-    
-                                            <div class="collection__card--rating rating__container">
-        
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star"></span>
-                                                <span class="fa fa-star"></span>
-                                                
-                                            </div>
-                                    
-                                    </div>
-                                    
-                                        
-                                    </div>
-                                    <div class="collection__card">
-    
-                                    <div class="collection__card--imgs">
-                                        <div class="collection__card--img collection__card--img-1"></div>
-                                        <div class="collection__card--img collection__card--img-2"></div>
-                                        <div class="collection__card--img collection__card--img-3"></div>
-                                    </div>
-    
-                                    <div class="collection__card--btn-right">
-                                        <div class="collection__card--bookmark">
-                                                <svg class="collection__card--bookmark--icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-bookmark-orange"></use> 
-                                                </svg> 
-                                        </div>
-                                        <div class="collection__card__button--container">
-                                                    <a href="#!" class="collection__card__button--listen">
-                                                        <svg class="collection__card__button--listen-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
-                                                        </svg>
-                                                    </a>
-                                                    <a href="#!" class="collection__card__button--read">
-                                                        <svg class="collection__card__button--read-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use> 
-                                                        </svg>
-                                                    </a>
-                                                    <a href="#!" class="collection__card__button--download">
-                                                        <svg class="collection__card__button--download-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use> 
-                                                        </svg>
-                                                    </a>
-                                        </div>
-                                    </div>
-    
-                                    <div class="collection__card--body">
-                                        <div class="collection__card--count tag-orange">3 books</div>
-                                            <div class="collection__card--title-container">
-                                                <div class="collection__card--title">
-                                                    The secret of long-lasting happiness in daily life ...
-                                                </div>
-                                                <div class="collection__card--author">Various Artist</div>
-                                            </div>
-                                    </div>
-    
-                                    <div class="collection__card--footer">
-                                        <a href="#!" class="collection__card--btn-left btn__see-collection">
-                                            <p>See Collection</p>
-                                                <svg class="collection__card--btn-left-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-arrow"></use> 
-                                                </svg> 
-                                        </a>
-    
-                                            <div class="collection__card--rating rating__container">
-        
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star"></span>
-                                                <span class="fa fa-star"></span>
-                                                
-                                            </div>
-                                    
-                                    </div>
-                                    
-                                        
-                                    </div>
-                                    <div class="collection__card">
-    
-                                    <div class="collection__card--imgs">
-                                        <div class="collection__card--img collection__card--img-1"></div>
-                                        <div class="collection__card--img collection__card--img-2"></div>
-                                        <div class="collection__card--img collection__card--img-3"></div>
-                                    </div>
-    
-                                    <div class="collection__card--btn-right">
-                                        <div class="collection__card--bookmark">
-                                                <svg class="collection__card--bookmark--icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-bookmark-orange"></use> 
-                                                </svg> 
-                                        </div>
-                                        <div class="collection__card__button--container">
-                                                    <a href="#!" class="collection__card__button--listen">
-                                                        <svg class="collection__card__button--listen-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
-                                                        </svg>
-                                                    </a>
-                                                    <a href="#!" class="collection__card__button--read">
-                                                        <svg class="collection__card__button--read-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use> 
-                                                        </svg>
-                                                    </a>
-                                                    <a href="#!" class="collection__card__button--download">
-                                                        <svg class="collection__card__button--download-icon">
-                                                            <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use> 
-                                                        </svg>
-                                                    </a>
-                                        </div>
-                                    </div>
-    
-                                    <div class="collection__card--body">
-                                        <div class="collection__card--count tag-orange">3 books</div>
-                                            <div class="collection__card--title-container">
-                                                <div class="collection__card--title">
-                                                    The secret of long-lasting happiness in daily life ...
-                                                </div>
-                                                <div class="collection__card--author">Various Artist</div>
-                                            </div>
-                                    </div>
-    
-                                    <div class="collection__card--footer">
-                                        <a href="#!" class="collection__card--btn-left btn__see-collection">
-                                            <p>See Collection</p>
-                                                <svg class="collection__card--btn-left-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-arrow"></use> 
-                                                </svg> 
-                                        </a>
-    
-                                            <div class="collection__card--rating rating__container">
-        
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star"></span>
-                                                <span class="fa fa-star"></span>
-                                                
-                                            </div>
-                                    
-                                    </div>
-                                    
-                                        
-                                    </div>
-    
-                                </div>
-    
-    
-                            </div>
-                    </section>
-    
-            <!-- SECTION RECOMMEND -->
-                    <section class="section__recommend">
-                        <div class="recommend__header heading-primary">
-                            You May Like
-                        </div>
-    
-                        <div class="recommend__container">
-    
-                            <div class="pagination recommend__pagination">
-                                <div class="pagination__container">
-                                    <a class="pagination__left pagination__left-recommend">
-                                        <svg class="pagination__icon pagination__icon-left">
-                                            <use xlink:href="./img/icons/sprite.svg#icon-arrow-down"></use>
-                                        </svg>
-                                    </a>
-                                    <a class="pagination__right pagination__right-recommend">
-                                        <svg class="pagination__icon pagination__icon-right">
-                                            <use xlink:href="./img/icons/sprite.svg#icon-arrow-down"></use>
-                                        </svg>
-                                    </a>
-                                </div>
-                                </div>
-    
-                            <div class="grid-4 recommend__grid">
-                                <div class="recommend__card">
-    
-                                    <div class="recommend__img recommend__img-1">
-                                            <div class="recommend__bookmark">
-                                                <svg class="recommend__bookmark-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-bookmark"></use> 
-                                                </svg>
-                                            </div>
-    
-                                            <div class="recommend__button--container">
-        
-                                                <a href="#!" class="recommend__button--listen">
-                                                    <svg class="recommend__button--listen-icon">
-                                                        <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
-                                                    </svg>
-                                                </a>
-                                                <a href="#!" class="recommend__button--read">
-                                                    <svg class="recommend__button--read-icon">
-                                                        <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use> 
-                                                    </svg>
-                                                </a>
-                                                <a href="#!" class="recommend__button--download">
-                                                    <svg class="recommend__button--download-icon">
-                                                        <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use> 
-                                                    </svg>
-                                                </a>
-        
-        
-                                            </div>
-    
-                                    </div>
-    
-                                    <div class="recommend__info">
-                                        <h3 class="recommend__title">The Happy Lemon...</h3>
-                                        <h4 class="recommend__author">
-                                            <span class="recommend__author--1">by</span>
-                                            <span class="recommend__author--2">Serene Wright</span>
-                                        </h4>
-                                        <div class="recommend__rating rating__container">
-    
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
                                             
+                                            </div>   -->
                                         </div>
-    
-                                        <a href="#!" class="recommend__button btn__see-more btn__see-more-blue">
-                                            <span>See More</span>
-                                            <svg class=" btn__see-more-icon icon-arrow">
-                                                <use xlink:href="./img/icons/sprite.svg#icon-arrow"></use> 
-                                            </svg>
-                                        </a>
+            
                                     </div>
-                        
-                                </div>  
-                                <div class="recommend__card">
-    
-                                    <div class="recommend__img recommend__img-2">
-                                            <div class="recommend__bookmark">
-                                                <svg class="recommend__bookmark-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-bookmark"></use> 
-                                                </svg>
-                                            </div>
-    
-                                            <div class="recommend__button--container">
-        
-                                                <a href="#!" class="recommend__button--listen">
-                                                    <svg class="recommend__button--listen-icon">
-                                                        <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
-                                                    </svg>
-                                                </a>
-                                                <a href="#!" class="recommend__button--read">
-                                                    <svg class="recommend__button--read-icon">
-                                                        <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use> 
-                                                    </svg>
-                                                </a>
-                                                <a href="#!" class="recommend__button--download">
-                                                    <svg class="recommend__button--download-icon">
-                                                        <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use> 
-                                                    </svg>
-                                                </a>
-        
-        
-                                            </div>
-    
+<!--             
+                                    <div id="dot" class="recommend__dots">
+                                        <div class="recommend__dots-round recommend__dots--active"></div>
+                                        <div class="recommend__dots-round"></div>
+                                        <div class="recommend__dots-round"></div>
                                     </div>
-    
-                                    <div class="recommend__info">
-                                        <h3 class="recommend__title">The Happy Lemon...</h3>
-                                        <h4 class="recommend__author">
-                                            <span class="recommend__author--1">by</span>
-                                            <span class="recommend__author--2">Serene Wright</span>
-                                        </h4>
-                                        <div class="recommend__rating rating__container">
-    
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            
-                                        </div>
-    
-                                        <a href="#!" class="recommend__button btn__see-more btn__see-more-blue">
-                                            <span>See More</span>
-                                            <svg class=" btn__see-more-icon icon-arrow">
-                                                <use xlink:href="./img/icons/sprite.svg#icon-arrow"></use> 
-                                            </svg>
-                                        </a>
-                                    </div>
-                        
-                                </div>  
-                                <div class="recommend__card">
-    
-                                    <div class="recommend__img recommend__img-3">
-                                            <div class="recommend__bookmark">
-                                                <svg class="recommend__bookmark-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-bookmark"></use> 
-                                                </svg>
-                                            </div>
-    
-                                            <div class="recommend__button--container">
-        
-                                                <a href="#!" class="recommend__button--listen">
-                                                    <svg class="recommend__button--listen-icon">
-                                                        <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
-                                                    </svg>
-                                                </a>
-                                                <a href="#!" class="recommend__button--read">
-                                                    <svg class="recommend__button--read-icon">
-                                                        <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use> 
-                                                    </svg>
-                                                </a>
-                                                <a href="#!" class="recommend__button--download">
-                                                    <svg class="recommend__button--download-icon">
-                                                        <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use> 
-                                                    </svg>
-                                                </a>
-        
-        
-                                            </div>
-    
-                                    </div>
-    
-                                    <div class="recommend__info">
-                                        <h3 class="recommend__title">The Happy Lemon...</h3>
-                                        <h4 class="recommend__author">
-                                            <span class="recommend__author--1">by</span>
-                                            <span class="recommend__author--2">Serene Wright</span>
-                                        </h4>
-                                        <div class="recommend__rating rating__container">
-    
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            
-                                        </div>
-    
-                                        <a href="#!" class="recommend__button btn__see-more btn__see-more-blue">
-                                            <span>See More</span>
-                                            <svg class=" btn__see-more-icon icon-arrow">
-                                                <use xlink:href="./img/icons/sprite.svg#icon-arrow"></use> 
-                                            </svg>
-                                        </a>
-                                    </div>
-                        
-                                </div>  
-                                <div class="recommend__card">
-    
-                                    <div class="recommend__img recommend__img-4">
-                                            <div class="recommend__bookmark">
-                                                <svg class="recommend__bookmark-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-bookmark"></use> 
-                                                </svg>
-                                            </div>
-    
-                                            <div class="recommend__button--container">
-        
-                                                <a href="#!" class="recommend__button--listen">
-                                                    <svg class="recommend__button--listen-icon">
-                                                        <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
-                                                    </svg>
-                                                </a>
-                                                <a href="#!" class="recommend__button--read">
-                                                    <svg class="recommend__button--read-icon">
-                                                        <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use> 
-                                                    </svg>
-                                                </a>
-                                                <a href="#!" class="recommend__button--download">
-                                                    <svg class="recommend__button--download-icon">
-                                                        <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use> 
-                                                    </svg>
-                                                </a>
-        
-        
-                                            </div>
-    
-                                    </div>
-    
-                                    <div class="recommend__info">
-                                        <h3 class="recommend__title">The Happy Lemon...</h3>
-                                        <h4 class="recommend__author">
-                                            <span class="recommend__author--1">by</span>
-                                            <span class="recommend__author--2">Serene Wright</span>
-                                        </h4>
-                                        <div class="recommend__rating rating__container">
-    
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            
-                                        </div>
-    
-                                        <a href="#!" class="recommend__button btn__see-more btn__see-more-blue">
-                                            <span>See More</span>
-                                            <svg class=" btn__see-more-icon icon-arrow">
-                                                <use xlink:href="./img/icons/sprite.svg#icon-arrow"></use> 
-                                            </svg>
-                                        </a>
-                                    </div>
-                        
-                                </div>  
-                                <div class="recommend__card">
-    
-                                    <div class="recommend__img recommend__img-5">
-                                            <div class="recommend__bookmark">
-                                                <svg class="recommend__bookmark-icon">
-                                                    <use xlink:href="./img/icons/sprite.svg#icon-bookmark"></use> 
-                                                </svg>
-                                            </div>
-    
-                                            <div class="recommend__button--container">
-        
-                                                <a href="#!" class="recommend__button--listen">
-                                                    <svg class="recommend__button--listen-icon">
-                                                        <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
-                                                    </svg>
-                                                </a>
-                                                <a href="#!" class="recommend__button--read">
-                                                    <svg class="recommend__button--read-icon">
-                                                        <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use> 
-                                                    </svg>
-                                                </a>
-                                                <a href="#!" class="recommend__button--download">
-                                                    <svg class="recommend__button--download-icon">
-                                                        <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use> 
-                                                    </svg>
-                                                </a>
-        
-        
-                                            </div>
-    
-                                    </div>
-    
-                                    <div class="recommend__info">
-                                        <h3 class="recommend__title">The Happy Lemon...</h3>
-                                        <h4 class="recommend__author">
-                                            <span class="recommend__author--1">by</span>
-                                            <span class="recommend__author--2">Serene Wright</span>
-                                        </h4>
-                                        <div class="recommend__rating rating__container">
-    
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            
-                                        </div>
-    
-                                        <a href="#!" class="recommend__button btn__see-more btn__see-more-blue">
-                                            <span>See More</span>
-                                            <svg class=" btn__see-more-icon icon-arrow">
-                                                <use xlink:href="./img/icons/sprite.svg#icon-arrow"></use> 
-                                            </svg>
-                                        </a>
-                                    </div>
-                        
-                                </div>  
-                            </div>
-    
-                        </div>
-                                
-                        <div class="recommend__dots">
-                            <div class="recommend__dots-round recommend__dots--active"></div>
-                            <div class="recommend__dots-round"></div>
-                            <div class="recommend__dots-round"></div>
-                        </div>
-    
-                    </section>
-    
+             -->
+                                </section>
+            
 
     
                 </main>
@@ -3021,21 +2681,21 @@ export const components = {
                         <span class="detail__link--read--content">Read</span>
                     </a>
 
-                    <a href="" class="detail__link--listen btn__detail btn__detail-orange">
+                    <a class="detail__link--listen btn__detail btn__detail-orange">
                         <svg class="detail__link--listen--icon">
                             <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
                         </svg>
                         <span class="detail__link--listen--content">Audio</span>
                     </a>
 
-                    <a href="" class="detail__link--download btn__detail btn__detail-white">
+                    <a  class="detail__link--download btn__detail btn__detail-white">
                         <svg class="detail__link--download--icon">
                             <use xlink:href="./img/icons/sprite.svg#icon-download-grey-solid"></use> 
                         </svg>
                         <span class="detail__link--download--content">Download</span>
                     </a>
 
-                    <a href="" class="detail__link--bookmark btn__detail btn__detail-none">
+                    <a  class="detail__link--bookmark btn__detail btn__detail-none">
                         <span class="detail__link--bookmark--content">Add to my Bookmark</span>
                         <svg class="detail__link--bookmark--icon">
                             <use xlink:href="./img/icons/sprite.svg#icon-bookmark-grey"></use> 
@@ -3488,21 +3148,21 @@ export const components = {
                     <span class="detail__link--read--content">Read</span>
                 </a>
 
-                <a href="" class="detail__link--listen btn__detail btn__detail-orange">
+                <a class="detail__link--listen btn__detail btn__detail-orange">
                     <svg class="detail__link--listen--icon">
                         <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
                     </svg>
                     <span class="detail__link--listen--content">Audio</span>
                 </a>
 
-                <a href="" class="detail__link--download btn__detail btn__detail-white">
+                <a  class="detail__link--download btn__detail btn__detail-white">
                     <svg class="detail__link--download--icon">
                         <use xlink:href="./img/icons/sprite.svg#icon-download-grey-solid"></use> 
                     </svg>
                     <span class="detail__link--download--content">Download</span>
                 </a>
 
-                <a href="" class="detail__link--bookmark btn__detail btn__detail-none">
+                <a  class="detail__link--bookmark btn__detail btn__detail-none">
                     <span class="detail__link--bookmark--content">Add to my Bookmark</span>
                     <svg class="detail__link--bookmark--icon">
                         <use xlink:href="./img/icons/sprite.svg#icon-bookmark-grey"></use> 
@@ -3514,124 +3174,6 @@ export const components = {
 
             <div class="detail__recommend--container detail__recommend--container-collection">
 
-                <div class="book__card">
-                    <div class="book__bookmark">
-                        <svg class="book__bookmark-icon">
-                            <use xlink:href="./img/icons/sprite.svg#icon-bookmark"></use> 
-                        </svg>
-                    </div>
-                    
-                    <div class="book__img book__img-1">
-
-                            <div class="book__button--container">
-
-                                <a href="#!" class="book__button--listen">
-                                    <svg class="book__button--listen-icon">
-                                        <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
-                                    </svg>
-                                </a>
-                                <a href="#!" class="book__button--read">
-                                    <svg class="book__button--read-icon">
-                                        <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use> 
-                                    </svg>
-                                </a>
-                                <a href="#!" class="book__button--download">
-                                    <svg class="book__button--download-icon">
-                                        <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use> 
-                                    </svg>
-                                </a>
-
-
-                            </div>
-
-                    </div>
-
-                    <div class="book__info">
-                        <h3 class="book__title">The Happy Lemon...</h3>
-                        <h4 class="book__author">
-                            <span class="book__author--1">by</span>
-                            <span class="book__author--2">Serene Wright</span>
-                        </h4>
-                        <div class="book__rating rating__container">
-
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            
-                        </div>
-
-                        <p class="book__description">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                        <a href="#!" class="book__button btn__see-more btn__see-more-blue">
-                            <span>See More</span>
-                            <svg class=" btn__see-more-icon icon-arrow">
-                                <use xlink:href="./img/icons/sprite.svg#icon-arrow"></use> 
-                            </svg>
-                        </a>
-                    </div>
-
-                    
-                </div>
-                <div class="book__card">
-                    <div class="book__bookmark">
-                        <svg class="book__bookmark-icon">
-                            <use xlink:href="./img/icons/sprite.svg#icon-bookmark"></use> 
-                        </svg>
-                    </div>
-                    
-                    <div class="book__img book__img-1">
-
-                            <div class="book__button--container">
-
-                                <a href="#!" class="book__button--listen">
-                                    <svg class="book__button--listen-icon">
-                                        <use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use> 
-                                    </svg>
-                                </a>
-                                <a href="#!" class="book__button--read">
-                                    <svg class="book__button--read-icon">
-                                        <use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use> 
-                                    </svg>
-                                </a>
-                                <a href="#!" class="book__button--download">
-                                    <svg class="book__button--download-icon">
-                                        <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use> 
-                                    </svg>
-                                </a>
-
-
-                            </div>
-
-                    </div>
-
-                    <div class="book__info">
-                        <h3 class="book__title">The Happy Lemon...</h3>
-                        <h4 class="book__author">
-                            <span class="book__author--1">by</span>
-                            <span class="book__author--2">Serene Wright</span>
-                        </h4>
-                        <div class="book__rating rating__container">
-
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            
-                        </div>
-
-                        <p class="book__description">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-                        <a href="#!" class="book__button btn__see-more btn__see-more-blue">
-                            <span>See More</span>
-                            <svg class=" btn__see-more-icon icon-arrow">
-                                <use xlink:href="./img/icons/sprite.svg#icon-arrow"></use> 
-                            </svg>
-                        </a>
-                    </div>
-
-                    
-                </div>
                 <div class="book__card">
                     <div class="book__bookmark">
                         <svg class="book__bookmark-icon">
@@ -5407,7 +4949,7 @@ export const components = {
 
         <div class="recommend__container">
 
-            <div class="pagination recommend__pagination">
+            <div class="pagination recommend__pagination" data-page=0>
                 <div class="pagination__container">
                     <a class="pagination__left pagination__left-recommend">
                         <svg class="pagination__icon pagination__icon-left">
@@ -5843,5 +5385,130 @@ export const components = {
     <a id="downloadAnchorElem" style="display:none"></a>
     <button id="download__link" class="admin-button">Download Data as JSON</button>
     
-    `
+    `,
+    readPage : `
+    <div class="read__container">
+    <div class="read__top-bar top-bar" id="read">
+        <!-- <button class="btn" id="prev-page">
+
+          Prev Page
+        </button>
+          <button class="btn" id="next-page">
+          Next Page <i class="fas fa-arrow-circle-right"></i>
+        </button> -->
+        <svg class="read__logo icon-logo">
+            <use xlink:href="./img/icons/sprite.svg#icon-logo"></use> 
+        </svg>
+
+        <div class="read__header">
+            <div class="read__title">
+                The Lemon Tree   The Lemon Tree  The Lemon Tree 
+            </div>
+            <div class="read__author">
+                by Austin Dust
+            </div>
+
+        </div>
+
+        <span class="read__info page-info">
+            Page 
+            <span id="page-num">0</span> 
+            of 
+            <span id="page-count">0</span>
+        </span>
+      </div>
+  
+      <canvas id="pdf-render" class="read__doc "></canvas>
+  </div>
+  <div class="read__hover--container">
+      <div class="read__hover--left"></div>
+      <div class="read__hover--right"></div>
+  </div>
+  <div class="pagination read__pagination">
+      <div class="pagination__container">
+          <a class="pagination__left pagination__left-read btn" id="prev-page">
+              <svg class="pagination__icon pagination__icon-left">
+                  <use xlink:href="./img/icons/sprite.svg#icon-arrow-down"></use>
+              </svg>
+          </a>
+          <a class="pagination__right pagination__right-read btn" id="prev-page">
+              <svg class="pagination__icon pagination__icon-right">
+                  <use xlink:href="./img/icons/sprite.svg#icon-arrow-down"></use>
+              </svg>
+          </a>
+      </div>
+  </div>
+    `,
+    audioPage: `
+    <div class="bg-image"></div>
+
+    <div class="bg-text">
+
+        <h2>NHỮNG BÍ QUYẾT GIAO TIẾP TỐT</h2>
+        <audio controls id="myAudio">
+            <source src="https://firebasestorage.googleapis.com/v0/b/ci-thu-vien-sach.appspot.com/o/Sa%CC%81ch%2FTi%C3%AA%CC%89u%20thuy%C3%AA%CC%81t%20kinh%20%C4%91i%C3%AA%CC%89n%2F36%20K%E1%BA%BF%20Binh%20Ph%C3%A1p%20T%C3%B4n%20T%E1%BB%AD%20-%20Tr%E1%BB%8Bnh%20Ng%E1%BB%8Dc%20Hoa.mp3?alt=media&token=28748fdc-e853-4df1-bbe8-56a769fd6273">
+          </audio>
+    </div>
+    `,
+    first:`
+            
+            <div class="first__container">
+            <h2 class="first__heading heading-secondary">
+                Welcome to
+            </h2>
+            <div class="first__logo--container">
+                <svg class="first__logo">
+                    <use xlink:href="img/icons/sprite.svg#icon-logo"></use>
+                </svg>
+            </div>
+            <div class="first__question">
+                Choose 5 categories you like  
+            </div>
+            <div class="first__categories--container">
+                <div class="first__categories--card" data-cate = "buss">
+                    <div class="first__categories--title">Bussiness</div>
+                </div>
+                <div class="first__categories--card" data-cate = "it">
+                    <div class="first__categories--title">Technology</div>
+                </div>
+                <div class="first__categories--card" data-cate = "edu">
+                    <div class="first__categories--title">Education</div>
+                </div>
+                <div class="first__categories--card" data-cate = "come">
+                    <div class="first__categories--title">Comedy</div>
+                </div>
+                <div class="first__categories--card" data-cate = "comic">
+                    <div class="first__categories--title">Comic</div>
+                </div>
+                <div class="first__categories--card" data-cate = "art">
+                    <div class="first__categories--title">Art-Sport</div>
+                </div>
+                <div class="first__categories--card" data-cate = "romantic">
+                    <div class="first__categories--title">Romantic</div>
+                </div>
+                <div class="first__categories--card" data-cate = "psy">
+                    <div class="first__categories--title">Psychology</div>
+                </div>
+                <div class="first__categories--card" data-cate = "health">
+                    <div class="first__categories--title">Health</div>
+                </div>
+                <div class="first__categories--card" data-cate = "cui">
+                    <div class="first__categories--title">Cuisine</div>
+                </div>
+                <div class="first__categories--card" data-cate = "self">
+                    <div class="first__categories--title">Self-help</div>
+                </div>
+                <div class="first__categories--card" data-cate = "nov">
+                    <div class="first__categories--title">Novel</div>
+                </div>
+            </div>
+            <a class="first__btn">
+                <span>Let's Read</span>
+                <svg class="first__btn-icon">
+                    <use xlink:href="./img/icons/sprite.svg#icon-arrow"></use> 
+                </svg> 
+                
+            </a>
+        </div>
+`
 }

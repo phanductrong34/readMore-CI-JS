@@ -6,7 +6,6 @@
         overflow-y:auto;
         overflow-x:hidden;
         transform: translateX(-50%);
-        z-index: 99;
         position: fixed;
         width: 140rem;
         //show
@@ -28,6 +27,17 @@
         }
     }
 
+    &__insert{
+        &-book{
+            position: relative;
+            z-index: 100;
+        }
+
+        &-collection{
+            position: relative;
+            z-index:99;
+        }
+    }
     &__background{
         &--container{
             position: relative;
@@ -38,7 +48,8 @@
             border-radius: 0 0 2rem 2rem;
             @include shadow-card;
             transform: translateY(-100vh);
-            transition: 0.4s ease;
+
+            transition: transform 0.4s ease;
 
             //show
             &-show{
@@ -69,6 +80,8 @@
             border: 5px solid var(--color-white);
             transform: translateY(-100vh);
             transition: 0.4s ease;
+
+
             &>*{
                 position: absolute;
 
@@ -197,8 +210,9 @@
             z-index: 108;
             background-color: var(--color-white);
             @include shadow-card-up;
-            transform: translateY(100vh);
-            transition: 0.4s ease;
+            transform: translateY(100%);
+
+            transition: transform 0.4s ease;
             //show
             &-show{
                 transform: translateY(0); 
@@ -239,8 +253,10 @@
             margin-top: -32rem;
             position: relative;
             height: 42rem;
-            transform: translateY(100vh);
+            transform: translateY(100%);
             transition: 0.48s ease;
+
+            transition: transform 0.4s ease;
             //show
             &-show{
                 transform: translateY(0);
@@ -324,6 +340,7 @@
                 @include normal-text-bold-16;
                 text-decoration: none;
                 color: var(--color-white);
+                cursor: pointer;
             }
 
             &-book{
@@ -483,6 +500,7 @@
                 height: 3rem;
                 background-color: rgba(black,0.6);
                 border-radius: 50%;
+                cursor: pointer;
             }
 
             &:hover ~ .detail__recommend--img{

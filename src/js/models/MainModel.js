@@ -4,6 +4,11 @@ export default class MainModel{
         this.collections = new Object;
         this.books = new Object;
         this.authors = new Object;
+
+        this.dungCategories = new Array;
+        this.dungCollections = new Array;
+        this.dungBooks = new Array;
+        this.dungAuthors = new Array;
     }
     
 
@@ -23,6 +28,7 @@ export default class MainModel{
                     
                 }
                 this.categories[doc.data().categoryID] = template;
+                this.dungCategories.push(template);
             })
         })
 
@@ -56,6 +62,7 @@ export default class MainModel{
                 }
 
                 this.collections[doc.data().collectionID] = template;
+                this.dungCollections.push(template);
             })
         })
     }
@@ -84,6 +91,7 @@ export default class MainModel{
 
                 }
                 this.books[doc.data().bookID] = template;
+                this.dungBooks.push(template);
                     
             })
         })
@@ -105,6 +113,7 @@ export default class MainModel{
 
                 }
                 this.authors[doc.data().authorID] = template;
+                this.dungAuthors.push(template);
                     
             })
         })

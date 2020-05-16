@@ -64,6 +64,7 @@
                 height: 3rem;
                 background-color: rgba(black,0.6);
                 border-radius: 50%;
+                cursor: pointer;
             }
 
             &:hover ~ .book__img{
@@ -130,25 +131,7 @@
         transition: 0.1s ease-in-out;
 
         @include shadow-even;
-
-        &-1{
-            background-image: url(../img/png/book-cover-1.jpg);
-        }
-        &-2{
-            background-image: url(../img/png/book-cover-2.jpg);
-        }
-        &-3{
-            background-image: url(../img/png/book-cover-3.jpg);
-        }
-        &-4{
-            background-image: url(../img/png/book-cover-4.jpg);
-        }
-        &-5{
-            background-image: url(../img/png/book-cover-5.jpg);
-        }
-        &-6{
-            background-image: url(../img/png/book-cover-6.jpg);
-        }
+        background-image: url("../img/png/book-cover-null.jpg");
 
 
     }
@@ -157,7 +140,7 @@
         margin-left: 14rem;
         display: flex;
         flex-direction: column;
-    }
+        }
 
     &__title{
         @include small-text-bold-12;

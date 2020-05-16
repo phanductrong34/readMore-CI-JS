@@ -1,5 +1,6 @@
 import {elements} from '../library/base';
-
+import * as controller from '../index'
+import { renderReadUrl } from './recommendView';
 
 /////////data ở đây là state.main
 
@@ -96,7 +97,7 @@ export const renderStar = (ratingScore) => {
 export const renderTitle = (title) => {
 
     if(title.length > 17){
-        title = title.substr(0,17) + "..."
+        title = title.substr(0,14) + "..."
     }
     return title;
 }
@@ -118,6 +119,13 @@ export const renderAuthorCollection = (data,collection) => {
 export const renderDescription = (description) =>{
     if(description == "null") {return "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero illum dolor temporibus, nesciunt dolorem voluptate enim aut aliquid, odit nemo, sint optio minima minus ratione aspernatur adipisci laborum iste natus!"}
     else{return description};
+}
+export const renderDescriptionBook = (description) =>{
+    if(description == "null") {return "Lorem ipsum dolor sit amet..."}
+    else if(description.length >40){
+        description = `${description.substr(0,36)}...`
+    }
+    return description
 }
 
 /////// RENDER TAG
@@ -151,6 +159,33 @@ export const renderIcon = (type,link) =>{
         }
     }
     return string;
+}
+
+// RENDER READ AND AUDIO LINK COLLECTION
+
+export const renderReadLinkCollection = (data,collection)=>{
+    //chạy qua các phần tử book ở trong, bắt gặp thằng nào có link thì lấy luôn, còn nếu không sau tất cả thì trả null
+    for(let bookID of collection.childBookIDs){
+        let readUrl = data.books[bookID].readUrl;
+        // console.log(readUrl);
+
+        if(readUrl !== "null"){
+               return [readUrl,`<use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use>`]
+        }
+    }
+    return ["null",`<use xlink:href="./img/icons/sprite.svg#icon-read-null"></use>`]
+};
+
+
+export const renderAudioLinkCollection = (data,collection,location)=>{
+    //chạy qua các phần tử book ở trong, bắt gặp thằng nào có link thì lấy luôn, còn nếu không sau tất cả thì trả null
+    for(let bookID of collection.childBookIDs){
+        let audioUrl = data.books[bookID].audioUrl;
+        if(audioUrl !== "null"){
+               return [audioUrl,`<use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use>`]
+        }
+    }
+    return ["null",`<use xlink:href="./img/icons/sprite.svg#icon-headphone-null"></use>`]
 }
 
 
@@ -244,17 +279,17 @@ export const renderYouMayLikeBooks =(data,book,location) =>{
 
             <div class="detail__button--recommend-container">
 
-                <a href="#!" class="detail__button--listen">
+                <a class="detail__button--listen" data-link = "${book.audioUrl}">
                     <svg class="detail__button--listen-icon">
-                        ${renderIcon("read",book.audioUrl)}
+                        ${renderIcon("listen",book.audioUrl)}
                     </svg>
                 </a>
-                <a href="#!" class="detail__button--read">
+                <a  class="detail__button--read" data-link = "${book.readUrl}">
                     <svg class="detail__button--read-icon">
-                        ${renderIcon("read",book.renderDetailBook)} 
+                        ${renderIcon("read",book.readUrl)} 
                     </svg>
                 </a>
-                <a href="#!" class="detail__button--download">
+                <a class="detail__button--download">
                     <svg class="detail__button--download-icon">
                         <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use> 
                     </svg>
@@ -282,46 +317,104 @@ export const renderYouMayLikeBooks =(data,book,location) =>{
     </div>
         `;
         location.insertAdjacentHTML("beforeend",markup);
-        document.querySelectorAll(`.detail__recommend--img-${index}`)[0].style.backgroundImage = `url(${book.imgUrl})`
-
+        document.querySelectorAll(`.detail__recommend--img-${index}`)[0].style.backgroundImage = `url(${renderImg(book.imgUrl)})`
          
     })
+
+    //add sự kiện tới trang đọc 
+    
+    controller.addEventBookButton(".detail__insert-book",
+                                ".detail__button--recommend-container",
+                                ".detail__button--read",
+                                ".detail__button--listen");
+
+    controller.addEventBookButton(".detail__insert-book",
+                                ".detail__link--container-book",
+                                ".detail__link--read",
+                                ".detail__link--listen")
 }
 
 
 
 
+export const renderBookFromCollection =(data,collection,location)=>{
+    location.innerHTML = "";
+    collection.childBookIDs.forEach((bookID,index) => {
+        let book = data.books[bookID];
+        let markup = `
+    
+            <div class="book__card">
+            <div class="book__bookmark">
+                <svg class="book__bookmark-icon">
+                    <use xlink:href="./img/icons/sprite.svg#icon-bookmark"></use> 
+                </svg>
+            </div>
+            
+            <div class="book__img book__img-${index}">
 
-// RENDER READ AND AUDIO LINK COLLECTION
+                    <div class="book__button--container">
 
-export const renderReadLinkCollection = (data,collection)=>{
-    //chạy qua các phần tử book ở trong, bắt gặp thằng nào có link thì lấy luôn, còn nếu không sau tất cả thì trả null
-    for(let bookID of collection.childBookIDs){
-        let readUrl = data.books[bookID].readUrl;
-        // console.log(readUrl);
+                        <a class="book__button--listen" data-link = "${book.audioUrl}">
+                            <svg class="book__button--listen-icon">
+                                ${renderIcon("listen",book.audioUrl)}
+                            </svg>
+                        </a>
+                        <a class="book__button--read" data-link = "${book.readUrl}"> 
+                            <svg class="book__button--read-icon">
+                            ${renderIcon("read",book.readUrl)} 
+                            </svg>
+                        </a>
+                        <a class="book__button--download">
+                            <svg class="book__button--download-icon">
+                                <use xlink:href="./img/icons/sprite.svg#icon-download-solid"></use> 
+                            </svg>
+                        </a>
 
-        if(readUrl !== "null"){
-               return [readUrl,`<use xlink:href="./img/icons/sprite.svg#icon-read-solid"></use>`]
-        }
-    }
-    return ["null",`<use xlink:href="./img/icons/sprite.svg#icon-read-null"></use>`]
-};
 
+                    </div>
 
-export const renderAudioLinkCollection = (data,collection)=>{
-    //chạy qua các phần tử book ở trong, bắt gặp thằng nào có link thì lấy luôn, còn nếu không sau tất cả thì trả null
-    for(let bookID of collection.childBookIDs){
-        let audioUrl = data.books[bookID].audioUrl;
-        if(audioUrl !== "null"){
-               return [audioUrl,`<use xlink:href="./img/icons/sprite.svg#icon-headphone-solid"></use>`]
-        }
-    }
-    return ["null",`<use xlink:href="./img/icons/sprite.svg#icon-headphone-null"></use>`]
+            </div>
+
+            <div class="book__info">
+                <h3 class="book__title">${renderTitle(book.title)}</h3>
+                <h4 class="book__author">
+                    <span class="book__author--1">by</span>
+                    <span class="book__author--2">${renderAuthorBook(data,book)}</span>
+                </h4>
+                <div class="book__rating rating__container">
+
+                        ${renderStar(book.ratingScore)}
+                    
+                </div>
+
+                <p class="book__description">${renderDescriptionBook(book.description)}</p>
+                <a href="#${bookID}" class="book__button btn__see-more btn__see-more-blue">
+                    <span>See More</span>
+                    <svg class=" btn__see-more-icon icon-arrow">
+                        <use xlink:href="./img/icons/sprite.svg#icon-arrow"></use> 
+                    </svg>
+                </a>
+            </div>
+
+            
+        </div>
+        `
+        location.insertAdjacentHTML("beforeend",markup);
+        document.querySelector(".detail__insert-collection").querySelector(`.book__img-${index}`).style.backgroundImage = `url(${renderImg(book.imgUrl)})`
+        
+
+    })
+    controller.addEventBookButton(".detail__insert-collection",
+                                ".detail__button--recommend-container",
+                                ".book__button--read",
+                                ".book__button--listen");
+
+    controller.addEventBookButton(".detail__insert-collection",
+                                ".book__button--container",
+                                ".detail__link--read",
+                                ".detail__link--listen")
+    
 }
-
-
-
-
 
 
 
@@ -343,6 +436,7 @@ export const removeDetail = ()=>{
 }
 
 export const renderDetailBook = (data,book) => {
+    console.log("render detail book")
     getManyElement(".detail__title")[0].textContent = book.title;
     getManyElement(".detail__author--name")[0].textContent = renderAuthorBook(data,book);
     getManyElement(".detail__author--publication")[0].textContent = data.authors[book["parentAuthorID"]].childBookLength + " " + "Publications";
@@ -364,7 +458,6 @@ export const renderDetailBook = (data,book) => {
     getManyElement(".detail__background--bg")[0].style.backgroundImage = `url(${renderImg(book.imgUrl)})`;
 
     renderYouMayLikeBooks(data,book,getManyElement(".detail__recommend--container")[0])
-
 
 
 }

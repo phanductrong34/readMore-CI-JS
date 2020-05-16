@@ -171,20 +171,26 @@ export let data = {
     ],
 
     userData: [
-        // {
-        //     userID,
-        //     currentBookID:"",                // sách hiện tại dang đọc
-        //     currentListenID: "",
-        //     isDoneRead: true||false,         // check đọc xong hay chưa
-        //     isDoneListen: true||false,
-        //     lastViewAt,                      //nếu chưa đọc xong ==> sẽ có trang cuối
-        //     lastListenAt,                                    
-        //     bookmarkBookIDs: [],
-        //     bookmarkCollectionIDs: [],
-        //     hourCount,                         // bất cứ khi nào ở trang đọc hoặc nghe, ta tính chung        
-        //     recentlyReadIDs: [];
-        //     recentlyListenIDs: [];
-        //  } 
+        {
+            userID,               
+            bookmarkBookIDs: [],
+            bookmarkCollectionIDs: [],
+            hourCount,                         // bất cứ khi nào ở trang đọc hoặc nghe, ta tính chung        
+            recentlyRead: [
+                {
+                    bookID: "",
+                    currentPage: "",
+                    totalPage: "",
+                }
+            ],
+            recentlyListen: [
+                {
+                    bookID: "",
+                    currentSec: "",
+                    totalSec: "",
+                }
+            ],
+         } 
     ],
     
 

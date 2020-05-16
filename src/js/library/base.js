@@ -40,6 +40,12 @@ export const elements = (page)=>{
             Obj.detailMainContainer = getElement('.detail__main--container');
     };
 
+    if (page === "profile"){
+        Obj.homeBody = getElement('.home__body');  
+    }
+    // if (page === "first"){  
+    // }
+
     return Obj;
 }
 

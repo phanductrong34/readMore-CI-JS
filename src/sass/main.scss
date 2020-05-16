@@ -9,6 +9,7 @@
 
 @import "./components/recommend-card";
 @import "./components/pagination";
+@import "./components/user-tooltip";
 @import "./components/collection-card";
 @import "./components/book-card";
 @import "./components/newly-card";
@@ -24,6 +25,8 @@
 @import "./layout/section";
 
 @import "./pages/profile";
+@import "./pages/readPage";
+@import "./pages/first";
 @import "./pages/detail";
 @import "./pages/login";
 @import "./pages/admin";
